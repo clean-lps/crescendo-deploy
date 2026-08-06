@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/crescendo-deploy/miami-joyerias/sw.js', { scope: '/crescendo-deploy/miami-joyerias/' })})}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Miami Joyería MJ gem mark</title>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="2.6" d="M24 18h48l13 18-37 42L11 36l13-18Z"/>
+    <path stroke-width="1.8" d="M11 36h74M24 18l24 60 24-60M11 36l37-18 37 18" opacity=".78"/>
+  </g>
+  <text x="48" y="49" fill="currentColor" font-family="Georgia,serif" font-size="20" text-anchor="middle" letter-spacing="1">MJ</text>
+</svg>

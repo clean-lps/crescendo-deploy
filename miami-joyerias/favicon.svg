@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Miami Joyería">
+  <path fill="oklch(0.14 0.01 75)" d="M0 0h64v64H0z"/>
+  <path fill="none" stroke="oklch(0.79 0.14 79)" stroke-width="2.4" d="M16 17h32l8 11-24 24L8 28l8-11Zm-8 11h48M16 17l16 35 16-35M8 28l24-11 24 11"/>
+  <text x="32" y="36" fill="oklch(0.97 0.018 85)" font-family="Georgia,serif" font-size="13" text-anchor="middle">MJ</text>
+</svg>
