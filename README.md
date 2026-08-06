@@ -2,6 +2,8 @@
 
 Repositorio central de despliegues estáticos para Crescendo Web.
 
+La publicación se sirve desde la rama `main` mediante GitHub Pages.
+
 Cada sitio vive en su propia carpeta y se publica en:
 
 `https://clean-lps.github.io/crescendo-deploy/<sitio>/`
