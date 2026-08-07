@@ -14,4 +14,7 @@ Cada sitio vive en su propia carpeta y se publica en:
 2. Asegúrate de que sus assets usen rutas relativas o el prefijo `/crescendo-deploy/<sitio>/`.
 3. Haz push a `main`; GitHub Pages publicará el repositorio desde la raíz de `main`.
 
-Sitio de prueba incluido: `miami-joyerias/`.
+Sitios incluidos:
+
+- `miami-joyerias/`
+- `luisbseafood/`

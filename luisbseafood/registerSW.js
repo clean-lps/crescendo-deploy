@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/crescendo-deploy/luisbseafood/sw.js', { scope: '/crescendo-deploy/luisbseafood/' })})}
