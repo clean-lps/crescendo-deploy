@@ -4,4 +4,4 @@ Disallow: /login
 Disallow: /dashboard
 Disallow: /admin
 
-Sitemap: https://miamijoyeria.com/sitemap.xml
+Sitemap: https://clean-lps.github.io/crescendo-deploy/miami-joyerias/sitemap.xml
