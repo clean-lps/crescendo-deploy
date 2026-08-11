@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Sensei Nate Toyota mark</title>
+  <desc id="desc">Original circular automotive mark with an abstract road and red rising line.</desc>
+  <circle cx="120" cy="120" r="114" fill="#071426" stroke="#DDE3EA" stroke-width="4"/>
+  <circle cx="120" cy="120" r="94" fill="none" stroke="#E31B23" stroke-width="3"/>
+  <path d="M69 157c22-13 37-38 46-75h11c8 37 24 62 46 75" fill="none" stroke="#F4F6F8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M95 134h50" stroke="#E31B23" stroke-width="7" stroke-linecap="round"/>
+  <path d="M83 101 120 64l37 37" fill="none" stroke="#E31B23" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="120" y="45" fill="#F4F6F8" font-family="Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="3">SENSEI NATE</text>
+  <text x="120" y="199" fill="#DDE3EA" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="4">AUTO GUIDE</text>
+</svg>

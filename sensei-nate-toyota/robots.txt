@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Keep this pre-domain landing out of search until BUSINESS_INFO.URL is configured,
+# production canonical URLs are enabled, and this file is replaced for launch.
