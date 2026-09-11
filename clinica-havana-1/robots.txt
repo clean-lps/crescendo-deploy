@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/sitemap.xml
