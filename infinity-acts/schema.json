@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "Infinity AC Service, LLC",
+  "url": "https://infinityacts.com/",
+  "telephone": "+1-956-616-0199",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1208 N Raul Longoria Rd Suite H",
+    "addressLocality": "San Juan",
+    "addressRegion": "TX",
+    "postalCode": "78589",
+    "addressCountry": "US"
+  },
+  "areaServed": "Rio Grande Valley",
+  "openingHours": "Mo-Su 00:00-24:00",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61558132486179",
+    "https://www.instagram.com/infinityacservice956/"
+  ]
+}
