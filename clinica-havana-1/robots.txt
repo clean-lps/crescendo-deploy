@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://localhost:5173/sitemap.xml
+Sitemap: https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/sitemap.xml

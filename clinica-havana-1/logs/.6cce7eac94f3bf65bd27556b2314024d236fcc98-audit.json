@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Games\\Work\\quesadata\\crescendo-deploy\\clinica-havana-1\\logs\\.6cce7eac94f3bf65bd27556b2314024d236fcc98-audit.json",
+    "files": [
+        {
+            "date": 1789408705017,
+            "name": "D:\\Games\\Work\\quesadata\\crescendo-deploy\\clinica-havana-1\\logs\\mcp-puppeteer-2026-09-14.log",
+            "hash": "f83f0ed2cfe5f2886c9a6ca49f1172006eba75b4622573fec9e0334395b15d3c"
+        }
+    ],
+    "hashType": "sha256"
+}
