@@ -1,2 +1,20 @@
 {"level":"info","message":"Starting MCP server","service":"mcp-puppeteer","timestamp":"2026-09-14 13:58:26.885"}
 {"level":"info","message":"MCP server started successfully","service":"mcp-puppeteer","timestamp":"2026-09-14 13:58:26.891"}
+{"arguments":{"url":"http://localhost:4173/crescendo-deploy/clinica-havana-1/"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:14.511","tool":"puppeteer_navigate"}
+{"0":"n","1":"p","2":"x","level":"info","message":"Launching browser with config:","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:14.515"}
+{"level":"info","message":"Browser launched successfully","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:16.922"}
+{"level":"info","message":"Navigating to URL","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:16.923","url":"http://localhost:4173/crescendo-deploy/clinica-havana-1/"}
+{"level":"info","message":"Navigation successful","service":"mcp-puppeteer","status":200,"timestamp":"2026-09-14 14:23:17.577","url":"http://localhost:4173/crescendo-deploy/clinica-havana-1/"}
+{"arguments":{"script":"(() => { const root = document.getElementById('root'); const text = root ? root.innerText.slice(0, 200) : ''; const h1 = document.querySelector('h1, h2')?.textContent ?? ''; const errors = window.__errors || null; return { url: location.href, h1: h1.trim().slice(0, 120), hasContent: (root?.childElementCount ?? 0) > 0, teaser: text.replace(/\\s+/g,' ').slice(0, 160) }; })()"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:43.083","tool":"puppeteer_evaluate"}
+{"level":"debug","message":"Executing script in browser","scriptLength":374,"service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:43.084"}
+{"hasResult":false,"level":"debug","logCount":0,"message":"Script execution result","resultType":"undefined","service":"mcp-puppeteer","timestamp":"2026-09-14 14:23:43.090"}
+{"arguments":{"script":"(() => { const root = document.getElementById('root'); return { url: location.href, childCount: root ? root.childElementCount : -1, h1: (document.querySelector('h1, h2') || {}).textContent || 'NONE', bodyLen: document.body ? document.body.innerText.length : -1 }; })()"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:08.870","tool":"puppeteer_evaluate"}
+{"level":"debug","message":"Executing script in browser","scriptLength":268,"service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:08.871"}
+{"hasResult":false,"level":"debug","logCount":0,"message":"Script execution result","resultType":"undefined","service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:08.876"}
+{"arguments":{"height":800,"name":"preview-home","width":1280},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:31.610","tool":"puppeteer_screenshot"}
+{"arguments":{"script":"JSON.stringify({ url: location.href, count: document.getElementById('root')?.childElementCount, text: document.body?.innerText?.slice(0,80), title: document.title })"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:56.350","tool":"puppeteer_evaluate"}
+{"level":"debug","message":"Executing script in browser","scriptLength":165,"service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:56.350"}
+{"hasResult":false,"level":"debug","logCount":0,"message":"Script execution result","resultType":"undefined","service":"mcp-puppeteer","timestamp":"2026-09-14 14:24:56.353"}
+{"arguments":{"script":"document.title + '|' + document.getElementById('root').childElementCount"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.314","tool":"puppeteer_evaluate"}
+{"level":"debug","message":"Executing script in browser","scriptLength":72,"service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.315"}
+{"hasResult":false,"level":"debug","logCount":0,"message":"Script execution result","resultType":"undefined","service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.318"}
