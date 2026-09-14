@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>http://localhost:5173/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>http://localhost:5173/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/privacy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/terms</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/services/general-care</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/services/lab-dot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>http://localhost:5173/services/wellness-beauty</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/privacy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/terms</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/services/general-care</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/services/lab-dot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clean-lps.github.io/crescendo-deploy/clinica-havana-1/services/wellness-beauty</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
