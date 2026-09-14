@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clean-lps.github.io/crescendo-deploy/clinica-hispana-havana-2/sitemap.xml
