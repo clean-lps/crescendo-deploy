@@ -18,3 +18,8 @@
 {"arguments":{"script":"document.title + '|' + document.getElementById('root').childElementCount"},"level":"debug","message":"Tool call received","service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.314","tool":"puppeteer_evaluate"}
 {"level":"debug","message":"Executing script in browser","scriptLength":72,"service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.315"}
 {"hasResult":false,"level":"debug","logCount":0,"message":"Script execution result","resultType":"undefined","service":"mcp-puppeteer","timestamp":"2026-09-14 14:25:24.318"}
+{"level":"info","message":"Starting MCP server","service":"mcp-puppeteer","timestamp":"2026-09-14 22:53:04.317"}
+{"level":"info","message":"MCP server started successfully","service":"mcp-puppeteer","timestamp":"2026-09-14 22:53:04.320"}
+{"level":"info","message":"Puppeteer MCP Server closing","service":"mcp-puppeteer","timestamp":"2026-09-14 22:53:04.330"}
+{"level":"info","message":"Starting MCP server","service":"mcp-puppeteer","timestamp":"2026-09-14 23:07:09.285"}
+{"level":"info","message":"MCP server started successfully","service":"mcp-puppeteer","timestamp":"2026-09-14 23:07:09.287"}
