@@ -1,0 +1,154 @@
+{
+  "assets": [
+    {
+      "file": "/images/wrap.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782577449_1938ec91.jpg",
+      "original": "research/refresh/assets/service_1782577449_1938ec91-a8f5704177.jpg",
+      "original_sha256": "a8f5704177ee2221ba6ae8e3caf6a10192e3681c25e2ecbf188e278a824842fb",
+      "sha256": "f8c77562dd0f59bbd73b18df87e91e05a0bb9a2b5823477ea8b3d21118ff2242",
+      "width": 600,
+      "height": 600,
+      "bytes": 67320,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/ppf.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782578179_852cd971.jpg",
+      "original": "research/refresh/assets/service_1782578179_852cd971-04afd32aed.jpg",
+      "original_sha256": "04afd32aed069e49f01c86d80c22a4ee44d9e7f4946f5e38a0b00dfc386e32ff",
+      "sha256": "14c17be35c9cb36b3cea93e51f141837be94e0e7c2d52f4cfb4f08fa47404aaa",
+      "width": 600,
+      "height": 600,
+      "bytes": 61384,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/window-tint.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782578322_18429f67.jpg",
+      "original": "research/refresh/assets/service_1782578322_18429f67-aad16c0f49.jpg",
+      "original_sha256": "aad16c0f495d6be7221057501ce7910f546626d8103090944673842c613febfa",
+      "sha256": "320313e6aa43415824f6d3ac7ad83bba5fe6e7da15ded162254540567025f4e7",
+      "width": 600,
+      "height": 600,
+      "bytes": 39552,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/ceramic-coating.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782578523_ae423e9e.jpg",
+      "original": "research/refresh/assets/service_1782578523_ae423e9e-5b6f1eacfc.jpg",
+      "original_sha256": "5b6f1eacfc0bbbf3d3f390d4d106813f8eb220567eeb4a949fc18c64d259e0ca",
+      "sha256": "d409d85b3014fc5d4bb20e01ef95c365edd8e0acdecca686cdc1384e5477a1b7",
+      "width": 600,
+      "height": 600,
+      "bytes": 64526,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/wheels.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782579965_0a7f3835.jpg",
+      "original": "research/refresh/assets/service_1782579965_0a7f3835-4b87e5d7bd.jpg",
+      "original_sha256": "4b87e5d7bda61c1821feebe100fd7c0d032255b4ff23e0a19219f82d39958242",
+      "sha256": "8d1ffc07eef7fa3b6d07b495c2b179dfcdb12ee92c813ab4e1eebd57b6ee482c",
+      "width": 600,
+      "height": 600,
+      "bytes": 70312,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/vinyl-graphics.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782580125_45958d58.jpg",
+      "original": "research/refresh/assets/service_1782580125_45958d58-8ae72be933.jpg",
+      "original_sha256": "8ae72be9335675d6acbcc2678fe31779e915c35513358e1a5d4eba0dcd67e931",
+      "sha256": "05572e482ba9024481fb9993249e331b7eb22828aae34ef63a3bf721fb79126c",
+      "width": 600,
+      "height": 600,
+      "bytes": 70274,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/starlight.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782584625_dbbb9c9f.jpg",
+      "original": "research/refresh/assets/service_1782584625_dbbb9c9f-9b22cb4e97.jpg",
+      "original_sha256": "9b22cb4e9757496cdd6538d951672f287bc43f204376684f255761de636c2595",
+      "sha256": "7e7c671e138fd93a078887cf9fbc738092113656b8addf7a5e5890570e622451",
+      "width": 600,
+      "height": 600,
+      "bytes": 45360,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/custom-interior.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/service_1782588406_10ccdfc1.jpg",
+      "original": "research/refresh/assets/service_1782588406_10ccdfc1-7e7a825ca7.jpg",
+      "original_sha256": "7e7a825ca77abc3df4fe25f85902c80a9967be49db8770816dfe32880ae6d47f",
+      "sha256": "b750dda21394e8709a2351f9803cf19f7654c4b0fe5b1551d199b3a4372c4076",
+      "width": 600,
+      "height": 600,
+      "bytes": 37604,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/studio.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/landing/77/general_1782586967_864b04a8.jpg",
+      "original": "research/refresh/assets/general_1782586967_864b04a8-ff68103133.jpg",
+      "original_sha256": "ff68103133444d90bc1cae10e45b96def589f76e8619b8593c5f910990a81a5e",
+      "sha256": "973e78d39abc7b90615a56cdcc339dd435cf86fa59fb05bf7b80bbb812b7ea9c",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 205674,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/images/logo-valoriz.webp",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/logos/77/logo_77_1782587267_orig.png",
+      "original": "research/refresh/assets/logo_77_1782587267_orig-1b4dce7c27.png",
+      "original_sha256": "1b4dce7c279c8187434d9baf31480da0f6e37ea666903295f3753d545c4b7fe7",
+      "sha256": "dc15b50d3bba8a8dc82afb05318848553a3e462b762e6f20d63a5aadc2dd19cf",
+      "width": 500,
+      "height": 500,
+      "bytes": 21370,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Publicado en valorizcorp.com; autoría y carácter fotográfico pendientes de confirmación."
+    },
+    {
+      "file": "/favicon.png",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/logos/77/logo_77_1782587267_orig.png",
+      "original": "research/refresh/assets/logo_77_1782587267_orig-1b4dce7c27.png",
+      "original_sha256": "1b4dce7c279c8187434d9baf31480da0f6e37ea666903295f3753d545c4b7fe7",
+      "sha256": "a7f28ed21f5070d8ad7b2fe4b219d94523402706ea7bc83b816daf6a21d68722",
+      "width": 64,
+      "height": 64,
+      "bytes": 3231,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Recorte del símbolo V del logo real, coordenadas (170,96,304,200); lienzo cuadrado oscuro. Sin redibujar marca."
+    },
+    {
+      "file": "/apple-touch-icon.png",
+      "source": "https://storage.googleapis.com/alba-saas-uploads/logos/77/logo_77_1782587267_orig.png",
+      "original": "research/refresh/assets/logo_77_1782587267_orig-1b4dce7c27.png",
+      "original_sha256": "1b4dce7c279c8187434d9baf31480da0f6e37ea666903295f3753d545c4b7fe7",
+      "sha256": "66b6069cccc817523684ebfd737a5b18c354fda10dd978cc938f2e9d54389a21",
+      "width": 180,
+      "height": 180,
+      "bytes": 14401,
+      "rights_status": "client-confirm-ownership",
+      "provenance": "Recorte del símbolo V del logo real, coordenadas (170,96,304,200); lienzo cuadrado oscuro. Sin redibujar marca."
+    }
+  ],
+  "scrape": {
+    "pages": 6,
+    "assets": 23,
+    "errors": [],
+    "changed_asset_hashes": 0
+  }
+}
