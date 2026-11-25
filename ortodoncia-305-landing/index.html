@@ -1,0 +1,497 @@
+<!doctype html>
+<!-- Ortodoncia 305 — Landing page (preview)
+     Versión simplificada de la web v1.2 a pedido de Beatriz (2026-11-25):
+     home largo + contacto. Sin equipo, sin FAQ, sin financiamiento aparte,
+     sin galería completa ni páginas de detalle. Todo el contenido es REAL
+     de la web actual (src/data.js, Home.jsx, Contact.jsx, FormularioContacto).
+     Las fotos se sirven desde la carpeta viva ortodoncia-305/ (mismas URLs).
+     Formulario: mismo contrato que src/mailService.js — POST FormData a
+     https://mail.crescendodigiatlmarketingagency.com/api/send -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orthodontist in Kendall, Miami | Braces &amp; Invisalign — Ortodoncia 305</title>
+  <meta name="description" content="Orthodontist in Kendall, Miami. Braces & Invisalign for kids, teens and adults. Se habla español. Call (305) 310-0027 — Ortodoncia 305." />
+  <meta property="og:title" content="Ortodoncia 305 — Orthodontist in Kendall, Miami" />
+  <meta property="og:description" content="Braces & Invisalign for kids, teens and adults. Se habla español. Call (305) 310-0027." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/logo-oficial-cuadrado.png" />
+  <link rel="preload" as="image" href="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" fetchpriority="high" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Dentist","name":"Ortodoncia 305","description":"Orthodontist in Kendall, Miami. Braces for kids, teens and adults — Invisalign for teens and adults. Se habla español.","address":{"@type":"PostalAddress","streetAddress":"11916 SW 88th Street","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},"telephone":"+1-305-310-0027","openingHours":"Mo-Fr 09:00-18:00","foundingDate":"2015","paymentAccepted":"Cash, Credit Card, Debit Card","currenciesAccepted":"USD","knowsLanguage":["en","es"]}
+  </script>
+  <style>
+    :root{
+      --brand-50:#eef7fd; --brand-100:#d9eefb; --brand-200:#b3ddf6; --brand-300:#7cc4e8;
+      --brand-600:#0060b0; --brand-700:#0050a0; --brand-800:#064a7d; --brand-900:#0a3a5e; --brand-950:#062639;
+      --green:#a0c030; --orange:#f08020; --ring:#dce9f4; --ink:#0f2a44; --muted:#52657a;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-text-size-adjust:100%}
+    img{max-width:100%;display:block}
+    a{color:var(--brand-600)}
+    section{scroll-margin-top:84px}
+    .wrap{max-width:72rem;margin:0 auto;padding:0 20px}
+    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-600)}
+    h1{font-size:2.6rem;line-height:1.05;letter-spacing:-.02em;margin:.6rem 0 0}
+    h2{font-size:1.9rem;line-height:1.15;letter-spacing:-.015em;margin:.6rem 0 0}
+    @media(min-width:640px){h1{font-size:3.4rem}h2{font-size:2.4rem}}
+    .lead{font-size:1.13rem;line-height:1.6;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;padding:.85rem 1.6rem;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:active{transform:scale(.98)}
+    .btn-primary{background:var(--brand-600);color:#fff;box-shadow:0 10px 24px rgba(0,96,176,.3)}
+    .btn-primary:hover{background:var(--brand-700)}
+    .btn-outline{border-color:var(--brand-700);color:var(--brand-700);background:#fff}
+    .btn-outline:hover{background:var(--brand-50)}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--ring)}
+    .header-in{display:flex;align-items:center;gap:1rem;max-width:72rem;margin:0 auto;padding:.65rem 20px}
+    .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.1rem;margin-right:auto}
+    .brand img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+    nav.main{display:flex;gap:1.4rem}
+    nav.main a{color:var(--ink);text-decoration:none;font-weight:600}
+    nav.main a:hover{color:var(--brand-600)}
+    .lang{display:flex;border:1.5px solid var(--ring);border-radius:999px;overflow:hidden}
+    .lang button{border:0;background:#fff;padding:.4rem .7rem;font-weight:700;cursor:pointer;color:var(--muted)}
+    .lang button[aria-pressed="true"]{background:var(--brand-600);color:#fff}
+    .call-btn{white-space:nowrap}
+    @media(max-width:760px){nav.main{display:none}.call-btn{display:none}}
+    /* Hero */
+    .hero{background:var(--brand-50);padding:3.2rem 0 3.5rem}
+    .hero-grid{display:grid;gap:2.5rem;align-items:center}
+    @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+    .slogan{font-size:1.35rem;font-weight:800;color:var(--brand-700);margin-top:1rem}
+    @media(min-width:640px){.slogan{font-size:1.6rem}}
+    .hero h1 .accent{color:var(--brand-600)}
+    .hero-ctas{display:flex;flex-direction:column;gap:.75rem;margin-top:1.8rem}
+    @media(min-width:640px){.hero-ctas{flex-direction:row}}
+    .rating{margin-top:1.6rem;font-weight:700;font-size:.95rem;display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center}
+    .rating .stars{color:var(--orange);letter-spacing:.1em}
+    .chips{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}
+    .chips li{font-size:.8rem;font-weight:700;color:var(--muted);border:1px solid var(--ring);background:#fff;border-radius:999px;padding:.3rem .8rem}
+    .hero-img{border-radius:24px;aspect-ratio:4/3.4;object-fit:cover;width:100%;box-shadow:0 20px 45px rgba(6,38,57,.18)}
+    /* Sections */
+    .section{padding:4rem 0}
+    .section.mist{background:var(--brand-50)}
+    .section h2 .tick{color:var(--green)}
+    .center{text-align:center}
+    .center .lead{margin-left:auto;margin-right:auto}
+    /* Treatments */
+    .cards{display:grid;gap:1.25rem;margin-top:2.2rem}
+    @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:960px){.cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#fff;border:1px solid var(--ring);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,38,57,.12)}
+    .card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+    .card-body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+    .card h3{margin:0;font-size:1.2rem}
+    .card p{margin:0;color:var(--muted)}
+    .card a{margin-top:auto;padding-top:.6rem;font-weight:700;text-decoration:none}
+    /* Reviews */
+    .reviews{display:grid;gap:1.25rem;margin-top:2.2rem}
+    @media(min-width:760px){.reviews{grid-template-columns:repeat(2,1fr)}}
+    blockquote{margin:0;background:#fff;border:1px solid var(--ring);border-radius:var(--radius);padding:1.4rem 1.5rem}
+    blockquote p{margin:.5rem 0 0;color:var(--ink)}
+    blockquote .stars{color:var(--orange);letter-spacing:.1em}
+    blockquote footer{margin-top:.9rem;font-size:.85rem;font-weight:700;color:var(--muted)}
+    /* Photo strip */
+    .strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:2rem}
+    @media(min-width:760px){.strip{grid-template-columns:repeat(4,1fr)}}
+    .strip img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
+    /* Financing line */
+    .finance{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;justify-content:center;background:var(--brand-950);color:#fff;border-radius:var(--radius);padding:1.4rem 1.6rem;margin-top:2.4rem}
+    .finance p{margin:0;font-weight:600}
+    .finance a{color:#fff;font-weight:800}
+    /* Contact */
+    .contact-grid{display:grid;gap:2.5rem;align-items:start}
+    @media(min-width:960px){.contact-grid{grid-template-columns:2fr 3fr}}
+    .info-row{display:flex;gap:.7rem;align-items:flex-start;margin-top:1.1rem;color:var(--ink)}
+    .info-row svg{flex:none;margin-top:.15rem}
+    .info-row a{color:var(--brand-700);font-weight:800;text-decoration:none}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+    .office-img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%;margin-top:1.6rem}
+    .map{border:0;width:100%;height:280px;border-radius:16px;margin-top:2rem}
+    form{background:#fff;border:1px solid var(--ring);border-radius:var(--radius);padding:1.6rem;box-shadow:0 16px 34px rgba(6,38,57,.1)}
+    @media(min-width:640px){form{padding:2rem}}
+    form h3{margin:0;font-size:1.3rem}
+    form .hint{color:var(--muted);font-size:.92rem;margin:.4rem 0 0}
+    .field{margin-top:1.1rem}
+    .field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:.35rem}
+    .field input,.field select,.field textarea{width:100%;border:1.5px solid #c8d8e6;border-radius:12px;padding:.75rem .9rem;font:inherit;color:var(--ink);background:#fff}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--brand-200);border-color:var(--brand-600)}
+    .field textarea{min-height:110px;resize:vertical}
+    .check{display:flex;gap:.6rem;align-items:flex-start;margin-top:1.1rem;font-size:.92rem;color:var(--muted)}
+    .check input{margin-top:.2rem;width:1.05rem;height:1.05rem;accent-color:var(--brand-600)}
+    .form-msg{margin-top:1rem;font-weight:600}
+    .form-msg.ok{color:#2e7d0f}
+    .form-msg.err{color:#b3261e}
+    .form-note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+    /* Footer */
+    footer{background:var(--brand-950);color:#cfe6f5;padding:2.6rem 0 2rem;margin-top:0}
+    footer a{color:#fff}
+    .foot-grid{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;justify-content:space-between;align-items:flex-start}
+    footer .small{font-size:.9rem;color:#9dbfd6}
+    footer .credit{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.15);font-size:.9rem;color:#9dbfd6;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;justify-content:space-between}
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-in">
+      <a class="brand" href="#home">
+        <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/logo-oficial-cuadrado.png" alt="Ortodoncia 305 logo" width="40" height="40" />
+        <span>Ortodoncia 305</span>
+      </a>
+      <nav class="main" aria-label="Main">
+        <a href="#home" data-en="Home" data-es="Inicio">Home</a>
+        <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language / Idioma">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn-primary call-btn" href="tel:+13053100027">(305) 310-0027</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HOME ============ -->
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">📍 <span data-en="Orthodontics in Kendall, Miami" data-es="Ortodoncia en Kendall, Miami">Orthodontics in Kendall, Miami</span></p>
+          <p class="slogan" data-en="Let us make your smile" data-es="Déjanos hacer tu sonrisa">Let us make your smile</p>
+          <h1><span data-en="Your new smile" data-es="Tu nueva sonrisa">Your new smile</span> <span class="accent" data-en="starts here" data-es="empieza aquí">starts here</span></h1>
+          <p class="lead" style="margin-top:1rem" data-en="Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team." data-es="Frenillos para niños, adolescentes y adultos — Invisalign para adolescentes y adultos. Atención en español e inglés con el equipo del Dr. Murillo.">Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#contact" data-en="Book your free consultation" data-es="Agenda tu consulta gratis">Book your free consultation</a>
+            <a class="btn btn-outline" href="tel:+13053100027" data-en="Call (305) 310-0027" data-es="Llama al (305) 310-0027">Call (305) 310-0027</a>
+          </div>
+          <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span>5.0</span> <span data-en="on Google" data-es="en Google">on Google</span> · <span>53 <span data-en="reviews" data-es="reseñas">reviews</span></span> · <span data-en="Since 2015" data-es="Desde 2015">Since 2015</span></p>
+          <ul class="chips">
+            <li>CareCredit</li>
+            <li>Cherry</li>
+            <li data-en="Insurance accepted" data-es="Seguros aceptados">Insurance accepted</li>
+            <li data-en="0% interest plans" data-es="Planes sin interés">0% interest plans</li>
+          </ul>
+        </div>
+        <div>
+          <img class="hero-img" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" alt="Girl smiling with braces" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Welcome" data-es="Bienvenido">Welcome</p>
+          <h2><span data-en="Welcome to Orthodontics 305" data-es="Bienvenido a Orthodontics 305">Welcome to Orthodontics 305</span> <span class="tick">.</span></h2>
+          <p class="lead" style="max-width:46rem;margin-top:1rem" data-en="Welcome to Orthodontics 305: Your Trusted Kendall, Miami Orthodontic Experts." data-es="Bienvenido a Orthodontics 305: tus expertos de confianza en ortodoncia en Kendall, Miami.">Welcome to Orthodontics 305: Your Trusted Kendall, Miami Orthodontic Experts.</p>
+          <p style="max-width:46rem;color:var(--muted)" data-en="At Orthodontics 305, we are committed to creating beautiful, confident smiles that last a lifetime. Located in the heart of Kendall, Miami, our team of highly skilled orthodontists specializes in a wide range of orthodontic services including: Invisalign, metal braces, retentions, aligners, clear retainers, fixed retainers." data-es="En Orthodontics 305, estamos comprometidos a crear sonrisas hermosas y seguras que duren toda la vida. Ubicados en el corazón de Kendall, Miami, nuestro equipo de ortodoncistas altamente calificados se especializa en una amplia gama de servicios de ortodoncia que incluyen: Invisalign, brackets metálicos, retenciones, alineadores, retenedores transparentes y retenedores fijos.">At Orthodontics 305, we are committed to creating beautiful, confident smiles that last a lifetime. Located in the heart of Kendall, Miami, our team of highly skilled orthodontists specializes in a wide range of orthodontic services including: Invisalign, metal braces, retentions, aligners, clear retainers, fixed retainers.</p>
+        </div>
+
+        <div class="reveal">
+          <p class="eyebrow" style="margin-top:3rem" data-en="Treatments" data-es="Tratamientos">Treatments</p>
+          <h2><span data-en="Braces &amp; Invisalign for every age" data-es="Frenillos e Invisalign para cada edad">Braces &amp; Invisalign for every age</span> <span class="tick">.</span></h2>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-braces.jpg" alt="Braces on a dental model" loading="lazy" />
+            <div class="card-body">
+              <h3 data-en="Braces" data-es="Frenillos">Braces</h3>
+              <p data-en="Classic metal and ceramic braces that fix any case, at any age." data-es="Frenillos clásicos de metal y cerámica que corrigen cualquier caso, a cualquier edad.">Classic metal and ceramic braces that fix any case, at any age.</p>
+              <a href="#contact" data-en="Ask about braces →" data-es="Pregunta por los frenillos →">Ask about braces →</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
+            <div class="card-body">
+              <h3>Invisalign</h3>
+              <p data-en="Discreet, removable clear aligners for mild to moderate cases." data-es="Alineadores transparentes, discretos y removibles, para casos leves a moderados.">Discreet, removable clear aligners for mild to moderate cases.</p>
+              <a href="#contact" data-en="Ask about Invisalign →" data-es="Pregunta por Invisalign →">Ask about Invisalign →</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-teens.jpg" alt="Child at the orthodontist" loading="lazy" />
+            <div class="card-body">
+              <h3 data-en="For Kids" data-es="Para niños">For Kids</h3>
+              <p data-en="Early care from age 9–10 that guides growth and prevents bigger problems." data-es="Cuidado temprano desde los 9–10 años que guía el crecimiento y evita problemas mayores.">Early care from age 9–10 that guides growth and prevents bigger problems.</p>
+              <a href="#contact" data-en="Ask about kids' care →" data-es="Pregunta por la atención infantil →">Ask about kids' care →</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids20.jpg" alt="Teen patient at the clinic" loading="lazy" />
+            <div class="card-body">
+              <h3 data-en="For Teens" data-es="Para adolescentes">For Teens</h3>
+              <p data-en="Braces and aligners made for the 11–16 crowd — and their parents' peace of mind." data-es="Frenillos y alineadores pensados para los de 11–16 años — y para la tranquilidad de sus padres.">Braces and aligners made for the 11–16 crowd — and their parents' peace of mind.</p>
+              <a href="#contact" data-en="Ask about teens' care →" data-es="Pregunta por la atención para adolescentes →">Ask about teens' care →</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-doctor-paciente.jpg" alt="Dr. Murillo with a patient" loading="lazy" />
+            <div class="card-body">
+              <h3 data-en="For Adults" data-es="Para adultos">For Adults</h3>
+              <p data-en="It's never too late: discreet options that fit work and life." data-es="Nunca es tarde: opciones discretas que encajan con el trabajo y la vida.">It's never too late: discreet options that fit work and life.</p>
+              <a href="#contact" data-en="Ask about adult care →" data-es="Pregunta por la atención para adultos →">Ask about adult care →</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-retainers.jpg" alt="Clear retainer" loading="lazy" />
+            <div class="card-body">
+              <h3 data-en="Retainers" data-es="Retenedores">Retainers</h3>
+              <p data-en="Clear and fixed retainers that keep your new smile in place." data-es="Retenedores transparentes y fijos que mantienen tu nueva sonrisa en su lugar.">Clear and fixed retainers that keep your new smile in place.</p>
+              <a href="#contact" data-en="Ask about retainers →" data-es="Pregunta por los retenedores →">Ask about retainers →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="reveal">
+          <p class="eyebrow" style="margin-top:3.5rem" data-en="Reviews" data-es="Reseñas">Reviews</p>
+          <h2><span data-en="What families say" data-es="Lo que dicen las familias">What families say</span> <span class="tick">.</span></h2>
+          <p class="lead" style="margin-top:.6rem"><span class="stars" style="color:var(--orange)">★★★★★</span> <strong>5.0</strong> <span data-en="on Google — 53 reviews" data-es="en Google — 53 reseñas">on Google — 53 reviews</span></p>
+        </div>
+        <div class="reviews">
+          <blockquote class="reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>“Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo!. Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. Feliz con mi nueva sonrisa y todo gracias a ellos.”</p>
+            <footer>— Google review</footer>
+          </blockquote>
+          <blockquote class="reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>“Can't say enough about Dr. Murillo and his assistant Madeline and Anabel, office manager. Their service for my twin boys was amazing! Office is clean, and they are very professional. They are very friendly and care about your needs. I would truly recommend!”</p>
+            <footer>— Google review</footer>
+          </blockquote>
+          <blockquote class="reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>“El tratamiento de ortodoncia fue excelente!! estamos felices con el resultado de mi hija y su tratamiento. El odontólogo muy profesional, el personal dispuesto siempre a colaborar y resolver las dudas.”</p>
+            <footer>— Google review</footer>
+          </blockquote>
+          <blockquote class="reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>“My favorite doctor. He left me with a great smile”</p>
+            <footer>— Google review</footer>
+          </blockquote>
+        </div>
+
+        <div class="strip reveal" role="group" aria-label="Our clinic">
+          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 clinic entrance in Kendall" loading="lazy" />
+          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+        </div>
+
+        <div class="finance reveal">
+          <p data-en="Cash, credit/debit cards, Cherry &amp; CareCredit financing, and discounts. The cost depends on your case and is confirmed at your evaluation." data-es="Efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, y descuentos. El costo depende de tu caso y se confirma en tu evaluación.">Cash, credit/debit cards, Cherry &amp; CareCredit financing, and discounts. The cost depends on your case and is confirmed at your evaluation.</p>
+          <a href="tel:+13053100027" data-en="Call (305) 310-0027 and ask →" data-es="Llama al (305) 310-0027 y pregunta →">Call (305) 310-0027 and ask →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section mist" id="contact">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Contact" data-es="Contacto">Contact</p>
+          <h2><span data-en="Come by, call, or text" data-es="Ven, llama o escribe">Come by, call, or text</span> <span class="tick">.</span></h2>
+          <p class="lead" style="max-width:46rem;margin-top:1rem" data-en="Contact our Kendall office to arrange your visit. Our team can help in English or Spanish." data-es="Contacta con nuestra oficina en Kendall para coordinar tu visita. Nuestro equipo te atiende en español o inglés.">Contact our Kendall office to arrange your visit. Our team can help in English or Spanish.</p>
+        </div>
+        <div class="contact-grid" style="margin-top:2.2rem">
+          <div class="reveal">
+            <h3 style="margin:0;font-size:1.4rem" data-en="Visit us in Kendall" data-es="Visítanos en Kendall">Visit us in Kendall</h3>
+            <p class="info-row"><span aria-hidden="true">📍</span><span>11916 SW 88th Street, Miami, FL</span></p>
+            <p class="info-row"><span aria-hidden="true">🕐</span><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></p>
+            <p class="info-row"><span aria-hidden="true">📞</span><a href="tel:+13053100027">(305) 310-0027</a></p>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:+13053100027" data-en="Call now" data-es="Llamar ahora">Call now</a>
+              <a class="btn btn-outline" href="https://wa.me/13053100027" target="_blank" rel="noreferrer">WhatsApp</a>
+            </div>
+            <img class="office-img" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 office, 11916 SW 88th Street, Kendall" loading="lazy" />
+            <iframe class="map" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p style="margin-top:1rem"><a href="https://www.google.com/maps?q=11916+SW+88th+St,+Miami,+FL" target="_blank" rel="noreferrer" data-en="Open in Google Maps →" data-es="Abrir en Google Maps →">Open in Google Maps →</a></p>
+          </div>
+          <div class="reveal">
+            <form id="contact-form" novalidate>
+              <h3 data-en="Send us a message" data-es="Envíanos un mensaje">Send us a message</h3>
+              <p class="hint" data-en="Tell us what you need — we reply during office hours, Mon–Fri 9 to 6." data-es="Cuéntanos qué necesitas — respondemos en horario de oficina, Lun–Vie de 9 a 6.">Tell us what you need — we reply during office hours, Mon–Fri 9 to 6.</p>
+              <div class="field">
+                <label for="f-nombre" data-en="Your name" data-es="Tu nombre">Your name</label>
+                <input id="f-nombre" name="nombre" type="text" required autocomplete="name" data-en-ph="Full name" data-es-ph="Nombre completo" placeholder="Full name" />
+              </div>
+              <div class="field">
+                <label for="f-telefono" data-en="Phone" data-es="Teléfono">Phone</label>
+                <input id="f-telefono" name="telefono" type="tel" required autocomplete="tel" data-en-ph="(305) 000-0000" data-es-ph="(305) 000-0000" placeholder="(305) 000-0000" />
+              </div>
+              <div class="field">
+                <label for="f-email"><span data-en="Email" data-es="Correo">Email</span> <span style="font-weight:400;color:var(--muted)" data-en="(optional)" data-es="(opcional)">(optional)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" />
+              </div>
+              <div class="field">
+                <label for="f-tratamiento" data-en="Treatment of interest" data-es="Tratamiento de interés">Treatment of interest</label>
+                <select id="f-tratamiento" name="tratamiento">
+                  <option value="" data-en="Not sure yet" data-es="Todavía no lo sé">Not sure yet</option>
+                  <option value="braces" data-en="Braces" data-es="Frenillos">Braces</option>
+                  <option value="clear-aligners">Invisalign</option>
+                  <option value="kids" data-en="For Kids" data-es="Para niños">For Kids</option>
+                  <option value="teens" data-en="For Teens" data-es="Para adolescentes">For Teens</option>
+                  <option value="adults" data-en="For Adults" data-es="Para adultos">For Adults</option>
+                  <option value="retainers" data-en="Retainers" data-es="Retenedores">Retainers</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-mensaje" data-en="Your message" data-es="Tu mensaje">Your message</label>
+                <textarea id="f-mensaje" name="mensaje" required data-en-ph="Tell us what you need…" data-es-ph="Cuéntanos qué necesitas…" placeholder="Tell us what you need…"></textarea>
+              </div>
+              <label class="check">
+                <input type="checkbox" id="f-sms" checked />
+                <span data-en="It's OK to text me about the appointment." data-es="Está bien que me escriban por texto sobre la cita.">It's OK to text me about the appointment.</span>
+              </label>
+              <div style="margin-top:1.4rem">
+                <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%" data-en="Send message" data-es="Enviar mensaje">Send message</button>
+              </div>
+              <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+              <p class="form-note" data-en="Your message goes to info@orthodontics305.com. Prefer to talk? Call or text (305) 310-0027." data-es="Tu mensaje llega a info@orthodontics305.com. ¿Prefieres hablar? Llama o escribe al (305) 310-0027.">Your message goes to info@orthodontics305.com. Prefer to talk? Call or text (305) 310-0027.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <p style="margin:0;font-weight:800;font-size:1.15rem;color:#fff">Ortodoncia 305</p>
+          <p class="small" style="margin:.5rem 0 0" data-en="Orthodontist in Kendall, Miami. Se habla español." data-es="Ortodoncista en Kendall, Miami. Se habla español.">Orthodontist in Kendall, Miami. Se habla español.</p>
+        </div>
+        <div>
+          <p style="margin:0;font-weight:700;color:#fff" data-en="Contact" data-es="Contacto">Contact</p>
+          <p class="small" style="margin:.5rem 0 0">11916 SW 88th Street, Miami, FL<br /><a href="tel:+13053100027">(305) 310-0027</a><br /><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></p>
+        </div>
+        <div>
+          <p style="margin:0;font-weight:700;color:#fff">Follow</p>
+          <p class="small" style="margin:.5rem 0 0"><a href="https://www.instagram.com/orthodontics305" target="_blank" rel="noreferrer">Instagram</a> · <a href="https://www.facebook.com/Orthodontics305" target="_blank" rel="noreferrer">Facebook</a></p>
+        </div>
+      </div>
+      <div class="credit">
+        <span>© <span id="year">2026</span> Ortodoncia 305</span>
+        <span>Marketing by CDM Crescendo</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- EN/ES (default EN, like the live site; persists in localStorage) ----
+    var LANG_KEY = 'o305-landing-lang';
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        var v = el.getAttribute('data-' + lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-en-ph]').forEach(function (el) {
+        var v = el.getAttribute('data-' + lang + '-ph');
+        if (v !== null) el.placeholder = v;
+      });
+      document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+      document.getElementById('lang-es').setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    }
+    var savedLang = 'en';
+    try { savedLang = localStorage.getItem(LANG_KEY) || 'en'; } catch (e) {}
+    if (savedLang !== 'en' && savedLang !== 'es') savedLang = 'en';
+    document.getElementById('lang-en').addEventListener('click', function () { setLang('en'); });
+    document.getElementById('lang-es').addEventListener('click', function () { setLang('es'); });
+    setLang(savedLang);
+
+    // ---- Reveal on scroll ----
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Contact form: same contract as src/mailService.js ----
+    var SEND_URL = 'https://mail.crescendodigiatlmarketingagency.com/api/send';
+    var TREATMENTS_EN = { 'braces': 'Braces', 'clear-aligners': 'Invisalign', 'kids': 'For Kids', 'teens': 'For Teens', 'adults': 'For Adults', 'retainers': 'Retainers' };
+    var form = document.getElementById('contact-form');
+    var msg = document.getElementById('form-msg');
+    var btn = document.getElementById('submit-btn');
+    function lang() { return document.documentElement.lang === 'es' ? 'es' : 'en'; }
+    function showMsg(text, ok) {
+      msg.textContent = text;
+      msg.className = 'form-msg ' + (ok ? 'ok' : 'err');
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var telefono = document.getElementById('f-telefono').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var tratamiento = document.getElementById('f-tratamiento').value;
+      var mensaje = document.getElementById('f-mensaje').value.trim();
+      var sms = document.getElementById('f-sms').checked;
+      var es = lang() === 'es';
+      if (!nombre || !telefono || !mensaje) {
+        showMsg(es ? 'Completa tu nombre, tu teléfono y el mensaje.' : 'Please fill in your name, phone and message.', false);
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = es ? 'Enviando…' : 'Sending…';
+      showMsg('', true);
+      var tratamientoTxt = tratamiento ? (TREATMENTS_EN[tratamiento] || '') : '';
+      var text = ['New consultation request — Ortodoncia 305 landing page', '',
+        'Name: ' + nombre, 'Phone: ' + telefono,
+        'Email: ' + (email || '(not provided)'),
+        'Treatment of interest: ' + (tratamientoTxt || '(not specified)'),
+        'OK to text about the appointment: ' + (sms ? 'Yes' : 'No'), '',
+        'Message:', mensaje].join('\n');
+      var esc = function (v) { return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+      var html = '<p><strong>New consultation request — Ortodoncia 305 landing page</strong></p>'
+        + '<p>Name: ' + esc(nombre) + '<br>Phone: ' + esc(telefono) + '<br>Email: ' + esc(email || '(not provided)') + '<br>Treatment of interest: ' + esc(tratamientoTxt || '(not specified)') + '<br>OK to text about the appointment: ' + (sms ? 'Yes' : 'No') + '</p>'
+        + '<p>Message:<br>' + esc(mensaje).replace(/\n/g, '<br>') + '</p>';
+      var fd = new FormData();
+      fd.append('to', 'info@orthodontics305.com');
+      fd.append('subject', 'New consultation — Ortodoncia 305 website');
+      fd.append('text', text);
+      fd.append('html', html);
+      fd.append('fromName', nombre);
+      if (email) fd.append('replyTo', email);
+      fetch(SEND_URL, { method: 'POST', body: fd })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            showMsg((es ? 'Mensaje recibido. Gracias' : 'Message received. Thanks') + (nombre ? ', ' + nombre : '') + (es ? ' — la oficina te responderá. ¿Necesitas una respuesta más rápida? Llama o escribe al (305) 310-0027.' : ' — the office will get back to you. Need a faster answer? Call or text (305) 310-0027.'), true);
+          } else if (res.status === 400) {
+            showMsg(es ? 'Revisa el formulario e inténtalo de nuevo — el mensaje fue rechazado. Si sigue fallando, llámanos o escríbenos.' : 'Please check the form and try again — the message was rejected. If it keeps failing, call or text us instead.', false);
+          } else if (res.status === 429) {
+            showMsg(es ? 'Demasiados mensajes en poco tiempo — espera unos minutos e inténtalo de nuevo, o llámanos o escríbenos.' : 'Too many messages in a short time — please wait a few minutes and try again, or call or text us.', false);
+          } else {
+            showMsg(es ? 'El servicio de correo de la clínica está fallando ahora mismo. Inténtalo más tarde, o llámanos o escríbenos.' : 'The clinic’s mail service is having trouble right now. Please try again later, or call or text us.', false);
+          }
+        })
+        .catch(function () {
+          showMsg(es ? 'No pudimos contactar el servicio de correo de la clínica. Revisa tu conexión e inténtalo de nuevo, o llámanos o escríbenos.' : 'We couldn’t reach the clinic’s mail service. Check your connection and try again, or call or text us.', false);
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = lang() === 'es' ? 'Enviar mensaje' : 'Send message';
+        });
+    });
+  </script>
+</body>
+</html>
