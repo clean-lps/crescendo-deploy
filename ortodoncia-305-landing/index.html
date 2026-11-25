@@ -1,12 +1,22 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page (preview)
-     Versión simplificada de la web v1.2 a pedido de Beatriz (2026-11-25):
-     home largo + contacto. Sin equipo, sin FAQ, sin financiamiento aparte,
-     sin galería completa ni páginas de detalle. Todo el contenido es REAL
-     de la web actual (src/data.js, Home.jsx, Contact.jsx, FormularioContacto).
-     Las fotos se sirven desde la carpeta viva ortodoncia-305/ (mismas URLs).
-     Formulario: mismo contrato que src/mailService.js — POST FormData a
-     https://mail.crescendodigiatlmarketingagency.com/api/send -->
+<!-- Ortodoncia 305 — Landing page v2 (preview)
+     Rediseño 2026-11-25 tras el "está feísimo" de Daniel: se aplicó el
+     proceso del brief (referencias primero, material real del cliente).
+     Referencias: Colorlib 26 Best Orthodontist Websites 2026
+     (colorlib.com/wp/orthodontist-website-examples/) — Beecroft: layout
+     limpio + CTA de consulta gratis bien visible; MySocialPractice
+     (mysocialpractice.com/2023/04/orthodontic-websites/) — fotos reales
+     antes que stock, CTA de consulta imposible de perder, reseñas como
+     contenido; Routeless 11 Best Dental Websites 2026
+     (routeless.io/blog/best-dental-websites) — confianza sobre el titular
+     y barra superior con datos prácticos; SiteBuilderReport 35 Dentist
+     Websites (sitebuilderreport.com/inspiration/dentist-websites) —
+     A.B.C. Smile: paneles con arco y fotografía editorial; SolverDesk
+     (solverdesk.com/dental-practice-website-design/) — Dentologie:
+     tipografía grande y foto auténtica, formulario junto a reseñas.
+     Todo el contenido es REAL de la web v1.2 (src/data.js, Home.jsx,
+     Contact.jsx, FormularioContacto). Fotos desde la carpeta viva
+     ortodoncia-305/. Formulario: mismo contrato que src/mailService.js. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,6 +30,10 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/logo-oficial-cuadrado.png" />
   <link rel="preload" as="image" href="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Dentist","name":"Ortodoncia 305","description":"Orthodontist in Kendall, Miami. Braces for kids, teens and adults — Invisalign for teens and adults. Se habla español.","address":{"@type":"PostalAddress","streetAddress":"11916 SW 88th Street","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},"telephone":"+1-305-310-0027","openingHours":"Mo-Fr 09:00-18:00","foundingDate":"2015","paymentAccepted":"Cash, Credit Card, Debit Card","currenciesAccepted":"USD","knowsLanguage":["en","es"]}
   </script>
@@ -27,139 +41,229 @@
     :root{
       --brand-50:#eef7fd; --brand-100:#d9eefb; --brand-200:#b3ddf6; --brand-300:#7cc4e8;
       --brand-600:#0060b0; --brand-700:#0050a0; --brand-800:#064a7d; --brand-900:#0a3a5e; --brand-950:#062639;
-      --green:#a0c030; --orange:#f08020; --ring:#dce9f4; --ink:#0f2a44; --muted:#52657a;
-      --radius:18px;
+      --green:#a0c030; --green-dark:#7d9c1e; --green-soft:#f2f7e2;
+      --orange:#f08020; --orange-soft:#fef3e6;
+      --ink:#0b2a45; --muted:#44586e; --ring:#dce9f4;
+      --serif:"Fraunces",Georgia,"Times New Roman",serif;
+      --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-text-size-adjust:100%}
     img{max-width:100%;display:block}
     a{color:var(--brand-600)}
-    section{scroll-margin-top:84px}
-    .wrap{max-width:72rem;margin:0 auto;padding:0 20px}
-    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-600)}
-    h1{font-size:2.6rem;line-height:1.05;letter-spacing:-.02em;margin:.6rem 0 0}
-    h2{font-size:1.9rem;line-height:1.15;letter-spacing:-.015em;margin:.6rem 0 0}
-    @media(min-width:640px){h1{font-size:3.4rem}h2{font-size:2.4rem}}
-    .lead{font-size:1.13rem;line-height:1.6;color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;padding:.85rem 1.6rem;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
+    section{scroll-margin-top:96px}
+    .wrap{max-width:74rem;margin:0 auto;padding:0 20px}
+    .eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-100);border-radius:999px;padding:.42rem .9rem}
+    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+    h1,h2,h3{font-family:var(--serif);letter-spacing:-.01em;line-height:1.08}
+    h1{font-size:clamp(2.5rem,5.6vw,3.9rem);margin:1rem 0 0;font-weight:700}
+    h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:.9rem 0 0;font-weight:700}
+    h3{font-size:1.25rem;margin:0}
+    .lead{font-size:1.13rem;line-height:1.65;color:var(--muted)}
+    .accent{color:var(--brand-600)}
+    .u-green{background:linear-gradient(transparent 62%,#dcebb0 62%);border-radius:2px;padding:0 .1em}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:999px;padding:.9rem 1.7rem;font-weight:700;font-size:1rem;font-family:var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
     .btn:hover{transform:translateY(-2px)}
     .btn:active{transform:scale(.98)}
-    .btn-primary{background:var(--brand-600);color:#fff;box-shadow:0 10px 24px rgba(0,96,176,.3)}
+    .btn-primary{background:var(--brand-600);color:#fff;box-shadow:0 12px 26px rgba(0,96,176,.32)}
     .btn-primary:hover{background:var(--brand-700)}
     .btn-outline{border-color:var(--brand-700);color:var(--brand-700);background:#fff}
     .btn-outline:hover{background:var(--brand-50)}
+    .btn-green{background:var(--green);color:#12260a;box-shadow:0 12px 26px rgba(125,156,30,.35)}
+    .btn-green:hover{background:#8fb028}
+    .lucide{width:1.15em;height:1.15em;flex:none}
+    .star-ico{width:1em;height:1em;color:var(--orange);fill:var(--orange)}
+    /* Topbar */
+    .topbar{background:var(--brand-950);color:#cfe6f5;font-size:.86rem}
+    .topbar-in{max-width:74rem;margin:0 auto;padding:.5rem 20px;display:flex;gap:1.4rem;align-items:center;justify-content:center;flex-wrap:wrap}
+    .topbar a{color:#fff;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.4rem}
+    .topbar .lucide{width:1em;height:1em}
+    .topbar .sep{opacity:.35}
+    @media(max-width:760px){.topbar .hide-m{display:none}}
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--ring)}
-    .header-in{display:flex;align-items:center;gap:1rem;max-width:72rem;margin:0 auto;padding:.65rem 20px}
-    .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.1rem;margin-right:auto}
-    .brand img{width:40px;height:40px;border-radius:10px;object-fit:cover}
-    nav.main{display:flex;gap:1.4rem}
-    nav.main a{color:var(--ink);text-decoration:none;font-weight:600}
+    header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:box-shadow .2s ease,border-color .2s ease}
+    header.site.scrolled{border-bottom-color:var(--ring);box-shadow:0 6px 24px rgba(6,38,57,.08)}
+    .header-in{display:flex;align-items:center;gap:1.1rem;max-width:74rem;margin:0 auto;padding:.7rem 20px}
+    .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);margin-right:auto}
+    .brand img{width:44px;height:44px;border-radius:12px;object-fit:cover;box-shadow:0 4px 12px rgba(6,38,57,.18)}
+    .brand b{font-family:var(--serif);font-size:1.25rem;letter-spacing:-.01em}
+    .brand small{display:block;font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.06em}
+    nav.main{display:flex;gap:1.5rem}
+    nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.96rem}
     nav.main a:hover{color:var(--brand-600)}
     .lang{display:flex;border:1.5px solid var(--ring);border-radius:999px;overflow:hidden}
-    .lang button{border:0;background:#fff;padding:.4rem .7rem;font-weight:700;cursor:pointer;color:var(--muted)}
+    .lang button{border:0;background:#fff;padding:.42rem .72rem;font-weight:700;font-family:var(--sans);cursor:pointer;color:var(--muted);font-size:.88rem}
     .lang button[aria-pressed="true"]{background:var(--brand-600);color:#fff}
-    .call-btn{white-space:nowrap}
-    @media(max-width:760px){nav.main{display:none}.call-btn{display:none}}
+    .header-cta{white-space:nowrap;padding:.68rem 1.25rem;font-size:.94rem}
+    @media(max-width:900px){nav.main{display:none}}
+    @media(max-width:640px){.header-cta{display:none}}
     /* Hero */
-    .hero{background:var(--brand-50);padding:3.2rem 0 3.5rem}
-    .hero-grid{display:grid;gap:2.5rem;align-items:center}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#eaf5fc 0%,#f7fbfe 55%,#fff 100%);padding:3.4rem 0 4rem}
+    .hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(124,196,232,.4),transparent 65%);top:-180px;right:-120px}
+    .hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(160,192,48,.28),transparent 65%);bottom:-200px;left:-140px}
+    .hero-grid{position:relative;display:grid;gap:3rem;align-items:center}
     @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr}}
-    .slogan{font-size:1.35rem;font-weight:800;color:var(--brand-700);margin-top:1rem}
-    @media(min-width:640px){.slogan{font-size:1.6rem}}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--ring);border-radius:999px;padding:.45rem .95rem;font-weight:700;font-size:.9rem;box-shadow:0 4px 14px rgba(6,38,57,.07)}
+    .hero-badge .stars{display:inline-flex;gap:.1rem}
+    .slogan{font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.55rem);font-weight:600;color:var(--brand-700);margin:1.1rem 0 0}
     .hero h1 .accent{color:var(--brand-600)}
-    .hero-ctas{display:flex;flex-direction:column;gap:.75rem;margin-top:1.8rem}
+    .hero-ctas{display:flex;flex-direction:column;gap:.8rem;margin-top:1.9rem}
     @media(min-width:640px){.hero-ctas{flex-direction:row}}
-    .rating{margin-top:1.6rem;font-weight:700;font-size:.95rem;display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center}
-    .rating .stars{color:var(--orange);letter-spacing:.1em}
-    .chips{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}
-    .chips li{font-size:.8rem;font-weight:700;color:var(--muted);border:1px solid var(--ring);background:#fff;border-radius:999px;padding:.3rem .8rem}
-    .hero-img{border-radius:24px;aspect-ratio:4/3.4;object-fit:cover;width:100%;box-shadow:0 20px 45px rgba(6,38,57,.18)}
+    .trust{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.7rem;list-style:none;padding:0}
+    .trust li{display:inline-flex;align-items:center;gap:.45rem;font-size:.86rem;font-weight:700;color:var(--muted);border:1px solid var(--ring);background:#fff;border-radius:999px;padding:.42rem .85rem}
+    .trust .lucide{width:1em;height:1em;color:var(--brand-600)}
+    .hero-visual{position:relative}
+    .hero-img{border-radius:220px 220px 28px 28px;aspect-ratio:4/4.4;object-fit:cover;width:100%;box-shadow:0 28px 60px rgba(6,38,57,.22)}
+    .float-card{position:absolute;background:#fff;border:1px solid var(--ring);border-radius:18px;box-shadow:0 16px 40px rgba(6,38,57,.16);padding:.85rem 1.05rem;display:flex;gap:.7rem;align-items:center}
+    .float-card b{font-family:var(--serif);font-size:1.35rem;line-height:1;display:block}
+    .float-card span{font-size:.82rem;color:var(--muted);font-weight:600;line-height:1.35}
+    .float-card .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+    .float-rating{left:-8px;bottom:36px}
+    .float-rating .ic{background:var(--orange-soft);color:var(--orange)}
+    .float-lang{right:-4px;top:26px}
+    .float-lang .ic{background:var(--green-soft);color:var(--green-dark)}
+    @media(max-width:640px){.float-rating{left:6px;bottom:18px}.float-lang{right:6px;top:14px}.float-card{padding:.65rem .8rem}}
+    .hero-anim{animation:rise .7s cubic-bezier(.2,.7,.3,1) both}
+    .hero-anim.d1{animation-delay:.08s}.hero-anim.d2{animation-delay:.16s}.hero-anim.d3{animation-delay:.24s}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    /* Stats */
+    .stats{background:var(--brand-950);color:#fff}
+    .stats-in{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;padding:2.2rem 0;text-align:center}
+    @media(min-width:760px){.stats-in{grid-template-columns:repeat(4,1fr)}}
+    .stat b{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1;display:block}
+    .stat span{display:block;margin-top:.45rem;font-size:.88rem;font-weight:600;color:#9dbfd6}
+    .stat b .accent{color:#b7d94e}
     /* Sections */
-    .section{padding:4rem 0}
-    .section.mist{background:var(--brand-50)}
-    .section h2 .tick{color:var(--green)}
-    .center{text-align:center}
-    .center .lead{margin-left:auto;margin-right:auto}
+    .section{padding:4.5rem 0}
+    .section.mist{background:linear-gradient(180deg,#f4fafd,#fff)}
+    .sec-head{max-width:44rem}
+    .sec-head.center{margin:0 auto;text-align:center}
+    .sec-head.center .lead{margin-left:auto;margin-right:auto}
     /* Treatments */
-    .cards{display:grid;gap:1.25rem;margin-top:2.2rem}
+    .cards{display:grid;gap:1.4rem;margin-top:2.6rem}
     @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:960px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{background:#fff;border:1px solid var(--ring);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
-    .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,38,57,.12)}
-    .card img{aspect-ratio:16/10;object-fit:cover;width:100%}
-    .card-body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-    .card h3{margin:0;font-size:1.2rem}
+    .card{background:#fff;border:1px solid var(--ring);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .22s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(6,38,57,.14)}
+    .card-media{position:relative;overflow:hidden}
+    .card-media img{aspect-ratio:16/10.5;object-fit:cover;width:100%;transition:transform .5s ease}
+    .card:hover .card-media img{transform:scale(1.05)}
+    .card-ico{position:absolute;left:1.1rem;bottom:-20px;width:44px;height:44px;border-radius:14px;background:var(--brand-600);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,96,176,.4)}
+    .card-ico .lucide{width:22px;height:22px}
+    .card-body{padding:2rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+    .card h3{font-size:1.35rem}
     .card p{margin:0;color:var(--muted)}
-    .card a{margin-top:auto;padding-top:.6rem;font-weight:700;text-decoration:none}
+    .card a{margin-top:auto;padding-top:.7rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
+    .card a:hover{color:var(--brand-700)}
+    .card a .lucide{transition:transform .18s ease}
+    .card a:hover .lucide{transform:translateX(3px)}
+    /* Benefits */
+    .benefits{display:grid;gap:1.2rem;margin-top:2.6rem}
+    @media(min-width:760px){.benefits{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1020px){.benefits{grid-template-columns:repeat(4,1fr)}}
+    .benefit{background:#fff;border:1px solid var(--ring);border-radius:22px;padding:1.5rem 1.4rem}
+    .benefit .ic{width:48px;height:48px;border-radius:14px;background:var(--brand-50);color:var(--brand-600);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+    .benefit .ic .lucide{width:24px;height:24px}
+    .benefit h3{font-size:1.15rem;font-family:var(--sans);font-weight:800;letter-spacing:0}
+    .benefit p{margin:.45rem 0 0;color:var(--muted);font-size:.95rem}
     /* Reviews */
-    .reviews{display:grid;gap:1.25rem;margin-top:2.2rem}
-    @media(min-width:760px){.reviews{grid-template-columns:repeat(2,1fr)}}
-    blockquote{margin:0;background:#fff;border:1px solid var(--ring);border-radius:var(--radius);padding:1.4rem 1.5rem}
-    blockquote p{margin:.5rem 0 0;color:var(--ink)}
-    blockquote .stars{color:var(--orange);letter-spacing:.1em}
-    blockquote footer{margin-top:.9rem;font-size:.85rem;font-weight:700;color:var(--muted)}
+    .featured{margin-top:2.6rem;background:var(--brand-950);color:#fff;border-radius:28px;padding:2.2rem;position:relative;overflow:hidden}
+    @media(min-width:760px){.featured{padding:2.8rem 3.2rem}}
+    .featured::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(124,196,232,.35),transparent 65%);top:-140px;right:-80px}
+    .featured .q-ico{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#b7d94e}
+    .featured blockquote{position:relative;margin:1.2rem 0 0;font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.45;font-weight:600}
+    .featured footer{position:relative;margin-top:1.3rem;font-weight:700}
+    .featured footer span{display:block;font-weight:500;color:#9dbfd6;font-size:.9rem;margin-top:.2rem}
+    .reviews{display:grid;gap:1.3rem;margin-top:1.3rem}
+    @media(min-width:760px){.reviews{grid-template-columns:repeat(3,1fr)}}
+    .review{background:#fff;border:1px solid var(--ring);border-radius:22px;padding:1.5rem}
+    .review .stars{display:flex;gap:.15rem;margin-bottom:.8rem}
+    .review p{margin:0;color:var(--ink)}
+    .review footer{margin-top:1rem;font-size:.86rem;font-weight:700;color:var(--muted)}
     /* Photo strip */
-    .strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:2rem}
+    .strip{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.4rem}
     @media(min-width:760px){.strip{grid-template-columns:repeat(4,1fr)}}
-    .strip img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
-    /* Financing line */
-    .finance{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;justify-content:center;background:var(--brand-950);color:#fff;border-radius:var(--radius);padding:1.4rem 1.6rem;margin-top:2.4rem}
-    .finance p{margin:0;font-weight:600}
-    .finance a{color:#fff;font-weight:800}
+    .strip figure{margin:0;overflow:hidden;border-radius:20px;position:relative}
+    .strip img{aspect-ratio:4/3.4;object-fit:cover;width:100%;transition:transform .5s ease}
+    .strip figure:hover img{transform:scale(1.06)}
+    .strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .9rem .7rem;background:linear-gradient(transparent,rgba(6,38,57,.75));color:#fff;font-size:.84rem;font-weight:600}
+    /* Financing band */
+    .finance{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--brand-900),var(--brand-700));color:#fff;border-radius:28px;padding:2.4rem 2rem;margin-top:3rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center;justify-content:space-between}
+    @media(min-width:760px){.finance{padding:2.4rem 2.8rem}}
+    .finance h3{font-size:clamp(1.4rem,3vw,1.8rem);color:#fff}
+    .finance p{margin:.5rem 0 0;color:#cfe6f5;max-width:34rem}
+    .finance .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;list-style:none;padding:0}
+    .finance .chips li{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.35rem .85rem;font-size:.84rem;font-weight:700}
     /* Contact */
-    .contact-grid{display:grid;gap:2.5rem;align-items:start}
+    .contact-grid{display:grid;gap:1.6rem;align-items:start;margin-top:2.6rem}
     @media(min-width:960px){.contact-grid{grid-template-columns:2fr 3fr}}
-    .info-row{display:flex;gap:.7rem;align-items:flex-start;margin-top:1.1rem;color:var(--ink)}
-    .info-row svg{flex:none;margin-top:.15rem}
-    .info-row a{color:var(--brand-700);font-weight:800;text-decoration:none}
-    .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
-    .office-img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%;margin-top:1.6rem}
-    .map{border:0;width:100%;height:280px;border-radius:16px;margin-top:2rem}
-    form{background:#fff;border:1px solid var(--ring);border-radius:var(--radius);padding:1.6rem;box-shadow:0 16px 34px rgba(6,38,57,.1)}
-    @media(min-width:640px){form{padding:2rem}}
-    form h3{margin:0;font-size:1.3rem}
-    form .hint{color:var(--muted);font-size:.92rem;margin:.4rem 0 0}
-    .field{margin-top:1.1rem}
-    .field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:.35rem}
-    .field input,.field select,.field textarea{width:100%;border:1.5px solid #c8d8e6;border-radius:12px;padding:.75rem .9rem;font:inherit;color:var(--ink);background:#fff}
+    .info-card{background:#fff;border:1px solid var(--ring);border-radius:26px;padding:1.8rem;box-shadow:0 18px 40px rgba(6,38,57,.08)}
+    .info-row{display:flex;gap:.85rem;align-items:flex-start;margin-top:1.25rem}
+    .info-row .ic{width:42px;height:42px;border-radius:12px;background:var(--brand-50);color:var(--brand-600);display:flex;align-items:center;justify-content:center;flex:none}
+    .info-row .ic .lucide{width:20px;height:20px}
+    .info-row b{display:block;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .info-row a{color:var(--ink);font-weight:700;text-decoration:none;font-size:1.05rem}
+    .info-row a:hover{color:var(--brand-600)}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+    .office-img{border-radius:18px;aspect-ratio:4/3;object-fit:cover;width:100%;margin-top:1.6rem}
+    .map{border:0;width:100%;height:280px;border-radius:18px;margin-top:1.4rem}
+    form{background:#fff;border:1px solid var(--ring);border-radius:26px;padding:1.8rem;box-shadow:0 18px 40px rgba(6,38,57,.08)}
+    @media(min-width:640px){form{padding:2.2rem}}
+    form h3{font-size:1.45rem}
+    form .hint{color:var(--muted);font-size:.95rem;margin:.45rem 0 0}
+    .field{margin-top:1.15rem}
+    .field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:.4rem}
+    .field input,.field select,.field textarea{width:100%;border:1.5px solid #c8d8e6;border-radius:14px;padding:.8rem .95rem;font:inherit;color:var(--ink);background:#fff}
     .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--brand-200);border-color:var(--brand-600)}
     .field textarea{min-height:110px;resize:vertical}
-    .check{display:flex;gap:.6rem;align-items:flex-start;margin-top:1.1rem;font-size:.92rem;color:var(--muted)}
-    .check input{margin-top:.2rem;width:1.05rem;height:1.05rem;accent-color:var(--brand-600)}
+    .check{display:flex;gap:.65rem;align-items:flex-start;margin-top:1.15rem;font-size:.93rem;color:var(--muted)}
+    .check input{margin-top:.2rem;width:1.1rem;height:1.1rem;accent-color:var(--brand-600)}
     .form-msg{margin-top:1rem;font-weight:600}
     .form-msg.ok{color:#2e7d0f}
     .form-msg.err{color:#b3261e}
-    .form-note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+    .form-note{margin-top:1rem;font-size:.86rem;color:var(--muted)}
     /* Footer */
-    footer{background:var(--brand-950);color:#cfe6f5;padding:2.6rem 0 2rem;margin-top:0}
+    footer{background:var(--brand-950);color:#cfe6f5;padding:3rem 0 2rem}
     footer a{color:#fff}
-    .foot-grid{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;justify-content:space-between;align-items:flex-start}
-    footer .small{font-size:.9rem;color:#9dbfd6}
-    footer .credit{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.15);font-size:.9rem;color:#9dbfd6;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;justify-content:space-between}
+    .foot-grid{display:flex;flex-wrap:wrap;gap:2rem 3rem;justify-content:space-between;align-items:flex-start}
+    footer .small{font-size:.92rem;color:#9dbfd6}
+    footer h4{margin:0 0 .6rem;color:#fff;font-family:var(--sans);font-size:.95rem}
+    footer .credit{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.15);font-size:.9rem;color:#9dbfd6;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;justify-content:space-between}
     /* Reveal */
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
     .reveal.in{opacity:1;transform:none}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}.hero-anim{animation:none}}
   </style>
 </head>
 <body>
-  <header>
+  <div class="topbar">
+    <div class="topbar-in">
+      <a href="https://www.google.com/maps?q=11916+SW+88th+St,+Miami,+FL" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>11916 SW 88th Street, Miami, FL</a>
+      <span class="sep hide-m">·</span>
+      <span class="hide-m" style="display:inline-flex;align-items:center;gap:.4rem"><i data-lucide="clock"></i><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></span>
+      <span class="sep">·</span>
+      <a href="tel:+13053100027"><i data-lucide="phone"></i>(305) 310-0027</a>
+    </div>
+  </div>
+
+  <header class="site" id="site-header">
     <div class="header-in">
       <a class="brand" href="#home">
-        <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/logo-oficial-cuadrado.png" alt="Ortodoncia 305 logo" width="40" height="40" />
-        <span>Ortodoncia 305</span>
+        <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/logo-oficial-cuadrado.png" alt="Ortodoncia 305 logo" width="44" height="44" />
+        <span><b>Ortodoncia 305</b><small>KENDALL · MIAMI</small></span>
       </a>
       <nav class="main" aria-label="Main">
         <a href="#home" data-en="Home" data-es="Inicio">Home</a>
+        <a href="#treatments" data-en="Treatments" data-es="Tratamientos">Treatments</a>
+        <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language / Idioma">
         <button type="button" id="lang-en" aria-pressed="true">EN</button>
         <button type="button" id="lang-es" aria-pressed="false">ES</button>
       </div>
-      <a class="btn btn-primary call-btn" href="tel:+13053100027">(305) 310-0027</a>
+      <a class="btn btn-primary header-cta" href="#contact"><i data-lucide="calendar-check"></i><span data-en="Book free consultation" data-es="Agenda tu consulta gratis">Book free consultation</span></a>
     </div>
   </header>
 
@@ -168,151 +272,240 @@
     <section class="hero" id="home">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">📍 <span data-en="Orthodontics in Kendall, Miami" data-es="Ortodoncia en Kendall, Miami">Orthodontics in Kendall, Miami</span></p>
-          <p class="slogan" data-en="Let us make your smile" data-es="Déjanos hacer tu sonrisa">Let us make your smile</p>
-          <h1><span data-en="Your new smile" data-es="Tu nueva sonrisa">Your new smile</span> <span class="accent" data-en="starts here" data-es="empieza aquí">starts here</span></h1>
-          <p class="lead" style="margin-top:1rem" data-en="Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team." data-es="Frenillos para niños, adolescentes y adultos — Invisalign para adolescentes y adultos. Atención en español e inglés con el equipo del Dr. Murillo.">Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary" href="#contact" data-en="Book your free consultation" data-es="Agenda tu consulta gratis">Book your free consultation</a>
-            <a class="btn btn-outline" href="tel:+13053100027" data-en="Call (305) 310-0027" data-es="Llama al (305) 310-0027">Call (305) 310-0027</a>
+          <p class="hero-badge hero-anim"><span class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></span><span>5.0 · 53 <span data-en="reviews on Google" data-es="reseñas en Google">reviews on Google</span></span></p>
+          <p class="slogan hero-anim d1" data-en="Let us make your smile" data-es="Déjanos hacer tu sonrisa">Let us make your smile</p>
+          <h1 class="hero-anim d2"><span data-en="Your new smile" data-es="Tu nueva sonrisa">Your new smile</span><br /><span class="accent u-green" data-en="starts here" data-es="empieza aquí">starts here</span></h1>
+          <p class="lead hero-anim d3" style="margin-top:1.1rem;max-width:32rem" data-en="Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team, in the heart of Kendall, Miami." data-es="Frenillos para niños, adolescentes y adultos — Invisalign para adolescentes y adultos. Atención en español e inglés con el equipo del Dr. Murillo, en el corazón de Kendall, Miami.">Braces for kids, teens and adults — Invisalign for teens and adults. Care in English and Spanish with Dr. Murillo's team, in the heart of Kendall, Miami.</p>
+          <div class="hero-ctas hero-anim d3">
+            <a class="btn btn-primary" href="#contact"><span data-en="Book your free consultation" data-es="Agenda tu consulta gratis">Book your free consultation</span><i data-lucide="arrow-right"></i></a>
+            <a class="btn btn-outline" href="tel:+13053100027"><i data-lucide="phone"></i><span data-en="Call (305) 310-0027" data-es="Llama al (305) 310-0027">Call (305) 310-0027</span></a>
           </div>
-          <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span>5.0</span> <span data-en="on Google" data-es="en Google">on Google</span> · <span>53 <span data-en="reviews" data-es="reseñas">reviews</span></span> · <span data-en="Since 2015" data-es="Desde 2015">Since 2015</span></p>
-          <ul class="chips">
-            <li>CareCredit</li>
-            <li>Cherry</li>
-            <li data-en="Insurance accepted" data-es="Seguros aceptados">Insurance accepted</li>
-            <li data-en="0% interest plans" data-es="Planes sin interés">0% interest plans</li>
+          <ul class="trust hero-anim d3">
+            <li><i data-lucide="badge-check"></i><span data-en="Since 2015" data-es="Desde 2015">Since 2015</span></li>
+            <li><i data-lucide="languages"></i><span data-en="Se habla español" data-es="Se habla español">Se habla español</span></li>
+            <li><i data-lucide="credit-card"></i><span>CareCredit · Cherry</span></li>
+            <li><i data-lucide="shield-check"></i><span data-en="Insurance accepted" data-es="Seguros aceptados">Insurance accepted</span></li>
           </ul>
         </div>
-        <div>
+        <div class="hero-visual hero-anim d2">
           <img class="hero-img" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" alt="Girl smiling with braces" fetchpriority="high" />
+          <div class="float-card float-rating">
+            <span class="ic"><i data-lucide="star"></i></span>
+            <div><b>5.0</b><span data-en="on Google · 53 reviews" data-es="en Google · 53 reseñas">on Google · 53 reviews</span></div>
+          </div>
+          <div class="float-card float-lang">
+            <span class="ic"><i data-lucide="languages"></i></span>
+            <div><b data-en="Se habla" data-es="Se habla">Se habla</b><span>Español · English</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow" data-en="Welcome" data-es="Bienvenido">Welcome</p>
-          <h2><span data-en="Welcome to Orthodontics 305" data-es="Bienvenido a Orthodontics 305">Welcome to Orthodontics 305</span> <span class="tick">.</span></h2>
-          <p class="lead" style="max-width:46rem;margin-top:1rem" data-en="Welcome to Orthodontics 305: Your Trusted Kendall, Miami Orthodontic Experts." data-es="Bienvenido a Orthodontics 305: tus expertos de confianza en ortodoncia en Kendall, Miami.">Welcome to Orthodontics 305: Your Trusted Kendall, Miami Orthodontic Experts.</p>
-          <p style="max-width:46rem;color:var(--muted)" data-en="At Orthodontics 305, we are committed to creating beautiful, confident smiles that last a lifetime. Located in the heart of Kendall, Miami, our team of highly skilled orthodontists specializes in a wide range of orthodontic services including: Invisalign, metal braces, retentions, aligners, clear retainers, fixed retainers." data-es="En Orthodontics 305, estamos comprometidos a crear sonrisas hermosas y seguras que duren toda la vida. Ubicados en el corazón de Kendall, Miami, nuestro equipo de ortodoncistas altamente calificados se especializa en una amplia gama de servicios de ortodoncia que incluyen: Invisalign, brackets metálicos, retenciones, alineadores, retenedores transparentes y retenedores fijos.">At Orthodontics 305, we are committed to creating beautiful, confident smiles that last a lifetime. Located in the heart of Kendall, Miami, our team of highly skilled orthodontists specializes in a wide range of orthodontic services including: Invisalign, metal braces, retentions, aligners, clear retainers, fixed retainers.</p>
-        </div>
+    <div class="stats">
+      <div class="wrap stats-in">
+        <div class="stat"><b>5.0<span class="accent">★</span></b><span data-en="Google rating" data-es="Calificación en Google">Google rating</span></div>
+        <div class="stat"><b>53</b><span data-en="Google reviews" data-es="Reseñas en Google">Google reviews</span></div>
+        <div class="stat"><b>2015</b><span data-en="Serving Kendall since" data-es="Atendiendo en Kendall desde">Serving Kendall since</span></div>
+        <div class="stat"><b>6</b><span data-en="Treatments for every age" data-es="Tratamientos para cada edad">Treatments for every age</span></div>
+      </div>
+    </div>
 
-        <div class="reveal">
-          <p class="eyebrow" style="margin-top:3rem" data-en="Treatments" data-es="Tratamientos">Treatments</p>
-          <h2><span data-en="Braces &amp; Invisalign for every age" data-es="Frenillos e Invisalign para cada edad">Braces &amp; Invisalign for every age</span> <span class="tick">.</span></h2>
+    <section class="section" id="treatments">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow"><span class="dot"></span><span data-en="Treatments" data-es="Tratamientos">Treatments</span></p>
+          <h2><span data-en="Braces &amp; Invisalign" data-es="Frenillos e Invisalign">Braces &amp; Invisalign</span> <span class="accent" data-en="for every age" data-es="para cada edad">for every age</span></h2>
+          <p class="lead" style="margin-top:.8rem" data-en="From a first evaluation at 9–10 to discreet options for adults — the doctor recommends what fits each case, with no pressure." data-es="Desde una primera evaluación a los 9–10 años hasta opciones discretas para adultos — el doctor recomienda lo que conviene en cada caso, sin presión.">From a first evaluation at 9–10 to discreet options for adults — the doctor recommends what fits each case, with no pressure.</p>
         </div>
         <div class="cards">
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-braces.jpg" alt="Braces on a dental model" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-braces.jpg" alt="Braces on a dental model" loading="lazy" />
+              <span class="card-ico"><i data-lucide="smile"></i></span>
+            </div>
             <div class="card-body">
               <h3 data-en="Braces" data-es="Frenillos">Braces</h3>
               <p data-en="Classic metal and ceramic braces that fix any case, at any age." data-es="Frenillos clásicos de metal y cerámica que corrigen cualquier caso, a cualquier edad.">Classic metal and ceramic braces that fix any case, at any age.</p>
-              <a href="#contact" data-en="Ask about braces →" data-es="Pregunta por los frenillos →">Ask about braces →</a>
+              <a href="#contact"><span data-en="Ask about braces" data-es="Pregunta por los frenillos">Ask about braces</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
+              <span class="card-ico"><i data-lucide="sparkles"></i></span>
+            </div>
             <div class="card-body">
               <h3>Invisalign</h3>
               <p data-en="Discreet, removable clear aligners for mild to moderate cases." data-es="Alineadores transparentes, discretos y removibles, para casos leves a moderados.">Discreet, removable clear aligners for mild to moderate cases.</p>
-              <a href="#contact" data-en="Ask about Invisalign →" data-es="Pregunta por Invisalign →">Ask about Invisalign →</a>
+              <a href="#contact"><span data-en="Ask about Invisalign" data-es="Pregunta por Invisalign">Ask about Invisalign</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-teens.jpg" alt="Child at the orthodontist" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-teens.jpg" alt="Child at the orthodontist" loading="lazy" />
+              <span class="card-ico"><i data-lucide="smile"></i></span>
+            </div>
             <div class="card-body">
               <h3 data-en="For Kids" data-es="Para niños">For Kids</h3>
               <p data-en="Early care from age 9–10 that guides growth and prevents bigger problems." data-es="Cuidado temprano desde los 9–10 años que guía el crecimiento y evita problemas mayores.">Early care from age 9–10 that guides growth and prevents bigger problems.</p>
-              <a href="#contact" data-en="Ask about kids' care →" data-es="Pregunta por la atención infantil →">Ask about kids' care →</a>
+              <a href="#contact"><span data-en="Ask about kids' care" data-es="Pregunta por la atención infantil">Ask about kids' care</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids20.jpg" alt="Teen patient at the clinic" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids20.jpg" alt="Teen patient at the clinic" loading="lazy" />
+              <span class="card-ico"><i data-lucide="users"></i></span>
+            </div>
             <div class="card-body">
               <h3 data-en="For Teens" data-es="Para adolescentes">For Teens</h3>
               <p data-en="Braces and aligners made for the 11–16 crowd — and their parents' peace of mind." data-es="Frenillos y alineadores pensados para los de 11–16 años — y para la tranquilidad de sus padres.">Braces and aligners made for the 11–16 crowd — and their parents' peace of mind.</p>
-              <a href="#contact" data-en="Ask about teens' care →" data-es="Pregunta por la atención para adolescentes →">Ask about teens' care →</a>
+              <a href="#contact"><span data-en="Ask about teens' care" data-es="Pregunta por la atención para adolescentes">Ask about teens' care</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-doctor-paciente.jpg" alt="Dr. Murillo with a patient" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-doctor-paciente.jpg" alt="Dr. Murillo with a patient" loading="lazy" />
+              <span class="card-ico"><i data-lucide="shield-check"></i></span>
+            </div>
             <div class="card-body">
               <h3 data-en="For Adults" data-es="Para adultos">For Adults</h3>
               <p data-en="It's never too late: discreet options that fit work and life." data-es="Nunca es tarde: opciones discretas que encajan con el trabajo y la vida.">It's never too late: discreet options that fit work and life.</p>
-              <a href="#contact" data-en="Ask about adult care →" data-es="Pregunta por la atención para adultos →">Ask about adult care →</a>
+              <a href="#contact"><span data-en="Ask about adult care" data-es="Pregunta por la atención para adultos">Ask about adult care</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
           <article class="card reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-retainers.jpg" alt="Clear retainer" loading="lazy" />
+            <div class="card-media">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-retainers.jpg" alt="Clear retainer" loading="lazy" />
+              <span class="card-ico"><i data-lucide="badge-check"></i></span>
+            </div>
             <div class="card-body">
               <h3 data-en="Retainers" data-es="Retenedores">Retainers</h3>
               <p data-en="Clear and fixed retainers that keep your new smile in place." data-es="Retenedores transparentes y fijos que mantienen tu nueva sonrisa en su lugar.">Clear and fixed retainers that keep your new smile in place.</p>
-              <a href="#contact" data-en="Ask about retainers →" data-es="Pregunta por los retenedores →">Ask about retainers →</a>
+              <a href="#contact"><span data-en="Ask about retainers" data-es="Pregunta por los retenedores">Ask about retainers</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
         </div>
 
-        <div class="reveal">
-          <p class="eyebrow" style="margin-top:3.5rem" data-en="Reviews" data-es="Reseñas">Reviews</p>
-          <h2><span data-en="What families say" data-es="Lo que dicen las familias">What families say</span> <span class="tick">.</span></h2>
-          <p class="lead" style="margin-top:.6rem"><span class="stars" style="color:var(--orange)">★★★★★</span> <strong>5.0</strong> <span data-en="on Google — 53 reviews" data-es="en Google — 53 reseñas">on Google — 53 reviews</span></p>
+        <div class="sec-head reveal" style="margin-top:4rem">
+          <p class="eyebrow"><span class="dot"></span><span data-en="Why families choose us" data-es="Por qué nos eligen las familias">Why families choose us</span></p>
+          <h2><span data-en="Care that feels like family" data-es="Una atención que se siente en familia">Care that feels like family</span></h2>
+        </div>
+        <div class="benefits">
+          <div class="benefit reveal">
+            <span class="ic"><i data-lucide="calendar-check"></i></span>
+            <h3 data-en="Free first consultation" data-es="Primera consulta gratis">Free first consultation</h3>
+            <p data-en="Evaluation and X-rays. The doctor explains what needs fixing — no pressure, no surprises." data-es="Evaluación y radiografías. El doctor explica qué hay que corregir — sin presión ni sorpresas.">Evaluation and X-rays. The doctor explains what needs fixing — no pressure, no surprises.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="ic"><i data-lucide="languages"></i></span>
+            <h3 data-en="Se habla español" data-es="Se habla español">Se habla español</h3>
+            <p data-en="The whole team helps you in English or Spanish — whatever your family speaks at home." data-es="Todo el equipo te atiende en español o inglés — el idioma que hable tu familia en casa.">The whole team helps you in English or Spanish — whatever your family speaks at home.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="ic"><i data-lucide="credit-card"></i></span>
+            <h3 data-en="Financing that fits" data-es="Financiamiento a tu medida">Financing that fits</h3>
+            <p data-en="Cash, credit/debit cards, Cherry & CareCredit financing, 0% interest plans and discounts." data-es="Efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, planes sin interés y descuentos.">Cash, credit/debit cards, Cherry & CareCredit financing, 0% interest plans and discounts.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="ic"><i data-lucide="users"></i></span>
+            <h3 data-en="Kids, teens & adults" data-es="Niños, adolescentes y adultos">Kids, teens & adults</h3>
+            <p data-en="One office for the whole family, in Kendall since 2015 — most of our patients are 11 to 16." data-es="Una sola oficina para toda la familia, en Kendall desde 2015 — la mayoría de nuestros pacientes tiene de 11 a 16 años.">One office for the whole family, in Kendall since 2015 — most of our patients are 11 to 16.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mist" id="reviews">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="eyebrow"><span class="dot"></span><span data-en="Reviews" data-es="Reseñas">Reviews</span></p>
+          <h2><span data-en="What families say" data-es="Lo que dicen las familias">What families say</span></h2>
+          <p class="lead" style="margin-top:.8rem"><span style="color:var(--orange);letter-spacing:.1em">★★★★★</span> <strong>5.0</strong> <span data-en="on Google — 53 reviews, in English and Spanish" data-es="en Google — 53 reseñas, en inglés y español">on Google — 53 reviews, in English and Spanish</span></p>
+        </div>
+        <div class="featured reveal">
+          <span class="q-ico"><i data-lucide="quote"></i></span>
+          <blockquote>“Dr. Murillo is hands down the best orthodontist in Kendall! From the moment I walked into their clean, modern office, I felt at ease. The team is incredibly friendly and professional, always making sure I understood my treatment plan. I chose Invisalign, and the results have been amazing — my smile has never looked better!”</blockquote>
+          <footer>Paola A. Rebellón<span data-en="Google review · Invisalign patient" data-es="Reseña de Google · Paciente de Invisalign">Google review · Invisalign patient</span></footer>
         </div>
         <div class="reviews">
-          <blockquote class="reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <p>“Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo!. Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. Feliz con mi nueva sonrisa y todo gracias a ellos.”</p>
+          <div class="review reveal">
+            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
+            <p>“Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo! Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. Feliz con mi nueva sonrisa y todo gracias a ellos.”</p>
             <footer>— Google review</footer>
-          </blockquote>
-          <blockquote class="reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
+          </div>
+          <div class="review reveal">
+            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
             <p>“Can't say enough about Dr. Murillo and his assistant Madeline and Anabel, office manager. Their service for my twin boys was amazing! Office is clean, and they are very professional. They are very friendly and care about your needs. I would truly recommend!”</p>
             <footer>— Google review</footer>
-          </blockquote>
-          <blockquote class="reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
+          </div>
+          <div class="review reveal">
+            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
             <p>“El tratamiento de ortodoncia fue excelente!! estamos felices con el resultado de mi hija y su tratamiento. El odontólogo muy profesional, el personal dispuesto siempre a colaborar y resolver las dudas.”</p>
             <footer>— Google review</footer>
-          </blockquote>
-          <blockquote class="reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <p>“My favorite doctor. He left me with a great smile”</p>
-            <footer>— Google review</footer>
-          </blockquote>
+          </div>
         </div>
 
-        <div class="strip reveal" role="group" aria-label="Our clinic">
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 clinic entrance in Kendall" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+        <div class="strip reveal">
+          <figure>
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 clinic entrance in Kendall" loading="lazy" />
+            <figcaption data-en="Our clinic in Kendall" data-es="Nuestra clínica en Kendall">Our clinic in Kendall</figcaption>
+          </figure>
+          <figure>
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+            <figcaption data-en="11916 SW 88th Street" data-es="11916 SW 88th Street">11916 SW 88th Street</figcaption>
+          </figure>
+          <figure>
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+            <figcaption data-en="Clean, modern office" data-es="Oficina limpia y moderna">Clean, modern office</figcaption>
+          </figure>
+          <figure>
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="Orthodontics 305 clinic in Kendall, Miami" loading="lazy" />
+            <figcaption data-en="Se habla español" data-es="Se habla español">Se habla español</figcaption>
+          </figure>
         </div>
 
         <div class="finance reveal">
-          <p data-en="Cash, credit/debit cards, Cherry &amp; CareCredit financing, and discounts. The cost depends on your case and is confirmed at your evaluation." data-es="Efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, y descuentos. El costo depende de tu caso y se confirma en tu evaluación.">Cash, credit/debit cards, Cherry &amp; CareCredit financing, and discounts. The cost depends on your case and is confirmed at your evaluation.</p>
-          <a href="tel:+13053100027" data-en="Call (305) 310-0027 and ask →" data-es="Llama al (305) 310-0027 y pregunta →">Call (305) 310-0027 and ask →</a>
+          <div>
+            <h3 data-en="Worried about the cost? Ask us." data-es="¿Te preocupa el costo? Pregúntanos.">Worried about the cost? Ask us.</h3>
+            <p data-en="The cost depends on your case and is confirmed at your evaluation — we don't publish prices that don't apply to you. Cash, cards, Cherry & CareCredit financing, and discounts." data-es="El costo depende de tu caso y se confirma en tu evaluación — no publicamos precios que no se aplican a ti. Efectivo, tarjetas, financiamiento con Cherry y CareCredit, y descuentos.">The cost depends on your case and is confirmed at your evaluation — we don't publish prices that don't apply to you. Cash, cards, Cherry & CareCredit financing, and discounts.</p>
+            <ul class="chips">
+              <li>CareCredit</li>
+              <li>Cherry</li>
+              <li data-en="0% interest plans" data-es="Planes sin interés">0% interest plans</li>
+              <li data-en="Insurance accepted" data-es="Seguros aceptados">Insurance accepted</li>
+            </ul>
+          </div>
+          <a class="btn btn-green" href="tel:+13053100027"><i data-lucide="phone"></i><span data-en="Call (305) 310-0027" data-es="Llama al (305) 310-0027">Call (305) 310-0027</span></a>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="section mist" id="contact">
+    <section class="section" id="contact" style="padding-top:2rem">
       <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow" data-en="Contact" data-es="Contacto">Contact</p>
-          <h2><span data-en="Come by, call, or text" data-es="Ven, llama o escribe">Come by, call, or text</span> <span class="tick">.</span></h2>
-          <p class="lead" style="max-width:46rem;margin-top:1rem" data-en="Contact our Kendall office to arrange your visit. Our team can help in English or Spanish." data-es="Contacta con nuestra oficina en Kendall para coordinar tu visita. Nuestro equipo te atiende en español o inglés.">Contact our Kendall office to arrange your visit. Our team can help in English or Spanish.</p>
+        <div class="sec-head reveal">
+          <p class="eyebrow"><span class="dot"></span><span data-en="Contact" data-es="Contacto">Contact</span></p>
+          <h2><span data-en="Come by, call, or text" data-es="Ven, llama o escribe">Come by, call, or text</span></h2>
+          <p class="lead" style="margin-top:.8rem" data-en="Contact our Kendall office to arrange your visit. Our team can help in English or Spanish." data-es="Contacta con nuestra oficina en Kendall para coordinar tu visita. Nuestro equipo te atiende en español o inglés.">Contact our Kendall office to arrange your visit. Our team can help in English or Spanish.</p>
         </div>
-        <div class="contact-grid" style="margin-top:2.2rem">
-          <div class="reveal">
-            <h3 style="margin:0;font-size:1.4rem" data-en="Visit us in Kendall" data-es="Visítanos en Kendall">Visit us in Kendall</h3>
-            <p class="info-row"><span aria-hidden="true">📍</span><span>11916 SW 88th Street, Miami, FL</span></p>
-            <p class="info-row"><span aria-hidden="true">🕐</span><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></p>
-            <p class="info-row"><span aria-hidden="true">📞</span><a href="tel:+13053100027">(305) 310-0027</a></p>
+        <div class="contact-grid">
+          <div class="info-card reveal">
+            <h3 data-en="Visit us in Kendall" data-es="Visítanos en Kendall">Visit us in Kendall</h3>
+            <div class="info-row">
+              <span class="ic"><i data-lucide="map-pin"></i></span>
+              <div><b data-en="Address" data-es="Dirección">Address</b><a href="https://www.google.com/maps?q=11916+SW+88th+St,+Miami,+FL" target="_blank" rel="noreferrer">11916 SW 88th Street, Miami, FL</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ic"><i data-lucide="clock"></i></span>
+              <div><b data-en="Hours" data-es="Horario">Hours</b><a href="#contact" style="pointer-events:none" data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ic"><i data-lucide="phone"></i></span>
+              <div><b data-en="Phone" data-es="Teléfono">Phone</b><a href="tel:+13053100027">(305) 310-0027</a></div>
+            </div>
             <div class="contact-actions">
-              <a class="btn btn-primary" href="tel:+13053100027" data-en="Call now" data-es="Llamar ahora">Call now</a>
-              <a class="btn btn-outline" href="https://wa.me/13053100027" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a class="btn btn-primary" href="tel:+13053100027"><i data-lucide="phone"></i><span data-en="Call now" data-es="Llamar ahora">Call now</span></a>
+              <a class="btn btn-outline" href="https://wa.me/13053100027" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
             </div>
             <img class="office-img" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 office, 11916 SW 88th Street, Kendall" loading="lazy" />
             <iframe class="map" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -355,7 +548,7 @@
                 <span data-en="It's OK to text me about the appointment." data-es="Está bien que me escriban por texto sobre la cita.">It's OK to text me about the appointment.</span>
               </label>
               <div style="margin-top:1.4rem">
-                <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%" data-en="Send message" data-es="Enviar mensaje">Send message</button>
+                <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%"><span data-en="Send message" data-es="Enviar mensaje">Send message</span><i data-lucide="send"></i></button>
               </div>
               <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
               <p class="form-note" data-en="Your message goes to info@orthodontics305.com. Prefer to talk? Call or text (305) 310-0027." data-es="Tu mensaje llega a info@orthodontics305.com. ¿Prefieres hablar? Llama o escribe al (305) 310-0027.">Your message goes to info@orthodontics305.com. Prefer to talk? Call or text (305) 310-0027.</p>
@@ -370,16 +563,16 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <p style="margin:0;font-weight:800;font-size:1.15rem;color:#fff">Ortodoncia 305</p>
+          <p style="margin:0;font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff">Ortodoncia 305</p>
           <p class="small" style="margin:.5rem 0 0" data-en="Orthodontist in Kendall, Miami. Se habla español." data-es="Ortodoncista en Kendall, Miami. Se habla español.">Orthodontist in Kendall, Miami. Se habla español.</p>
         </div>
         <div>
-          <p style="margin:0;font-weight:700;color:#fff" data-en="Contact" data-es="Contacto">Contact</p>
-          <p class="small" style="margin:.5rem 0 0">11916 SW 88th Street, Miami, FL<br /><a href="tel:+13053100027">(305) 310-0027</a><br /><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></p>
+          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+          <p class="small" style="margin:0">11916 SW 88th Street, Miami, FL<br /><a href="tel:+13053100027">(305) 310-0027</a><br /><span data-en="Mon–Fri 9:00–18:00" data-es="Lun–Vie 9:00–18:00">Mon–Fri 9:00–18:00</span></p>
         </div>
         <div>
-          <p style="margin:0;font-weight:700;color:#fff">Follow</p>
-          <p class="small" style="margin:.5rem 0 0"><a href="https://www.instagram.com/orthodontics305" target="_blank" rel="noreferrer">Instagram</a> · <a href="https://www.facebook.com/Orthodontics305" target="_blank" rel="noreferrer">Facebook</a></p>
+          <h4 data-en="Follow" data-es="Síguenos">Follow</h4>
+          <p class="small" style="margin:0"><a href="https://www.instagram.com/orthodontics305" target="_blank" rel="noreferrer">Instagram</a> · <a href="https://www.facebook.com/Orthodontics305" target="_blank" rel="noreferrer">Facebook</a></p>
         </div>
       </div>
       <div class="credit">
@@ -390,6 +583,15 @@
   </footer>
 
   <script>
+    // ---- Lucide icons ----
+    if (window.lucide) { lucide.createIcons(); }
+
+    // ---- Header shadow on scroll ----
+    var header = document.getElementById('site-header');
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
     // ---- EN/ES (default EN, like the live site; persists in localStorage) ----
     var LANG_KEY = 'o305-landing-lang';
     function setLang(lang) {
@@ -451,7 +653,9 @@
         return;
       }
       btn.disabled = true;
-      btn.textContent = es ? 'Enviando…' : 'Sending…';
+      var btnLabel = btn.querySelector('span');
+      var prevLabel = btnLabel.textContent;
+      btnLabel.textContent = es ? 'Enviando…' : 'Sending…';
       showMsg('', true);
       var tratamientoTxt = tratamiento ? (TREATMENTS_EN[tratamiento] || '') : '';
       var text = ['New consultation request — Ortodoncia 305 landing page', '',
@@ -489,7 +693,7 @@
         })
         .finally(function () {
           btn.disabled = false;
-          btn.textContent = lang() === 'es' ? 'Enviar mensaje' : 'Send message';
+          btnLabel.textContent = lang() === 'es' ? 'Enviar mensaje' : 'Send message';
         });
     });
   </script>
