@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v11 (preview)
+<!-- Ortodoncia 305 — Landing page v12 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -15,8 +15,8 @@
           bajo el header y mataba el hero). Sin bloque "Special offers"
           arriba: la oferta vive en el banner y en la sección Offers.
        3. Hero con carrusel de 4 fotos (Home.jsx).
-       4. Welcome con el texto exacto de la web vieja + logos (iTero,
-          Invisalign Provider, AAO).
+       4. Welcome con el texto exacto de la web vieja + logos GRANDES
+          (iTero, Invisalign Provider, AAO, 5rem de alto).
        5. Tratamientos: 6 tarjetas; la de Invisalign lleva su logo como
           título (logoTitulo de data.js), como en el sitio.
        6. Offers: UNA sola tarjeta (fondo mist): el precio destacado
@@ -25,21 +25,22 @@
           your free consultation» + nota. SIN las 3 cajitas estilo Garcia
           (no era lo que ella pidió) y SIN chip de Invisalign (el logo ya
           está en tratamientos y en la fila de logos). DESPUÉS de
-          Tratamientos.
+          Tratamientos, con poco espacio entre ambas (padding 2rem).
        7. Financiamiento CONCENTRADO (Financing.jsx): 4 tarjetas con
           textos cortos (Cherry, CareCredit, tarjetas y efectivo,
           descuentos) + "How to apply" en 4 pasos SOLO título, en tira de
-          4 columnas + nota de no-precios. SIN estimador (quitado por
-          Daniel 2026-11-26).
+          4 columnas, con título, nota y botones CENTRADOS + nota de
+          no-precios. SIN estimador (quitado por Daniel 2026-11-26).
        8. About (About.jsx + data.js equipo): título y descripción
           CENTRADOS (como las demás secciones); retrato con display:block
           — antes la foto se veía corrida (el img inline ignoraba el
           margin auto). Bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el
-          equipo: los 3 en fila y front desk GRANDE abajo (foto ancha
-          21/9 del grupo completo, equipo-grupo.jpg).
-       9. Gallery (Gallery.jsx): 2 casos ANTES/DESPUÉS (caso-1 panorámico
-          y caso-2, los más vistosos) con slider arrastrable + tira de
-          pacientes (10 fotos de niños, grandes 300×300) con pausa.
+          equipo: los 3 en fila y la foto del grupo COMPLETA abajo, sola,
+          sin tarjeta (equipo-grupo.jpg, 4:3 natural, sin recorte).
+       9. Gallery (Gallery.jsx): 4 casos ANTES/DESPUÉS (caso-1, 3, 4, 5 —
+          todos panorámicos 763/396, misma distribución) con slider
+          arrastrable + tira de pacientes (10 fotos de niños, grandes
+          300×300) con pausa.
       10. Tour por la oficina: tira automática de las 10 fotos vivas
           (G4, G1, G9, G11, G14, V1–V5; NUNCA G13/G15) con pausa, fotos
           grandes (340×250).
@@ -48,9 +49,10 @@
       12. FAQ (HomeFaq.jsx + FAQS de data.js): acordeón con las 8
           preguntas reales.
       13. Banda de cierre "Let us make your smile".
-      14. Contacto: en desktop, a la izquierda «Visit us in Kendall» con
-          foto y a la derecha el formulario a la misma altura; el mapa
-          ABAJO a lo ancho de las dos columnas, SIN «Open in Google Maps».
+      14. Contacto: en desktop, «Visit us in Kendall» y el formulario a
+          la MISMA ALTURA sí o sí (la tarjeta se estira y su foto rellena
+          el resto); el mapa ABAJO a lo ancho, EN UNA TARJETA blanca, SIN
+          «Open in Google Maps».
       15. Footer SIMPLIFICADO (pedido de Daniel: sin sitemap ni tantas
           cosas): logo blanco + texto, contacto + redes + crédito CDM.
      Las ofertas ($1,000 OFF, $99 inicial / $99 al mes, retenedor gratis,
@@ -182,6 +184,8 @@
     .hero-dots button.active{width:2rem;background:var(--brand-600)}
     /* Secciones */
     .section{padding:4rem 0}
+    #treatments{padding-bottom:2rem}
+    #offers{padding-top:2rem}
     .section.mist{background:var(--mist)}
     .sec-head{max-width:44rem}
     .sec-head.center{margin:0 auto;text-align:center}
@@ -201,7 +205,7 @@
     @media(min-width:1024px){.welcome-cols{grid-template-columns:1fr 1fr}}
     .welcome-cols p{margin:0;line-height:1.65;color:var(--muted)}
     .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem 3.5rem;padding:3rem 0}
-    .logos img{height:3.5rem;width:auto}
+    .logos img{height:5rem;width:auto}
     @media(min-width:640px){.logos img{height:4.25rem}}
     /* Tratamientos */
     .cards{display:grid;gap:1.25rem;margin-top:2.5rem}
@@ -229,6 +233,9 @@
     .fin-option h3{font-size:1.35rem;margin-top:1rem}
     .fin-option p{margin:.5rem 0 0;line-height:1.6;color:var(--muted)}
     .fin-planner{margin-top:3rem}
+    .fin-planner h2{text-align:center}
+    .fin-planner h2 .rayita{margin-left:auto;margin-right:auto}
+    .fin-planner .fin-note{justify-content:center;text-align:center}
     .steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.5rem}
     @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr);gap:1.25rem}.steps li{flex-direction:column;gap:.6rem}}
     .steps li{display:flex;gap:1rem}
@@ -248,11 +255,10 @@
     .team{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1024px){.team{grid-template-columns:repeat(3,1fr)}}
-    .team .member-wide{grid-column:1/-1}
-    @media(min-width:1024px){.team .member-wide img{aspect-ratio:21/9;object-position:center 30%}}
+    .team-photo{margin:2.5rem 0 0}
+    .team-photo img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 18px 36px -18px rgb(6 38 57/.3)}
     .member{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;text-align:center}
     .member img{width:5rem;height:5rem;border-radius:999px;object-fit:cover;margin:0 auto;box-shadow:0 0 0 2px var(--brand-600)}
-    .member-wide img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:14px;box-shadow:none;margin:0}
     .member h3{font-size:1.1rem;margin-top:1rem}
     .member .role{font-size:.85rem;font-weight:600;color:var(--brand-700);margin-top:.15rem}
     .member p{font-size:.9rem;line-height:1.6;color:var(--muted);margin:.6rem 0 0}
@@ -323,9 +329,9 @@
     @media(min-width:640px){.closing .btns{flex-direction:row}}
     .closing .addr{margin-top:1.5rem;font-size:.875rem;color:var(--brand-200)}
     /* Contacto */
-    .contact-grid{display:grid;gap:1.5rem;align-items:start;margin-top:2.5rem}
+    .contact-grid{display:grid;gap:1.5rem;align-items:stretch;margin-top:2.5rem}
     @media(min-width:1024px){.contact-grid{grid-template-columns:2fr 3fr}}
-    .info-card{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.75rem}
+    .info-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.75rem}
     .info-row{display:flex;gap:.85rem;align-items:flex-start;margin-top:1.25rem}
     .info-row .ic{width:42px;height:42px;border-radius:12px;background:var(--brand-50);color:var(--brand-600);display:flex;align-items:center;justify-content:center;flex:none}
     .info-row .ic .lucide{width:20px;height:20px}
@@ -333,8 +339,10 @@
     .info-row a{color:var(--ink);font-weight:700;text-decoration:none;font-size:1.05rem}
     .info-row a:hover{color:var(--brand-600)}
     .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
-    .office-img{border-radius:18px;aspect-ratio:4/3;object-fit:cover;width:100%;margin-top:1.6rem}
+    .office-img{flex:1;min-height:240px;border-radius:18px;object-fit:cover;width:100%;margin-top:1.6rem}
     .map{border:0;width:100%;height:280px;border-radius:18px;margin-top:1.4rem}
+    .map-card{background:#fff;border:1px solid var(--ring);border-radius:20px;padding:1rem;margin-top:1.5rem}
+    .map-card .map{margin-top:0;height:320px}
     form{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.75rem}
     @media(min-width:640px){form{padding:2.25rem}}
     form h3{font-size:1.45rem}
@@ -615,7 +623,7 @@
               <li><span class="num">4</span><div><h3 data-en="Start treatment" data-es="Empieza el tratamiento">Start treatment</h3></div></li>
             </ol>
             <p class="fin-note"><i data-lucide="wallet"></i><span data-en="No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation." data-es="Ningún precio de esta página es una cotización real — el costo depende de cada caso y se confirma en la evaluación.">No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation.</span></p>
-            <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem">
+            <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.75rem">
               <a class="btn btn-primary" href="tel:+13053100027" style="padding:.8rem 1.5rem;font-size:.9rem"><i data-lucide="phone"></i><span data-en="Ask about financing" data-es="Pregunta por el financiamiento">Ask about financing</span></a>
               <a class="btn btn-outline" href="#faq" style="padding:.8rem 1.5rem;font-size:.9rem"><span data-en="Cost questions, answered" data-es="Preguntas sobre costos, respondidas">Cost questions, answered</span><i data-lucide="arrow-right"></i></a>
             </div>
@@ -666,13 +674,10 @@
             <p class="role" data-en="Patient Coordinator" data-es="Coordinadora de pacientes">Patient Coordinator</p>
             <p data-en="Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family." data-es="Coordinadora de pacientes. Nacida y criada en Cuba, lleva casi tres años en el equipo de recepción — su sonrisa cálida hace que cada paciente se sienta en familia.">Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family.</p>
           </div>
-          <div class="member member-wide card-hover reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-grupo.jpg" alt="The whole Ortodoncia 305 team together at the clinic" loading="lazy" />
-            <h3 data-en="The front desk" data-es="La recepción">The front desk</h3>
-            <p class="role" data-en="Kendall, Miami" data-es="Kendall, Miami">Kendall, Miami</p>
-            <p data-en="A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check." data-es="Un equipo pequeño que conoce a sus pacientes por su nombre. Los padres tratan con las mismas caras desde la primera visita hasta el último control de retenedores.">A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check.</p>
-          </div>
         </div>
+        <figure class="team-photo reveal">
+          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-grupo.jpg" alt="The whole Ortodoncia 305 team together at the clinic" loading="lazy" />
+        </figure>
       </div>
     </section>
 
@@ -697,13 +702,10 @@
             </div>
             <figcaption><b data-en="Case 1" data-es="Caso 1">Case 1</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
           </figure>
-          
-          
-          
           <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:4/3">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-despues.jpg" alt="Case 2 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-despues.jpg" alt="Case 2 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
               <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
               <span class="ba-tag after" data-en="After" data-es="Después">After</span>
               <div class="ba-divider" style="left:50%"></div>
@@ -712,9 +714,30 @@
             </div>
             <figcaption><b data-en="Case 2" data-es="Caso 2">Case 2</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
           </figure>
-          
-          
-          
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-despues.jpg" alt="Case 3 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-antes.jpg" alt="Case 3 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 3" />
+            </div>
+            <figcaption><b data-en="Case 3" data-es="Caso 3">Case 3</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-despues.jpg" alt="Case 4 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-antes.jpg" alt="Case 4 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 4" />
+            </div>
+            <figcaption><b data-en="Case 4" data-es="Caso 4">Case 4</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
         </div>
         <div class="reveal" style="margin-top:3.5rem">
           <p class="eyebrow" data-en="Our patients" data-es="Nuestros pacientes">Our patients</p>
@@ -979,7 +1002,9 @@
             </form>
           </div>
         </div>
-        <iframe class="map reveal" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-card reveal">
+          <iframe class="map" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </section>
   </main>
