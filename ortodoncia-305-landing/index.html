@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v16 (preview)
+<!-- Ortodoncia 305 — Landing page v17 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -54,15 +54,15 @@
           grandes (340×250).
       11. Reviews: CARRUSEL DOBLE (ReviewMarquee.jsx, rowCount=2): 2 filas
           de 4 reseñas reales que se mueven en sentidos opuestos + pausa.
-      12. Contacto: en desktop, «Visit us in Kendall» y el formulario a
+      12. FAQ (HomeFaq.jsx + FAQS de data.js): acordeón con las 8
+          preguntas reales.
+      13. Contacto: en desktop, «Visit us in Kendall» y el formulario a
           la MISMA ALTURA sí o sí (la tarjeta se estira y su foto rellena
           el resto); el mapa ABAJO a lo ancho, EN UNA TARJETA blanca, SIN
           «Open in Google Maps».
-      13. FAQ (HomeFaq.jsx + FAQS de data.js): acordeón con las 8
-          preguntas reales.
       14. Banda de cierre "Let us make your smile" DE ÚLTIMO, después de
-          Contacto y FAQ (orden pedido por Daniel 2026-11-26: Reviews →
-          Contacto → FAQ → cierre).
+          FAQ y Contacto (orden pedido por Daniel 2026-11-26: Reviews →
+          FAQ → Contacto → cierre).
       15. Footer SIMPLIFICADO (pedido de Daniel: sin sitemap ni tantas
           cosas): logo blanco + texto, contacto + redes + crédito CDM.
      Las ofertas ($1,000 OFF, $99 inicial / $99 al mes, retenedor gratis,
@@ -888,6 +888,53 @@
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="faq-layout">
+          <div class="reveal">
+            <h2><span data-en="Before your first visit" data-es="Antes de tu primera visita">Before your first visit</span><span class="rayita" aria-hidden="true"></span></h2>
+            <p class="lead" style="margin-top:1.25rem" data-en="Answers to common questions about treatment, costs and payment options." data-es="Respuestas a preguntas frecuentes sobre tratamientos, costos y opciones de pago.">Answers to common questions about treatment, costs and payment options.</p>
+            <p style="margin-top:1.5rem"><a class="btn btn-outline" href="#contact" style="padding:.7rem 1.4rem;font-size:.9rem"><span data-en="Ask us anything" data-es="Pregúntanos lo que sea">Ask us anything</span><i data-lucide="arrow-right"></i></a></p>
+          </div>
+          <div class="reveal">
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="What happens at the first visit?" data-es="¿Qué pasa en la primera visita?">What happens at the first visit?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it." data-es="Una evaluación: el doctor revisa los dientes y la mordida, explica qué hay que corregir y qué implica — costo y opciones de pago incluidos. Sin presión ni sorpresas. Llama o escribe al (305) 310-0027 para agendarla.">An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="At what age should my child first see an orthodontist?" data-es="¿A qué edad llevo a mi hijo al ortodoncista por primera vez?">At what age should my child first see an orthodontist?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait." data-es="Alrededor de los 9–10 años es buen momento para una primera evaluación. No significa que el tratamiento empiece entonces — significa que sabes en qué punto están las cosas y qué puede esperar.">Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Does it hurt?" data-es="¿Duele?">Does it hurt?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts." data-es="La mayoría de los pacientes siente presión por unos días después de la colocación y de cada ajuste. Se pasa. El equipo explica exactamente qué esperar antes de que empiece nada.">Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How long does treatment take?" data-es="¿Cuánto dura el tratamiento?">How long does treatment take?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number." data-es="Depende del caso — por eso la primera visita es una evaluación. El doctor da un plazo realista para el caso de tu adolescente antes de que empiece el tratamiento, no un número genérico.">It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Braces or Invisalign — which is better?" data-es="¿Frenillos o Invisalign — cuál es mejor?">Braces or Invisalign — which is better?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents." data-es="Ninguno es mejor en general — depende del caso. Los frenillos cubren cualquier caso; los alineadores son más discretos pero exigen disciplina al usarlos. La evaluación decide, y el adolescente elige con sus padres.">Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How much does it cost? Are there payment plans?" data-es="¿Cuánto cuesta? ¿Hay planes de pago?">How much does it cost? Are there payment plans?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask." data-es="El costo depende del caso y se confirma en la evaluación — no publicamos precios que no se aplican a ti. Lo fijo: efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, y descuentos. Llama al (305) 310-0027 y pregunta.">The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do you treat patients without insurance?" data-es="¿Atienden pacientes sin seguro?">Do you treat patients without insurance?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone." data-es="Sí. Hay financiamiento con Cherry y CareCredit, y la oficina acuerda pagos mensuales con cada familia. Pregunta en la primera visita o por teléfono.">Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do I need a retainer after treatment?" data-es="¿Necesito retenedor después del tratamiento?">Do I need a retainer after treatment?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends." data-es="Sí — los dientes vuelven a moverse sin uno. Los retenedores transparentes o fijos mantienen el resultado. El doctor recomienda cuál conviene en cada caso cuando termina el tratamiento.">Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CONTACT ============ -->
     <section class="section mist" id="contact">
       <div class="wrap">
@@ -968,54 +1015,7 @@
     </section>
   </main>
 
-<!-- ============ FAQ ============ -->
-    <section class="section" id="faq">
-      <div class="wrap">
-        <div class="faq-layout">
-          <div class="reveal">
-            <h2><span data-en="Before your first visit" data-es="Antes de tu primera visita">Before your first visit</span><span class="rayita" aria-hidden="true"></span></h2>
-            <p class="lead" style="margin-top:1.25rem" data-en="Answers to common questions about treatment, costs and payment options." data-es="Respuestas a preguntas frecuentes sobre tratamientos, costos y opciones de pago.">Answers to common questions about treatment, costs and payment options.</p>
-            <p style="margin-top:1.5rem"><a class="btn btn-outline" href="#contact" style="padding:.7rem 1.4rem;font-size:.9rem"><span data-en="Ask us anything" data-es="Pregúntanos lo que sea">Ask us anything</span><i data-lucide="arrow-right"></i></a></p>
-          </div>
-          <div class="reveal">
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="What happens at the first visit?" data-es="¿Qué pasa en la primera visita?">What happens at the first visit?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it." data-es="Una evaluación: el doctor revisa los dientes y la mordida, explica qué hay que corregir y qué implica — costo y opciones de pago incluidos. Sin presión ni sorpresas. Llama o escribe al (305) 310-0027 para agendarla.">An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="At what age should my child first see an orthodontist?" data-es="¿A qué edad llevo a mi hijo al ortodoncista por primera vez?">At what age should my child first see an orthodontist?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait." data-es="Alrededor de los 9–10 años es buen momento para una primera evaluación. No significa que el tratamiento empiece entonces — significa que sabes en qué punto están las cosas y qué puede esperar.">Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Does it hurt?" data-es="¿Duele?">Does it hurt?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts." data-es="La mayoría de los pacientes siente presión por unos días después de la colocación y de cada ajuste. Se pasa. El equipo explica exactamente qué esperar antes de que empiece nada.">Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How long does treatment take?" data-es="¿Cuánto dura el tratamiento?">How long does treatment take?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number." data-es="Depende del caso — por eso la primera visita es una evaluación. El doctor da un plazo realista para el caso de tu adolescente antes de que empiece el tratamiento, no un número genérico.">It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Braces or Invisalign — which is better?" data-es="¿Frenillos o Invisalign — cuál es mejor?">Braces or Invisalign — which is better?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents." data-es="Ninguno es mejor en general — depende del caso. Los frenillos cubren cualquier caso; los alineadores son más discretos pero exigen disciplina al usarlos. La evaluación decide, y el adolescente elige con sus padres.">Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How much does it cost? Are there payment plans?" data-es="¿Cuánto cuesta? ¿Hay planes de pago?">How much does it cost? Are there payment plans?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask." data-es="El costo depende del caso y se confirma en la evaluación — no publicamos precios que no se aplican a ti. Lo fijo: efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, y descuentos. Llama al (305) 310-0027 y pregunta.">The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do you treat patients without insurance?" data-es="¿Atienden pacientes sin seguro?">Do you treat patients without insurance?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone." data-es="Sí. Hay financiamiento con Cherry y CareCredit, y la oficina acuerda pagos mensuales con cada familia. Pregunta en la primera visita o por teléfono.">Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone.</p></div></div>
-            </div>
-            <div class="faq-item">
-              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do I need a retainer after treatment?" data-es="¿Necesito retenedor después del tratamiento?">Do I need a retainer after treatment?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends." data-es="Sí — los dientes vuelven a moverse sin uno. Los retenedores transparentes o fijos mantienen el resultado. El doctor recomienda cuál conviene en cada caso cuando termina el tratamiento.">Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends.</p></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CLOSING CTA ============ -->
+<!-- ============ CLOSING CTA ============ -->
     <section class="section">
       <div class="wrap">
         <div class="brand-closing closing reveal">
