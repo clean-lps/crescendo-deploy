@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v9 (preview)
+<!-- Ortodoncia 305 — Landing page v10 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -17,10 +17,13 @@
           Invisalign Provider, AAO).
        5. Tratamientos: 6 tarjetas; la de Invisalign lleva su logo como
           título (logoTitulo de data.js), como en el sitio.
-       6. Offers: 3 tarjetas BLANCAS con rayita verde, icono azul,
-          título y botón (el bloque de color se veía feísimo; el blanco
-          es el lenguaje del sitio, como las tarjetas de financiamiento)
-          + banda de ahorros. DESPUÉS de Tratamientos.
+       6. Offers: UNA sola tarjeta (fondo mist): el precio destacado
+          «Braces starting at just $99 down & $99/month» + las 4 ofertas
+          REALES del banner de la clienta con check verde + botón «Book
+          your free consultation» + nota. SIN las 3 cajitas estilo Garcia
+          (no era lo que ella pidió) y SIN chip de Invisalign (el logo ya
+          está en tratamientos y en la fila de logos). DESPUÉS de
+          Tratamientos.
        7. Financiamiento completo (Financing.jsx): 4 tarjetas (Cherry,
           CareCredit, tarjetas y efectivo, descuentos) + "How to apply"
           en 4 pasos + nota de no-precios. SIN estimador (quitado por
@@ -145,8 +148,6 @@
     .btn-call{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--brand-600);padding:.5rem .75rem;font-size:.75rem;font-weight:600;color:#fff;text-decoration:none;box-shadow:0 4px 12px rgb(0 96 176/.3);transition:transform .2s,background .2s;white-space:nowrap}
     @media(min-width:640px){.btn-call{padding:.5rem 1rem;font-size:.875rem}}
     .btn-call:hover{transform:translateY(-2px);background:var(--brand-700)}
-    .invis-chip{display:inline-flex;align-items:center;background:#fff;border-radius:999px;padding:.3rem .9rem .3rem .3rem;gap:.5rem;font-weight:800;color:var(--brand-800);font-size:.95rem}
-    .invis-chip img{height:1.6rem;width:auto}
     /* Banner real Summer Savings tal cual, a ancho completo, sin redondear (como el sitio viejo) */
     .banner-strip{margin:0}
     .banner-strip a{display:block}
@@ -179,24 +180,14 @@
     .sec-head.center{margin:0 auto;text-align:center}
     .sec-head.center .rayita{margin-left:auto;margin-right:auto}
     /* Ofertas */
-    .promo-cards{display:grid;gap:1.25rem;margin-top:2.5rem}
-    @media(min-width:640px){.promo-cards{grid-template-columns:repeat(3,1fr)}}
-    .promo{border-radius:18px;border:1px solid var(--ring);background:#fff;color:var(--ink);display:flex;flex-direction:column;box-shadow:0 2px 6px rgb(6 38 57/.05)}
-    .promo-body{padding:1.75rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-    .promo-body .ic{width:44px;height:44px;border-radius:13px;background:var(--brand-50);display:flex;align-items:center;justify-content:center;margin-bottom:.4rem}
-    .promo-body .ic .lucide{width:22px;height:22px;color:var(--brand-600)}
-    .promo h3{font-size:1.5rem;color:var(--ink)}
-    .promo p{margin:0;font-weight:600;color:var(--muted)}
-    .promo a{margin-top:auto;padding-top:.9rem;color:var(--brand-700);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
-    .promo a .lucide{transition:transform .18s ease}
-    .promo a:hover .lucide{transform:translateX(3px)}
-    .promo .invis-chip{margin-bottom:.4rem;background:var(--mist);border:1px solid var(--ring)}
-    .savings{margin-top:1.25rem;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;background:#fff}
-    .savings h3{font-size:1.3rem}
-    .savings-list{display:flex;flex-wrap:wrap;gap:.7rem 2rem;list-style:none;padding:0;margin:1rem 0 0}
-    .savings-list li{display:flex;gap:.55rem;align-items:flex-start;font-weight:700}
-    .savings-list .lucide{width:1.2em;height:1.2em;color:var(--leaf-600);flex:none;margin-top:.15rem}
-    .savings-note{margin:.9rem 0 0;color:var(--muted);font-size:.9rem}
+    .offers-card{margin-top:2.5rem;border:1px solid var(--ring);border-radius:18px;background:var(--mist);padding:2rem;text-align:center}
+    .offers-price{font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:800;color:var(--brand-700);line-height:1.25;margin:0}
+    .offers-list{display:grid;gap:.8rem 2rem;list-style:none;padding:0;margin:1.75rem auto 0;max-width:640px;text-align:left}
+    @media(min-width:640px){.offers-list{grid-template-columns:1fr 1fr}}
+    .offers-list li{display:flex;gap:.55rem;align-items:flex-start;font-weight:700}
+    .offers-list .lucide{width:1.2em;height:1.2em;color:var(--leaf-600);flex:none;margin-top:.15rem}
+    .offers-card .btn{margin-top:1.75rem}
+    .offers-note{margin:1rem 0 0;color:var(--muted);font-size:.9rem}
     /* Bienvenida + logos */
     .welcome-lead{margin-top:1.25rem;max-width:48rem;font-size:1.125rem;font-weight:600;line-height:1.65;color:#334155}
     .welcome-cols{display:grid;gap:1.5rem;margin-top:1.5rem}
@@ -554,44 +545,16 @@
           <h2><span data-en="A new smile, within reach" data-es="Una nueva sonrisa, a tu alcance">A new smile, within reach</span><span class="rayita" aria-hidden="true"></span></h2>
           <p class="lead" style="margin-top:1rem" data-en="Start today with a low down payment and low monthly payments — and ask about our current savings." data-es="Empieza hoy con una inicial baja y pagos mensuales bajos — y pregunta por nuestros ahorros actuales.">Start today with a low down payment and low monthly payments — and ask about our current savings.</p>
         </div>
-        <div class="promo-cards">
-          <article class="promo reveal">
-            <div class="promo-body">
-              <span class="rayita" aria-hidden="true"></span>
-              <span class="ic"><i data-lucide="wallet"></i></span>
-              <h3 data-en="$99 Down" data-es="$99 de inicial">$99 Down</h3>
-              <p data-en="Low down payment + Flexible financing" data-es="Inicial baja + financiamiento flexible">Low down payment + Flexible financing</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="promo reveal">
-            <div class="promo-body">
-              <span class="rayita" aria-hidden="true"></span>
-              <span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span>Invisalign</span></span>
-              <h3 data-en="As Low As $99/Month" data-es="Desde $99 al mes">As Low As $99/Month</h3>
-              <p data-en="Low monthly payments" data-es="Pagos mensuales bajos">Low monthly payments</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="promo reveal">
-            <div class="promo-body">
-              <span class="rayita" aria-hidden="true"></span>
-              <span class="ic"><i data-lucide="zap"></i></span>
-              <h3 data-en="Start The Same Day" data-es="Empieza el mismo día">Start The Same Day</h3>
-              <p data-en="Get your new smile started right away" data-es="Empieza tu nueva sonrisa hoy mismo">Get your new smile started right away</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="savings reveal">
-          <h3 data-en="Current savings" data-es="Ahorros actuales">Current savings</h3>
-          <ul class="savings-list">
+        <div class="offers-card reveal">
+          <p class="offers-price" data-en="Braces starting at just $99 down & $99/month" data-es="Frenillos desde solo $99 de inicial y $99 al mes">Braces starting at just $99 down & $99/month</p>
+          <ul class="offers-list">
             <li><i data-lucide="check"></i><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></li>
             <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
             <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
-            <li><i data-lucide="check"></i><span data-en="0% Interest" data-es="0% de interés">0% Interest</span></li>
+            <li><i data-lucide="check"></i><span data-en="0% Interest Financing Available" data-es="Financiamiento con 0% de interés disponible">0% Interest Financing Available</span></li>
           </ul>
-          <p class="savings-note" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
+          <a class="btn btn-primary" href="#contact"><span data-en="Book your free consultation" data-es="Agenda tu consulta gratis">Book your free consultation</span></a>
+          <p class="offers-note" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
         </div>
       </div>
     </section>
