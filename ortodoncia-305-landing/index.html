@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v7 (preview)
+<!-- Ortodoncia 305 — Landing page v8 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -17,13 +17,13 @@
           Invisalign Provider, AAO).
        5. Tratamientos: 6 tarjetas; la de Invisalign lleva su logo como
           título (logoTitulo de data.js), como en el sitio.
-       6. Offers: 3 recuadros (foto + color, SIN números 1, 2, 3) + banda
-          de ahorros. AHORA DESPUÉS de Welcome/Tratamientos — "Special
-          offers antes de welcome no tiene sentido".
+       6. Offers: 3 recuadros de color SIN FOTO (icono + texto + botón;
+          la foto los hacía ver como las tarjetas de servicios) + banda
+          de ahorros. DESPUÉS de Tratamientos.
        7. Financiamiento completo (Financing.jsx): 4 tarjetas (Cherry,
-          CareCredit, tarjetas y efectivo, descuentos) + ESTIMADOR (2
-          controles: monto $500–$8,000 y meses 6–36; cuota = monto ÷ meses)
-          + "How to apply" en 4 pasos + nota de no-precios.
+          CareCredit, tarjetas y efectivo, descuentos) + "How to apply"
+          en 4 pasos + nota de no-precios. SIN estimador (quitado por
+          Daniel 2026-11-26).
        8. About (About.jsx + data.js equipo): retrato del Dr. Murillo,
           bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el equipo completo
           (Beatriz, Madeline, Anabel) con fotos y bios reales.
@@ -179,8 +179,7 @@
     .promo-cards{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.promo-cards{grid-template-columns:repeat(3,1fr)}}
     .promo{border-radius:18px;overflow:hidden;color:#fff;display:flex;flex-direction:column;box-shadow:0 18px 36px -18px rgb(6 38 57/.35)}
-    .promo img{aspect-ratio:16/9.5;object-fit:cover;width:100%}
-    .promo-body{padding:1.5rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+    .promo-body{padding:1.75rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
     .promo-body .ic{width:44px;height:44px;border-radius:13px;background:rgb(255 255 255/.16);display:flex;align-items:center;justify-content:center;margin-bottom:.4rem}
     .promo-body .ic .lucide{width:22px;height:22px}
     .promo h3{font-size:1.5rem;color:#fff}
@@ -211,8 +210,9 @@
     @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1024px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{display:block;height:100%;overflow:hidden;border-radius:18px;border:1px solid var(--ring);background:#fff;text-decoration:none;color:var(--ink)}
-    .card img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .5s ease}
-    .card:hover img{transform:scale(1.03)}
+    .card>img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .5s ease}
+    .card:hover>img{transform:scale(1.03)}
+    .card h3 img{height:3rem;width:auto;max-width:100%;object-fit:contain;display:block}
     .card-body{padding:1.75rem}
     .card h3{font-size:1.25rem}
     .card p{margin:.5rem 0 0;line-height:1.6;color:var(--muted)}
@@ -230,19 +230,7 @@
     .fin-option .lucide.big{width:2rem;height:2rem;color:var(--brand-600);margin-top:1rem}
     .fin-option h3{font-size:1.35rem;margin-top:1rem}
     .fin-option p{margin:.5rem 0 0;line-height:1.6;color:var(--muted)}
-    .fin-planner{display:grid;gap:3rem;align-items:start;margin-top:3rem}
-    @media(min-width:1024px){.fin-planner{grid-template-columns:1.05fr 1fr;gap:4rem}}
-    .estimator{border-radius:18px;border:1px solid var(--ring);background:#fff;padding:1.75rem;box-shadow:0 2px 6px rgb(6 38 57/.05)}
-    @media(min-width:640px){.estimator{padding:2.25rem}}
-    .estimator .pill-0{display:inline-flex;border-radius:999px;background:var(--leaf-100);padding:.3rem .8rem;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--leaf-700);border:1px solid rgb(160 192 48/.4);margin-top:.75rem}
-    .est-row{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;margin-top:1.5rem}
-    .est-row label{font-size:.875rem;font-weight:600}
-    .est-row output{font-size:1.25rem;font-weight:800;font-variant-numeric:tabular-nums}
-    .est-range{width:100%;accent-color:var(--brand-600);margin-top:.5rem}
-    .est-note{font-size:.75rem;color:#64748b;margin:.25rem 0 0}
-    .est-result{margin-top:1.75rem;border-radius:1rem;background:var(--brand-50);padding:1.25rem 1.5rem;text-align:center;border:1px solid rgb(160 192 48/.6)}
-    .est-result .big{font-size:2.25rem;font-weight:800}
-    .est-result .big span{font-size:1.125rem;font-weight:600;color:var(--muted)}
+    .fin-planner{margin-top:3rem}
     .steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.5rem}
     .steps li{display:flex;gap:1rem}
     .steps .num{flex:none;width:2rem;height:2rem;border-radius:999px;background:var(--brand-600);color:#fff;font-size:.875rem;font-weight:800;display:flex;align-items:center;justify-content:center}
@@ -567,7 +555,6 @@
         </div>
         <div class="promo-cards">
           <article class="promo promo-blue reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids18.jpg" alt="Smiling patient at the clinic" loading="lazy" />
             <div class="promo-body">
               <span class="ic"><i data-lucide="wallet"></i></span>
               <h3 data-en="$99 Down" data-es="$99 de inicial">$99 Down</h3>
@@ -576,7 +563,6 @@
             </div>
           </article>
           <article class="promo promo-blue2 reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids21.jpg" alt="Teen patient smiling" loading="lazy" />
             <div class="promo-body">
               <span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span>Invisalign</span></span>
               <h3 data-en="As Low As $99/Month" data-es="Desde $99 al mes">As Low As $99/Month</h3>
@@ -585,7 +571,6 @@
             </div>
           </article>
           <article class="promo promo-navy reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-clinica.jpg" alt="Inside the clinic" loading="lazy" />
             <div class="promo-body">
               <span class="ic"><i data-lucide="zap"></i></span>
               <h3 data-en="Start The Same Day" data-es="Empieza el mismo día">Start The Same Day</h3>
@@ -642,37 +627,15 @@
           </article>
         </div>
         <div class="fin-planner">
-          <div class="estimator reveal">
-            <p style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600);margin:0"><i data-lucide="calculator"></i><span data-en="Payment estimator" data-es="Estimador de pagos">Payment estimator</span></p>
-            <h3 style="font-size:1.5rem;margin-top:.75rem" data-en="What could the monthly payment look like?" data-es="¿Cómo podría verse el pago mensual?">What could the monthly payment look like?</h3>
-            <p style="margin-top:.5rem;font-size:.875rem;line-height:1.6;color:var(--muted)" data-en="Move the sliders. This is a simple estimate — the total amount is the one from your evaluation, and the real plan and approval come from Cherry or CareCredit." data-es="Mueve los controles. Esto es una estimación simple — el monto total es el de tu evaluación, y el plan real y la aprobación vienen de Cherry o CareCredit.">Move the sliders. This is a simple estimate — the total amount is the one from your evaluation, and the real plan and approval come from Cherry or CareCredit.</p>
-            <span class="pill-0" data-en="0% interest plans" data-es="Planes sin interés">0% interest plans</span>
-            <div class="est-row">
-              <label for="est-monto" data-en="Treatment total" data-es="Monto total del tratamiento">Treatment total</label>
-              <output id="est-monto-out" for="est-monto">$3,000</output>
-            </div>
-            <input class="est-range" id="est-monto" type="range" min="500" max="8000" step="100" value="3000" />
-            <p class="est-note" data-en="From your evaluation — not a published price." data-es="El monto sale de tu evaluación — no es un precio publicado.">From your evaluation — not a published price.</p>
-            <div class="est-row">
-              <label for="est-meses" data-en="Months" data-es="Meses">Months</label>
-              <output id="est-meses-out" for="est-meses">24 months</output>
-            </div>
-            <input class="est-range" id="est-meses" type="range" min="6" max="36" step="6" value="24" />
-            <div class="est-result">
-              <p style="margin:0;font-size:.875rem;font-weight:600;color:var(--muted)" data-en="Estimated monthly payment" data-es="Cuota mensual estimada">Estimated monthly payment</p>
-              <p class="big" style="margin:.25rem 0 0">$125.00 <span data-en="/mo" data-es="/mes">/mo</span></p>
-              <p style="margin:.5rem 0 0;font-size:.75rem;line-height:1.6;color:#64748b" data-en="Simple estimate (total ÷ months), no interest or fees added. The exact plan depends on Cherry or CareCredit approval — ask at the office or call (305) 310-0027." data-es="Estimación simple (total ÷ meses), sin intereses ni cargos agregados. El plan exacto depende de la aprobación de Cherry o CareCredit — pregunta en la oficina o llama al (305) 310-0027.">Simple estimate (total ÷ months), no interest or fees added. The exact plan depends on Cherry or CareCredit approval — ask at the office or call (305) 310-0027.</p>
-            </div>
-          </div>
           <div class="reveal">
             <h2><span data-en="How to apply" data-es="Cómo solicitarlo">How to apply</span><span class="rayita" aria-hidden="true"></span></h2>
             <ol class="steps">
-              <li><span class="num">1</span><div><h3 data-en="Come in for the evaluation" data-es="Ven a la evaluación">Come in for the evaluation</h3><p data-en="The doctor confirms the treatment and its total cost — the number the estimator uses." data-es="El doctor confirma el tratamiento y su costo total — el número que usa el estimador.">The doctor confirms the treatment and its total cost — the number the estimator uses.</p></div></li>
+              <li><span class="num">1</span><div><h3 data-en="Come in for the evaluation" data-es="Ven a la evaluación">Come in for the evaluation</h3><p data-en="The doctor confirms the treatment and its total cost." data-es="El doctor confirma el tratamiento y su costo total.">The doctor confirms the treatment and its total cost.</p></div></li>
               <li><span class="num">2</span><div><h3 data-en="Pick the way to pay" data-es="Elige cómo pagar">Pick the way to pay</h3><p data-en="Cherry, CareCredit, cards or cash. The office explains each option in plain words." data-es="Cherry, CareCredit, tarjetas o efectivo. La oficina explica cada opción con palabras claras.">Cherry, CareCredit, cards or cash. The office explains each option in plain words.</p></div></li>
               <li><span class="num">3</span><div><h3 data-en="Apply at the office" data-es="Solicítalo en la oficina">Apply at the office</h3><p data-en="The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit." data-es="El equipo ayuda con la solicitud, en inglés o español. La aprobación depende de Cherry o CareCredit.">The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit.</p></div></li>
               <li><span class="num">4</span><div><h3 data-en="Start treatment" data-es="Empieza el tratamiento">Start treatment</h3><p data-en="Monthly payments as agreed — and the same team at every visit." data-es="Pagos mensuales según lo acordado — y el mismo equipo en cada visita.">Monthly payments as agreed — and the same team at every visit.</p></div></li>
             </ol>
-            <p class="fin-note"><i data-lucide="wallet"></i><span data-en="No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation. The estimator only shows what a monthly split could look like." data-es="Ningún precio de esta página es una cotización real — el costo depende de cada caso y se confirma en la evaluación. El estimador solo muestra cómo podría verse un pago mensual.">No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation. The estimator only shows what a monthly split could look like.</span></p>
+            <p class="fin-note"><i data-lucide="wallet"></i><span data-en="No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation." data-es="Ningún precio de esta página es una cotización real — el costo depende de cada caso y se confirma en la evaluación.">No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation.</span></p>
             <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem">
               <a class="btn btn-primary" href="tel:+13053100027" style="padding:.8rem 1.5rem;font-size:.9rem"><i data-lucide="phone"></i><span data-en="Ask about financing" data-es="Pregunta por el financiamiento">Ask about financing</span></a>
               <a class="btn btn-outline" href="#faq" style="padding:.8rem 1.5rem;font-size:.9rem"><span data-en="Cost questions, answered" data-es="Preguntas sobre costos, respondidas">Cost questions, answered</span><i data-lucide="arrow-right"></i></a>
@@ -1190,7 +1153,6 @@
       document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
       document.getElementById('lang-es').setAttribute('aria-pressed', l === 'es' ? 'true' : 'false');
       try { localStorage.setItem(LANG_KEY, l); } catch (e) {}
-      updateEstimator();
       updateToggles();
     }
     var savedLang = 'en';
@@ -1211,24 +1173,6 @@
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ---- Estimator (como Estimador.jsx: cuota = monto / meses) ----
-    var estMonto = document.getElementById('est-monto');
-    var estMeses = document.getElementById('est-meses');
-    var estMontoOut = document.getElementById('est-monto-out');
-    var estMesesOut = document.getElementById('est-meses-out');
-    var estResult = document.querySelector('.est-result .big');
-    function updateEstimator() {
-      var monto = Number(estMonto.value);
-      var meses = Number(estMeses.value);
-      var es = lang() === 'es';
-      estMontoOut.textContent = '$' + monto.toLocaleString('en-US');
-      estMesesOut.textContent = meses + ' ' + (es ? 'meses' : 'months');
-      var cuota = Math.round((monto / meses) * 100) / 100;
-      estResult.innerHTML = '$' + cuota.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' <span>' + (es ? '/mes' : '/mo') + '</span>';
-    }
-    estMonto.addEventListener('input', updateEstimator);
-    estMeses.addEventListener('input', updateEstimator);
 
     // ---- Before/After sliders (como AntesDespues.jsx) ----
     document.querySelectorAll('.ba-slider').forEach(function (fig) {
