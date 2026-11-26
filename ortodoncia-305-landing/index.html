@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v17 (preview)
+<!-- Ortodoncia 305 — Landing page v18 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -42,9 +42,9 @@
           arriba (4/3, caras bien visibles — NADA de círculos) + nombre,
           rol y bio abajo. Beatriz con la foto un poco más baja
           (object-position 10%) y Anabel más alta (50%) para que se les
-          vea bien la cara. La foto del grupo abajo es una tarjeta
-          ANCHA (max-width 52rem) llamada «The team», con el texto
-          CENTRADO y la foto más corta (16/10, recortada un poco abajo).
+          vea bien la cara. La foto del grupo se QUITÓ por completo
+          (Daniel 2026-11-26: «quita la foto del grupo») — el equipo son
+          solo las 3 tarjetas, sin foto del grupo.
        9. Gallery (Gallery.jsx): 4 casos ANTES/DESPUÉS (caso-1, 3, 4, 5 —
           todos panorámicos 763/396, misma distribución) con slider
           arrastrable + tira de pacientes (10 fotos de niños, grandes
@@ -265,13 +265,9 @@
     .team{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1024px){.team{grid-template-columns:repeat(3,1fr)}}
-    .member-front{grid-column:1/-1;max-width:52rem;margin-left:auto;margin-right:auto}
     .member{padding:0;overflow:hidden;background:#fff;border:1px solid var(--ring);border-radius:18px;text-align:left}
     .member img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;border-radius:0;margin:0;box-shadow:none}
     .member-body{padding:1.5rem}
-    .member-front .member-body{text-align:center}
-    .member-front h3{font-size:1.35rem}
-    .member-front img{aspect-ratio:16/10;object-position:center top}
     .member h3{font-size:1.1rem;margin-top:0}
     .member .role{font-size:.85rem;font-weight:600;color:var(--brand-700);margin-top:.15rem}
     .member p{font-size:.9rem;line-height:1.6;color:var(--muted);margin:.6rem 0 0}
@@ -688,14 +684,6 @@
               <h3>Anabel Alonso</h3>
               <p class="role" data-en="Patient Coordinator" data-es="Coordinadora de pacientes">Patient Coordinator</p>
               <p data-en="Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family." data-es="Coordinadora de pacientes. Nacida y criada en Cuba, lleva casi tres años en el equipo de recepción — su sonrisa cálida hace que cada paciente se sienta en familia.">Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family.</p>
-            </div>
-          </div>
-          <div class="member member-front card-hover reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-grupo.jpg" alt="The whole Ortodoncia 305 team together at the clinic" loading="lazy" />
-            <div class="member-body">
-              <h3 data-en="The team" data-es="El equipo">The team</h3>
-              <p class="role" data-en="Kendall, Miami" data-es="Kendall, Miami">Kendall, Miami</p>
-              <p data-en="A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check." data-es="Un equipo pequeño que conoce a sus pacientes por su nombre. Los padres tratan con las mismas caras desde la primera visita hasta el último control de retenedores.">A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check.</p>
             </div>
           </div>
         </div>
