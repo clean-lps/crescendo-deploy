@@ -1,34 +1,56 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v4 (preview)
-     Rediseño 2026-11-25 tras el feedback de Daniel: «se aleja del estilo
-     que tenía la página completa... más plástico». Esta v4 COPIA EL SISTEMA
-     VISUAL REAL DEL SITIO COMPLETO (src/index.css, "Sistema visual v4",
-     y src/pages/Home.jsx + src/components/Chrome.jsx del repo
-     clean-lps/Ortodoncia-305, v1.2-corregida):
-     - Tipografía redondeada del sistema (ui-rounded / SF Pro Rounded /
-       system-ui). SIN serif, SIN Google Fonts.
-     - Fondos blanco y mist #EDF4FA alternados; el único bloque oscuro es
-       el pie (.brand-closing) y la banda de cierre. Banda CTA azul plana,
-       sin degradados.
-     - La rayita verde #A0C030 (3rem x 6px) bajo cada título de sección.
-     - Tarjetas .card-hover (borde azul al hover, glow suave).
-     - Header real: TopBar azul + logo ancho logo-oficial.png + eslogan +
-       botones "Text us" y "Call". Footer real: logo blanco
-       logo-oficial-blanco.png + 4 columnas + "Marketing by CDM" con logo.
-     - Hero real del Home: carrusel de 4 fotos, eyebrow, eslogan, h1 con
-       rayita, 2 CTA, estrellas + 5.0 · 53 reseñas · Desde 2015, chips.
-     - Secciones del Home como landing (home + contacto): bienvenida con el
-       texto exacto de la web vieja, fila de logos (iTero, Invisalign
-       Provider, AAO), tratamientos, financiamiento, reseñas, tour por la
-       oficina, banda de cierre, contacto. SIN equipo ni FAQ (lo pidió Beatriz).
-     - Oferta BIEN VISIBLE (pedido de Daniel 2026-11-25): banda azul de
-       ahorros justo bajo el header (como la del sitio viejo) + sección de
-       3 recuadros con foto y color (SIN números 1, 2, 3) + banda de ahorros.
-       Ofertas del sitio viejo de la clínica: $1,000 OFF, retenedor gratis,
-       consulta gratis con rayos X, 0% interés, $99 inicial / $99 al mes.
-       SIN fecha de vencimiento: la del sitio viejo (30 sep 2025) venció.
-     Todo el contenido es REAL de la web v1.2 (src/data.js) y del sitio viejo.
-     Formulario: mismo contrato que src/mailService.js. -->
+<!-- Ortodoncia 305 — Landing page v5 (preview)
+     Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
+     había en las varias páginas del sitio completo en un solo Home con
+     sentido — cada sección muestra algo y todas juntas hacen que el cliente
+     contrate. Mantiene el sistema visual real v4 (el que le gustó a la
+     clienta): tipografía redondeada del sistema, mist/blanco, rayita verde,
+     oscuro solo en pie y banda de cierre, header/footer reales.
+     PLAN (sección por sección, del repo clean-lps/Ortodoncia-305 v1.2):
+       1. TopBar + header reales (Chrome.jsx).
+       2. OFERTA con FOTO (pedido de Daniel): banda azul con la foto de la
+          muchacha sonriendo (hero-sonrisa-teen.jpg, como el sitio viejo:
+          banner + foto) + las 4 ofertas + el LOGO DE INVISALIGN
+          (branding/invisalign-logo.jpg) junto a "$1,000 OFF Invisalign".
+       3. Hero con carrusel de 4 fotos (Home.jsx).
+       4. Welcome con el texto exacto de la web vieja + logos (iTero,
+          Invisalign Provider, AAO).
+       5. Tratamientos: 6 tarjetas; la de Invisalign lleva su logo como
+          título (logoTitulo de data.js), como en el sitio.
+       6. Offers: 3 recuadros (foto + color, SIN números 1, 2, 3) + banda
+          de ahorros. AHORA DESPUÉS de Welcome/Tratamientos — "Special
+          offers antes de welcome no tiene sentido".
+       7. Financiamiento completo (Financing.jsx): 4 tarjetas (Cherry,
+          CareCredit, tarjetas y efectivo, descuentos) + ESTIMADOR (2
+          controles: monto $500–$8,000 y meses 6–36; cuota = monto ÷ meses)
+          + "How to apply" en 4 pasos + nota de no-precios.
+       8. About (About.jsx + data.js equipo): retrato del Dr. Murillo,
+          bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el equipo completo
+          (Beatriz, Madeline, Anabel) con fotos y bios reales.
+       9. Gallery (Gallery.jsx): 8 casos ANTES/DESPUÉS con slider
+          arrastrable (fotos caso-N-antes/despues.jpg, proporciones reales)
+          + tira de pacientes (10 fotos de niños) con pausa.
+      10. Tour por la oficina: tira automática de las 10 fotos vivas
+          (G4, G1, G9, G11, G14, V1–V5; NUNCA G13/G15) con pausa.
+      11. Reviews: CARRUSEL DOBLE (ReviewMarquee.jsx, rowCount=2): 2 filas
+          de 4 reseñas reales que se mueven en sentidos opuestos + pausa.
+      12. FAQ (HomeFaq.jsx + FAQS de data.js): acordeón con las 8
+          preguntas reales.
+      13. Banda de cierre "Let us make your smile".
+      14. Contacto (info + formulario + mapa).
+      15. Footer SIMPLIFICADO (pedido de Daniel: sin sitemap ni tantas
+          cosas): logo blanco + texto, contacto + redes + crédito CDM.
+     Las ofertas ($1,000 OFF, $99 inicial / $99 al mes, retenedor gratis,
+     consulta gratis con rayos X, 0% interés) son las del banner original
+     del sitio viejo (promotions/banner2.jpg) — el propio sitio las archiva
+     como "Previous promotion · September 2025, Ended September 30, 2025"
+     (LegacyPromotions.jsx: "must never be presented as a current offer").
+     En este landing se muestran como pidió Daniel/Beatriz, SIN fecha de
+     vencimiento y con la nota "el costo se confirma en tu evaluación —
+     pregunta por las ofertas actuales". Beatriz debe confirmar si siguen
+     vigentes y hasta cuándo.
+     Todo el contenido es REAL de la web v1.2 y del sitio viejo. Formulario:
+     mismo contrato que src/mailService.js. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -51,8 +73,8 @@
       --brand-50:#eef7fd; --brand-100:#d9eefb; --brand-200:#b3ddf6; --brand-300:#7cc4e8;
       --brand-400:#38a3dd; --brand-500:#0090d0; --brand-600:#0060b0; --brand-700:#0050a0;
       --brand-800:#064a7d; --brand-900:#0a3a5e; --brand-950:#062639;
-      --mist:#edf4fa; --leaf:#a0c030; --leaf-600:#71861f; --bracket:#f08020; --ring:#dce9f4;
-      --ink:#0f172a; --muted:#475569;
+      --mist:#edf4fa; --leaf:#a0c030; --leaf-100:#eef4d3; --leaf-400:#a0c030; --leaf-600:#71861f; --leaf-700:#5a6b1a;
+      --bracket:#f08020; --ring:#dce9f4; --ink:#0f172a; --muted:#475569;
       --sans:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
     }
     *{box-sizing:border-box}
@@ -105,7 +127,7 @@
     @media(min-width:640px){.brand img{height:3.5rem}}
     .brand small{display:none;margin-top:.25rem;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--brand-600)}
     @media(min-width:640px){.brand small{display:block}}
-    nav.main{display:none;align-items:center;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--muted)}
+    nav.main{display:none;align-items:center;gap:1.4rem;font-size:.875rem;font-weight:500;color:var(--muted)}
     @media(min-width:1024px){nav.main{display:flex}}
     nav.main a{color:var(--muted);text-decoration:none;transition:color .2s}
     nav.main a:hover{color:var(--brand-700)}
@@ -120,14 +142,21 @@
     .btn-call{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--brand-600);padding:.5rem .75rem;font-size:.75rem;font-weight:600;color:#fff;text-decoration:none;box-shadow:0 4px 12px rgb(0 96 176/.3);transition:transform .2s,background .2s;white-space:nowrap}
     @media(min-width:640px){.btn-call{padding:.5rem 1rem;font-size:.875rem}}
     .btn-call:hover{transform:translateY(-2px);background:var(--brand-700)}
-    /* Banda de oferta (como la del sitio viejo, azul plana) */
-    .offerbar{background:var(--brand-600);color:#fff}
-    .offerbar-in{max-width:72rem;margin:0 auto;padding:.7rem 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1.2rem;text-align:center}
-    .offerbar .lbl{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgb(255 255 255/.16);border-radius:999px;padding:.3rem .8rem;white-space:nowrap}
-    .offerbar ul{display:flex;flex-wrap:wrap;gap:.35rem 1rem;list-style:none;margin:0;padding:0;justify-content:center}
-    .offerbar li{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:.45rem}
-    .offerbar li .lucide{width:1em;height:1em;color:#c4d97e}
-    .offerbar .btn{padding:.55rem 1.2rem;font-size:.9rem}
+    /* Oferta con foto (banda azul, como el sitio viejo: banner + foto) */
+    .offer-hero{background:var(--brand-600);color:#fff}
+    .offer-hero-in{max-width:72rem;margin:0 auto;padding:2rem 20px;display:grid;gap:1.75rem;align-items:center}
+    @media(min-width:1024px){.offer-hero-in{grid-template-columns:5fr 7fr;padding:2.5rem 24px}}
+    .offer-hero img.girl{border-radius:18px;aspect-ratio:16/10;object-fit:cover;width:100%;box-shadow:0 18px 36px -12px rgb(0 20 50/.5)}
+    .offer-hero .eyebrow{color:#c4d97e}
+    .offer-hero h2{color:#fff;margin-top:.5rem}
+    .offer-hero h2 .big{color:#d7e9a0}
+    .offer-list{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:.6rem}
+    .offer-list li{display:flex;gap:.6rem;align-items:center;font-weight:700;font-size:1.05rem}
+    .offer-list .lucide{width:1.15em;height:1.15em;color:#c4d97e;flex:none}
+    .invis-chip{display:inline-flex;align-items:center;background:#fff;border-radius:999px;padding:.3rem .9rem .3rem .3rem;gap:.5rem;font-weight:800;color:var(--brand-800);font-size:.95rem}
+    .invis-chip img{height:1.6rem;width:auto}
+    .offer-hero .btn{margin-top:1.5rem}
+    .offer-hero .fine{margin-top:1rem;font-size:.85rem;color:var(--brand-200)}
     /* Hero (como Home.jsx) */
     .hero{background:var(--mist);padding:3rem 0 4rem}
     .hero-grid{display:grid;gap:2.5rem;align-items:center}
@@ -171,6 +200,7 @@
     .promo-blue{background:var(--brand-600)}
     .promo-blue2{background:var(--brand-700)}
     .promo-navy{background:var(--brand-900)}
+    .promo .invis-chip{margin-bottom:.4rem}
     .savings{margin-top:1.25rem;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;background:#fff}
     .savings h3{font-size:1.3rem}
     .savings-list{display:flex;flex-wrap:wrap;gap:.7rem 2rem;list-style:none;padding:0;margin:1rem 0 0}
@@ -201,30 +231,107 @@
     .card-hover{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
     .card-hover:hover{transform:translateY(-4px);border-color:var(--brand-600);box-shadow:0 24px 40px -20px rgb(0 96 176/.35),0 0 0 1px rgb(0 144 208/.35)}
     /* Financiamiento */
-    .fin-card{display:grid;gap:2rem;border:1px solid var(--ring);border-radius:18px;background:#fff;padding:1.5rem;box-shadow:0 2px 6px rgb(6 38 57/.05)}
-    @media(min-width:640px){.fin-card{padding:2.5rem 3rem}}
-    @media(min-width:1024px){.fin-card{grid-template-columns:1fr 1fr;align-items:center}}
-    .fin-list{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-    .fin-list li{display:flex;align-items:center;gap:.75rem;border-radius:1rem;background:var(--mist);padding:.875rem 1.25rem;border:1px solid var(--ring);font-weight:600;transition:background .2s}
-    .fin-list li:hover{background:var(--brand-50)}
-    .fin-list .lucide{width:1.25rem;height:1.25rem;color:var(--brand-600);flex:none}
-    /* Reseñas */
-    .reviews{display:grid;gap:1.25rem;margin-top:2.5rem}
-    @media(min-width:640px){.reviews{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.reviews{grid-template-columns:repeat(3,1fr)}}
-    .review{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;display:flex;flex-direction:column}
-    .review.featured{grid-column:1/-1}
-    @media(min-width:1024px){.review.featured{grid-column:span 3}}
-    .review .stars{display:flex;gap:.15rem;margin-bottom:.8rem}
-    .review blockquote{margin:0;font-size:1.05rem;line-height:1.6}
-    .review.featured blockquote{font-size:1.25rem;font-weight:600;line-height:1.5}
-    .review footer{margin-top:1rem;font-size:.875rem;font-weight:700;color:var(--muted)}
-    .review footer span{display:block;font-weight:500;margin-top:.15rem}
-    .quote-mark{font-size:2.5rem;line-height:1;color:var(--brand-200);font-weight:800}
-    /* Tour */
-    .tour-strip{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.5rem;margin-top:2.5rem;-webkit-overflow-scrolling:touch}
-    .tour-strip img{width:260px;height:190px;object-fit:cover;border-radius:20px;flex:none;scroll-snap-align:start}
-    .tour-hint{margin-top:1rem;font-size:.875rem;font-weight:600;color:var(--brand-700);display:inline-flex;align-items:center;gap:.4rem}
+    .fin-options{display:grid;gap:1.25rem;margin-top:2.5rem}
+    @media(min-width:640px){.fin-options{grid-template-columns:repeat(2,1fr)}}
+    .fin-option{border-radius:20px;border:1px solid var(--ring);background:#fff;padding:1.75rem}
+    @media(min-width:640px){.fin-option{padding:2.25rem}}
+    .fin-option .rayita{margin-top:0}
+    .fin-option .lucide.big{width:2rem;height:2rem;color:var(--brand-600);margin-top:1rem}
+    .fin-option h3{font-size:1.35rem;margin-top:1rem}
+    .fin-option p{margin:.5rem 0 0;line-height:1.6;color:var(--muted)}
+    .fin-planner{display:grid;gap:3rem;align-items:start;margin-top:3rem}
+    @media(min-width:1024px){.fin-planner{grid-template-columns:1.05fr 1fr;gap:4rem}}
+    .estimator{border-radius:18px;border:1px solid var(--ring);background:#fff;padding:1.75rem;box-shadow:0 2px 6px rgb(6 38 57/.05)}
+    @media(min-width:640px){.estimator{padding:2.25rem}}
+    .estimator .pill-0{display:inline-flex;border-radius:999px;background:var(--leaf-100);padding:.3rem .8rem;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--leaf-700);border:1px solid rgb(160 192 48/.4);margin-top:.75rem}
+    .est-row{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;margin-top:1.5rem}
+    .est-row label{font-size:.875rem;font-weight:600}
+    .est-row output{font-size:1.25rem;font-weight:800;font-variant-numeric:tabular-nums}
+    .est-range{width:100%;accent-color:var(--brand-600);margin-top:.5rem}
+    .est-note{font-size:.75rem;color:#64748b;margin:.25rem 0 0}
+    .est-result{margin-top:1.75rem;border-radius:1rem;background:var(--brand-50);padding:1.25rem 1.5rem;text-align:center;border:1px solid rgb(160 192 48/.6)}
+    .est-result .big{font-size:2.25rem;font-weight:800}
+    .est-result .big span{font-size:1.125rem;font-weight:600;color:var(--muted)}
+    .steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.5rem}
+    .steps li{display:flex;gap:1rem}
+    .steps .num{flex:none;width:2rem;height:2rem;border-radius:999px;background:var(--brand-600);color:#fff;font-size:.875rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+    .steps h3{font-size:1.05rem}
+    .steps p{margin:.25rem 0 0;line-height:1.6;color:var(--muted)}
+    .fin-note{display:flex;gap:.5rem;align-items:flex-start;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #c9dce9;font-size:.875rem;line-height:1.6;color:var(--muted)}
+    .fin-note .lucide{width:1.25rem;height:1.25rem;flex:none;color:var(--brand-600);margin-top:.15rem}
+    /* About */
+    .about-grid{display:grid;gap:2.5rem;align-items:center;margin-top:2.5rem}
+    @media(min-width:1024px){.about-grid{grid-template-columns:2fr 3fr}}
+    .about-portrait{border-radius:18px;max-width:276px;margin:0 auto;box-shadow:0 18px 36px -18px rgb(6 38 57/.3)}
+    .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.75rem;text-align:center}
+    .about-stat{border-radius:1rem;background:var(--brand-50);padding:1rem .75rem;border:1px solid var(--brand-100)}
+    .about-stat b{display:block;font-size:1.5rem;font-weight:800;color:var(--brand-700)}
+    .about-stat span{display:block;margin-top:.25rem;font-size:.75rem;font-weight:600;color:var(--muted)}
+    .team{display:grid;gap:1.25rem;margin-top:2.5rem}
+    @media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.team{grid-template-columns:repeat(4,1fr)}}
+    .member{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;text-align:center}
+    .member img{width:5rem;height:5rem;border-radius:999px;object-fit:cover;margin:0 auto;box-shadow:0 0 0 2px var(--brand-600)}
+    .member h3{font-size:1.1rem;margin-top:1rem}
+    .member .role{font-size:.85rem;font-weight:600;color:var(--brand-700);margin-top:.15rem}
+    .member p{font-size:.9rem;line-height:1.6;color:var(--muted);margin:.6rem 0 0}
+    /* Galería: antes/después */
+    .ba-grid{display:grid;gap:1.75rem;margin-top:2.5rem}
+    @media(min-width:768px){.ba-grid{grid-template-columns:repeat(2,1fr)}}
+    .ba-slider{overflow:hidden;border-radius:18px;box-shadow:0 20px 36px -18px rgb(10 58 94/.25);border:1px solid var(--ring);margin:0;background:#fff}
+    .ba-stage{position:relative;user-select:none}
+    .ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ba-before{position:absolute;inset:0;overflow:hidden}
+    .ba-before img{max-width:none}
+    .ba-tag{position:absolute;top:.75rem;border-radius:999px;padding:.25rem .75rem;font-size:.75rem;font-weight:700;color:#fff;z-index:2}
+    .ba-tag.before{left:.75rem;background:rgb(6 38 57/.7)}
+    .ba-tag.after{right:.75rem;background:rgb(0 80 160/.85)}
+    .ba-divider{position:absolute;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 8px rgb(0 0 0/.4);z-index:2}
+    .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
+    .ba-handle{position:absolute;top:50%;transform:translate(-50%,-50%);width:2.75rem;height:2.75rem;border-radius:999px;border:3px solid var(--leaf);background:#fff;color:var(--brand-700);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgb(0 0 0/.25);z-index:2;pointer-events:none}
+    .ba-slider figcaption{background:#fff;padding:1rem 1.25rem}
+    .ba-slider figcaption b{font-size:.875rem}
+    .ba-slider figcaption p{margin:.15rem 0 0;font-size:.75rem;color:#64748b}
+    /* Tiras (filmstrip) */
+    .strip-wrap{overflow:hidden;border-radius:1.25rem}
+    .strip-track{display:flex;width:max-content;animation:strip-travel 45s linear infinite}
+    .strip-track.slow{animation-duration:55s}
+    .strip-group{display:flex;flex-shrink:0;gap:1rem;padding-right:1rem}
+    .strip-group img{width:260px;height:190px;object-fit:cover;border-radius:20px;flex:none}
+    .strip-group img.tall{width:230px;height:230px}
+    .strip-paused .strip-track{animation-play-state:paused}
+    @keyframes strip-travel{to{transform:translateX(-50%)}}
+    .strip-toggle{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;border:1px solid var(--ring);background:#fff;padding:.6rem 1.1rem;font-size:.8125rem;font-weight:700;color:var(--brand-700);cursor:pointer;font-family:var(--sans);margin-top:1.25rem}
+    .strip-toggle:hover{background:var(--mist);border-color:var(--brand-600)}
+    /* Reseñas: carrusel doble */
+    .marquee{--card-w:min(84vw,380px);--gap:1.25rem;width:100%;min-width:0}
+    .marquee-toolbar{display:flex;justify-content:flex-end;margin-bottom:1.25rem}
+    .marquee-toggle{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.625rem 1rem;border:1px solid var(--ring);border-radius:999px;color:var(--brand-700);background:#fff;font-size:.8125rem;font-weight:700;cursor:pointer;font-family:var(--sans)}
+    .marquee-toggle:hover{background:var(--mist);border-color:var(--brand-600)}
+    .marquee-row{overflow:hidden;border-radius:1.25rem}
+    .marquee-row + .marquee-row{margin-top:var(--gap)}
+    .marquee-track{display:flex;width:max-content;animation:marquee-drift 38s linear infinite}
+    .marquee-row.reverse .marquee-track{animation-direction:reverse;animation-duration:32s}
+    .marquee-group{display:flex;flex-shrink:0;gap:var(--gap);padding-right:var(--gap)}
+    .marquee-card{display:flex;flex-direction:column;flex:0 0 var(--card-w);width:var(--card-w);min-width:0;margin:0;padding:1.25rem 1.5rem;border:1px solid var(--ring);border-radius:1.25rem;background:#fff}
+    .marquee-card .stars{display:flex;gap:.125rem;color:var(--bracket)}
+    .marquee-card blockquote{margin:1rem 0 1.5rem;color:#334155;font-size:.875rem;line-height:1.7}
+    .marquee-card blockquote mark{background:#fdf0d5;color:inherit;padding:0 .15rem;border-radius:.2rem}
+    .marquee-card figcaption{display:flex;flex-direction:column;gap:.25rem;margin-top:auto;font-size:.75rem;line-height:1.5;color:#64748b}
+    .marquee-card figcaption strong{color:var(--brand-700);font-weight:700}
+    .marquee.paused .marquee-track{animation-play-state:paused}
+    @keyframes marquee-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* FAQ */
+    .faq-layout{display:grid;gap:2rem;margin-top:2.5rem}
+    @media(min-width:1024px){.faq-layout{grid-template-columns:1fr 1.6fr;gap:3rem}}
+    .faq-item{border-bottom:1px solid var(--ring)}
+    .faq-q{display:flex;width:100%;align-items:center;justify-content:space-between;gap:1rem;background:none;border:0;padding:1.1rem 0;cursor:pointer;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--ink);text-align:left}
+    .faq-q .plus{flex:none;width:1.5rem;height:1.5rem;color:var(--brand-600);transition:transform .25s ease}
+    .faq-item.open .faq-q .plus{transform:rotate(45deg)}
+    .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+    .faq-item.open .faq-a{grid-template-rows:1fr}
+    .faq-a-inner{overflow:hidden}
+    .faq-a p{margin:0;padding:0 0 1.1rem;line-height:1.65;color:var(--muted)}
     /* Banda de cierre */
     .brand-closing{background-color:var(--brand-600);background-image:linear-gradient(135deg,rgb(255 255 255/.08),transparent 45%,rgb(0 34 80/.22));color:#fff;box-shadow:inset 0 1px 0 rgb(255 255 255/.18),0 14px 36px -22px rgb(0 58 112/.6)}
     .closing{border-radius:18px;padding:3rem 1.5rem;text-align:center;color:#fff}
@@ -262,11 +369,10 @@
     .form-msg.ok{color:#2e7d0f}
     .form-msg.err{color:#b3261e}
     .form-note{margin-top:1rem;font-size:.86rem;color:var(--muted)}
-    /* Footer (como Chrome.jsx) */
+    /* Footer simplificado */
     footer.site-footer{box-shadow:inset 0 1px 0 rgb(255 255 255/.18),0 -12px 36px -24px rgb(0 58 112/.45)}
-    .foot-grid{display:grid;gap:2.5rem;max-width:72rem;margin:0 auto;padding:3.5rem 20px}
-    @media(min-width:768px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.foot-grid{grid-template-columns:repeat(4,1fr)}}
+    .foot-grid{display:grid;gap:2.5rem;max-width:72rem;margin:0 auto;padding:3rem 20px}
+    @media(min-width:768px){.foot-grid{grid-template-columns:1.3fr 1fr}}
     footer .flogo{height:3.5rem;width:auto}
     footer p{font-size:.875rem;line-height:1.65;color:var(--brand-100)}
     footer h4{margin:0 0 1rem;font-size:.875rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#fff}
@@ -296,7 +402,7 @@
     /* Reveal */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .42s ease,transform .42s ease}
     .reveal.in{opacity:1;transform:none}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}.strip-track,.marquee-track{animation-duration:55s}}
   </style>
 </head>
 <body>
@@ -318,6 +424,7 @@
         <a href="#offers" data-en="Offers" data-es="Ofertas">Offers</a>
         <a href="#treatments" data-en="Treatments" data-es="Tratamientos">Treatments</a>
         <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
+        <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
       <div class="header-btns">
@@ -331,16 +438,22 @@
     </div>
   </header>
 
-  <div class="offerbar">
-    <div class="offerbar-in">
-      <span class="lbl" data-en="Special offers" data-es="Ofertas especiales">Special offers</span>
-      <ul>
-        <li><i data-lucide="badge-percent"></i><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></li>
-        <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
-        <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
-        <li><i data-lucide="percent"></i><span data-en="0% Interest" data-es="0% de interés">0% Interest</span></li>
-      </ul>
-      <a class="btn btn-white" href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span></a>
+  <!-- ============ OFERTA CON FOTO ============ -->
+  <div class="offer-hero" id="offer-top">
+    <div class="offer-hero-in">
+      <img class="girl" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" alt="Girl smiling with braces" fetchpriority="high" />
+      <div>
+        <p class="eyebrow" data-en="Special offers" data-es="Ofertas especiales">Special offers</p>
+        <h2><span data-en="Save on your new smile" data-es="Ahorra en tu nueva sonrisa">Save on your new smile</span> <span class="big" data-en="— starting today" data-es="— desde hoy">— starting today</span></h2>
+        <ul class="offer-list">
+          <li><span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></span></li>
+          <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
+          <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
+          <li><i data-lucide="percent"></i><span data-en="0% Interest — Braces $99 Down &amp; $99/Month" data-es="0% de interés — Frenillos $99 de inicial y $99 al mes">0% Interest — Braces $99 Down &amp; $99/Month</span></li>
+        </ul>
+        <a class="btn btn-white" href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
+        <p class="fine" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
+      </div>
     </div>
   </div>
 
@@ -387,56 +500,6 @@
       </div>
     </section>
 
-    <!-- ============ OFFERS ============ -->
-    <section class="section" id="offers">
-      <div class="wrap">
-        <div class="sec-head center reveal">
-          <p class="eyebrow" data-en="Special offers" data-es="Ofertas especiales">Special offers</p>
-          <h2><span data-en="A new smile, within reach" data-es="Una nueva sonrisa, a tu alcance">A new smile, within reach</span><span class="rayita" aria-hidden="true"></span></h2>
-          <p class="lead" style="margin-top:1rem" data-en="Start today with a low down payment and low monthly payments — and ask about our current savings." data-es="Empieza hoy con una inicial baja y pagos mensuales bajos — y pregunta por nuestros ahorros actuales.">Start today with a low down payment and low monthly payments — and ask about our current savings.</p>
-        </div>
-        <div class="promo-cards">
-          <article class="promo promo-blue reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-braces.jpg" alt="Braces treatment" loading="lazy" />
-            <div class="promo-body">
-              <span class="ic"><i data-lucide="wallet"></i></span>
-              <h3 data-en="$99 Down" data-es="$99 de inicial">$99 Down</h3>
-              <p data-en="Low down payment + Flexible financing" data-es="Inicial baja + financiamiento flexible">Low down payment + Flexible financing</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="promo promo-blue2 reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
-            <div class="promo-body">
-              <span class="ic"><i data-lucide="calendar-check"></i></span>
-              <h3 data-en="As Low As $99/Month" data-es="Desde $99 al mes">As Low As $99/Month</h3>
-              <p data-en="Low monthly payments" data-es="Pagos mensuales bajos">Low monthly payments</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="promo promo-navy reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-doctor-paciente.jpg" alt="Dr. Murillo with a patient" loading="lazy" />
-            <div class="promo-body">
-              <span class="ic"><i data-lucide="zap"></i></span>
-              <h3 data-en="Start The Same Day" data-es="Empieza el mismo día">Start The Same Day</h3>
-              <p data-en="Get your new smile started right away" data-es="Empieza tu nueva sonrisa hoy mismo">Get your new smile started right away</p>
-              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="savings reveal">
-          <h3 data-en="Current savings" data-es="Ahorros actuales">Current savings</h3>
-          <ul class="savings-list">
-            <li><i data-lucide="check"></i><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></li>
-            <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
-            <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
-            <li><i data-lucide="check"></i><span data-en="0% Interest" data-es="0% de interés">0% Interest</span></li>
-          </ul>
-          <p class="savings-note" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ WELCOME ============ -->
     <section style="background:#fff">
       <div class="wrap" style="padding-top:4rem;padding-bottom:1rem">
@@ -459,12 +522,10 @@
     <!-- ============ TREATMENTS ============ -->
     <section class="section" id="treatments">
       <div class="wrap">
-        <div class="reveal" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem">
-          <div style="max-width:42rem">
-            <p class="eyebrow" data-en="Treatments" data-es="Tratamientos">Treatments</p>
-            <h2><span data-en="Treatments for kids, teens &amp; adults" data-es="Tratamientos para niños, adolescentes y adultos">Treatments for kids, teens &amp; adults</span><span class="rayita" aria-hidden="true"></span></h2>
-            <p class="lead" style="margin-top:1rem" data-en="Braces, clear aligners and care for every stage of life." data-es="Frenillos, alineadores y atención para cada etapa de la vida.">Braces, clear aligners and care for every stage of life.</p>
-          </div>
+        <div class="reveal" style="max-width:42rem">
+          <p class="eyebrow" data-en="Treatments" data-es="Tratamientos">Treatments</p>
+          <h2><span data-en="Treatments for kids, teens &amp; adults" data-es="Tratamientos para niños, adolescentes y adultos">Treatments for kids, teens &amp; adults</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem" data-en="Braces, clear aligners and care for every stage of life." data-es="Frenillos, alineadores y atención para cada etapa de la vida.">Braces, clear aligners and care for every stage of life.</p>
         </div>
         <div class="cards">
           <a class="card card-hover reveal" href="#contact">
@@ -476,9 +537,9 @@
             </div>
           </a>
           <a class="card card-hover reveal" href="#contact">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Patient placing a clear aligner" loading="lazy" />
             <div class="card-body">
-              <h3>Invisalign</h3>
+              <h3><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" style="height:2.25rem;width:auto" loading="lazy" /></h3>
               <p data-en="Discreet, removable clear aligners for mild to moderate cases." data-es="Alineadores transparentes, discretos y removibles, para casos leves a moderados.">Discreet, removable clear aligners for mild to moderate cases.</p>
               <span class="more"><span data-en="Ask about Invisalign" data-es="Pregunta por Invisalign">Ask about Invisalign</span><i data-lucide="arrow-right"></i></span>
             </div>
@@ -519,30 +580,368 @@
       </div>
     </section>
 
-    <!-- ============ FINANCING ============ -->
-    <section class="section mist" id="financing">
+    <!-- ============ OFFERS ============ -->
+    <section class="section" id="offers">
       <div class="wrap">
-        <div class="fin-card reveal">
-          <div>
-            <p class="eyebrow" data-en="Financing" data-es="Financiamiento">Financing</p>
-            <h2><span data-en="Monthly payments that fit your family" data-es="Pagos mensuales que le convienen a tu familia">Monthly payments that fit your family</span><span class="rayita" aria-hidden="true"></span></h2>
-            <p class="lead" style="margin-top:1rem" data-en="Cash, credit and debit cards — plus Cherry and CareCredit financing, and discounts. The exact plan is worked out with each family at the first visit." data-es="Efectivo, tarjetas de crédito y débito — además de financiamiento con Cherry y CareCredit, y descuentos. El plan exacto se acuerda con cada familia en la primera visita.">Cash, credit and debit cards — plus Cherry and CareCredit financing, and discounts. The exact plan is worked out with each family at the first visit.</p>
-            <div style="margin-top:1.5rem">
-              <a class="btn btn-primary" href="#offers"><span data-en="See financing &amp; offers" data-es="Ver financiamiento y ofertas">See financing &amp; offers</span><i data-lucide="arrow-right"></i></a>
+        <div class="sec-head center reveal">
+          <p class="eyebrow" data-en="Special offers" data-es="Ofertas especiales">Special offers</p>
+          <h2><span data-en="A new smile, within reach" data-es="Una nueva sonrisa, a tu alcance">A new smile, within reach</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem" data-en="Start today with a low down payment and low monthly payments — and ask about our current savings." data-es="Empieza hoy con una inicial baja y pagos mensuales bajos — y pregunta por nuestros ahorros actuales.">Start today with a low down payment and low monthly payments — and ask about our current savings.</p>
+        </div>
+        <div class="promo-cards">
+          <article class="promo promo-blue reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-braces.jpg" alt="Braces treatment" loading="lazy" />
+            <div class="promo-body">
+              <span class="ic"><i data-lucide="wallet"></i></span>
+              <h3 data-en="$99 Down" data-es="$99 de inicial">$99 Down</h3>
+              <p data-en="Low down payment + Flexible financing" data-es="Inicial baja + financiamiento flexible">Low down payment + Flexible financing</p>
+              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
             </div>
-          </div>
-          <ul class="fin-list">
-            <li><i data-lucide="shield-check"></i><span data-en="Cherry financing" data-es="Financiamiento Cherry">Cherry financing</span></li>
-            <li><i data-lucide="shield-check"></i><span>CareCredit</span></li>
-            <li><i data-lucide="shield-check"></i><span data-en="Credit &amp; debit cards" data-es="Tarjetas de crédito y débito">Credit &amp; debit cards</span></li>
-            <li><i data-lucide="shield-check"></i><span data-en="Cash — and discounts" data-es="Efectivo — y descuentos">Cash — and discounts</span></li>
+          </article>
+          <article class="promo promo-blue2 reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/tratamiento-aligners.jpg" alt="Clear aligners" loading="lazy" />
+            <div class="promo-body">
+              <span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span>Invisalign</span></span>
+              <h3 data-en="As Low As $99/Month" data-es="Desde $99 al mes">As Low As $99/Month</h3>
+              <p data-en="Low monthly payments" data-es="Pagos mensuales bajos">Low monthly payments</p>
+              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="promo promo-navy reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/hero-doctor-paciente.jpg" alt="Dr. Murillo with a patient" loading="lazy" />
+            <div class="promo-body">
+              <span class="ic"><i data-lucide="zap"></i></span>
+              <h3 data-en="Start The Same Day" data-es="Empieza el mismo día">Start The Same Day</h3>
+              <p data-en="Get your new smile started right away" data-es="Empieza tu nueva sonrisa hoy mismo">Get your new smile started right away</p>
+              <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="savings reveal">
+          <h3 data-en="Current savings" data-es="Ahorros actuales">Current savings</h3>
+          <ul class="savings-list">
+            <li><i data-lucide="check"></i><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></li>
+            <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
+            <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
+            <li><i data-lucide="check"></i><span data-en="0% Interest" data-es="0% de interés">0% Interest</span></li>
           </ul>
+          <p class="savings-note" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ REVIEWS ============ -->
-    <section class="section" id="reviews">
+    <!-- ============ FINANCING ============ -->
+    <section class="section mist" id="financing">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Financing" data-es="Financiamiento">Financing</p>
+          <h2><span data-en="Explore your payment options" data-es="Explora tus opciones de pago">Explore your payment options</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem;max-width:42rem" data-en="Treatment shouldn't wait for a lump sum. Pay with Cherry or CareCredit, cards or cash — and ask about discounts at the first visit." data-es="El tratamiento no debería esperar a un pago único. Paga con Cherry o CareCredit, tarjetas o efectivo — y pregunta por los descuentos en la primera visita.">Treatment shouldn't wait for a lump sum. Pay with Cherry or CareCredit, cards or cash — and ask about discounts at the first visit.</p>
+        </div>
+        <div class="fin-options">
+          <article class="fin-option card-hover reveal">
+            <span class="rayita" aria-hidden="true"></span>
+            <p style="margin-top:1rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600)" data-en="Financing partner" data-es="Socio de financiamiento">Financing partner</p>
+            <h3>Cherry</h3>
+            <p data-en="Split the treatment cost into monthly payments. Apply at the office — the team walks you through it, in English or Spanish." data-es="Divide el costo del tratamiento en pagos mensuales. Solicítalo en la oficina — el equipo te acompaña en el proceso, en inglés o español.">Split the treatment cost into monthly payments. Apply at the office — the team walks you through it, in English or Spanish.</p>
+          </article>
+          <article class="fin-option card-hover reveal">
+            <span class="rayita" aria-hidden="true"></span>
+            <p style="margin-top:1rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600)" data-en="Financing partner" data-es="Socio de financiamiento">Financing partner</p>
+            <h3>CareCredit</h3>
+            <p data-en="The healthcare credit card many families already know. Ask at the office whether it fits your plan." data-es="La tarjeta de crédito para salud que muchas familias ya conocen. Pregunta en la oficina si se ajusta a tu plan.">The healthcare credit card many families already know. Ask at the office whether it fits your plan.</p>
+          </article>
+          <article class="fin-option card-hover reveal">
+            <span class="rayita" aria-hidden="true"></span>
+            <i data-lucide="credit-card" class="big"></i>
+            <h3 data-en="Cards &amp; cash" data-es="Tarjetas y efectivo">Cards &amp; cash</h3>
+            <p data-en="Credit and debit cards, and cash — the office takes them all." data-es="Tarjetas de crédito y débito, y efectivo — la oficina acepta todos.">Credit and debit cards, and cash — the office takes them all.</p>
+          </article>
+          <article class="fin-option card-hover reveal">
+            <span class="rayita" aria-hidden="true"></span>
+            <i data-lucide="badge-percent" class="big"></i>
+            <h3 data-en="Discounts available" data-es="Descuentos disponibles">Discounts available</h3>
+            <p data-en="Yes, the office offers discounts — ask which ones apply to your family's plan at the first visit." data-es="Sí, la oficina ofrece descuentos — pregunta cuáles se aplican al plan de tu familia en la primera visita.">Yes, the office offers discounts — ask which ones apply to your family's plan at the first visit.</p>
+          </article>
+        </div>
+        <div class="fin-planner">
+          <div class="estimator reveal">
+            <p style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600);margin:0"><i data-lucide="calculator"></i><span data-en="Payment estimator" data-es="Estimador de pagos">Payment estimator</span></p>
+            <h3 style="font-size:1.5rem;margin-top:.75rem" data-en="What could the monthly payment look like?" data-es="¿Cómo podría verse el pago mensual?">What could the monthly payment look like?</h3>
+            <p style="margin-top:.5rem;font-size:.875rem;line-height:1.6;color:var(--muted)" data-en="Move the sliders. This is a simple estimate — the total amount is the one from your evaluation, and the real plan and approval come from Cherry or CareCredit." data-es="Mueve los controles. Esto es una estimación simple — el monto total es el de tu evaluación, y el plan real y la aprobación vienen de Cherry o CareCredit.">Move the sliders. This is a simple estimate — the total amount is the one from your evaluation, and the real plan and approval come from Cherry or CareCredit.</p>
+            <span class="pill-0" data-en="0% interest plans" data-es="Planes sin interés">0% interest plans</span>
+            <div class="est-row">
+              <label for="est-monto" data-en="Treatment total" data-es="Monto total del tratamiento">Treatment total</label>
+              <output id="est-monto-out" for="est-monto">$3,000</output>
+            </div>
+            <input class="est-range" id="est-monto" type="range" min="500" max="8000" step="100" value="3000" />
+            <p class="est-note" data-en="From your evaluation — not a published price." data-es="El monto sale de tu evaluación — no es un precio publicado.">From your evaluation — not a published price.</p>
+            <div class="est-row">
+              <label for="est-meses" data-en="Months" data-es="Meses">Months</label>
+              <output id="est-meses-out" for="est-meses">24 months</output>
+            </div>
+            <input class="est-range" id="est-meses" type="range" min="6" max="36" step="6" value="24" />
+            <div class="est-result">
+              <p style="margin:0;font-size:.875rem;font-weight:600;color:var(--muted)" data-en="Estimated monthly payment" data-es="Cuota mensual estimada">Estimated monthly payment</p>
+              <p class="big" style="margin:.25rem 0 0">$125.00 <span data-en="/mo" data-es="/mes">/mo</span></p>
+              <p style="margin:.5rem 0 0;font-size:.75rem;line-height:1.6;color:#64748b" data-en="Simple estimate (total ÷ months), no interest or fees added. The exact plan depends on Cherry or CareCredit approval — ask at the office or call (305) 310-0027." data-es="Estimación simple (total ÷ meses), sin intereses ni cargos agregados. El plan exacto depende de la aprobación de Cherry o CareCredit — pregunta en la oficina o llama al (305) 310-0027.">Simple estimate (total ÷ months), no interest or fees added. The exact plan depends on Cherry or CareCredit approval — ask at the office or call (305) 310-0027.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <h2><span data-en="How to apply" data-es="Cómo solicitarlo">How to apply</span><span class="rayita" aria-hidden="true"></span></h2>
+            <ol class="steps">
+              <li><span class="num">1</span><div><h3 data-en="Come in for the evaluation" data-es="Ven a la evaluación">Come in for the evaluation</h3><p data-en="The doctor confirms the treatment and its total cost — the number the estimator uses." data-es="El doctor confirma el tratamiento y su costo total — el número que usa el estimador.">The doctor confirms the treatment and its total cost — the number the estimator uses.</p></div></li>
+              <li><span class="num">2</span><div><h3 data-en="Pick the way to pay" data-es="Elige cómo pagar">Pick the way to pay</h3><p data-en="Cherry, CareCredit, cards or cash. The office explains each option in plain words." data-es="Cherry, CareCredit, tarjetas o efectivo. La oficina explica cada opción con palabras claras.">Cherry, CareCredit, cards or cash. The office explains each option in plain words.</p></div></li>
+              <li><span class="num">3</span><div><h3 data-en="Apply at the office" data-es="Solicítalo en la oficina">Apply at the office</h3><p data-en="The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit." data-es="El equipo ayuda con la solicitud, en inglés o español. La aprobación depende de Cherry o CareCredit.">The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit.</p></div></li>
+              <li><span class="num">4</span><div><h3 data-en="Start treatment" data-es="Empieza el tratamiento">Start treatment</h3><p data-en="Monthly payments as agreed — and the same team at every visit." data-es="Pagos mensuales según lo acordado — y el mismo equipo en cada visita.">Monthly payments as agreed — and the same team at every visit.</p></div></li>
+            </ol>
+            <p class="fin-note"><i data-lucide="wallet"></i><span data-en="No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation. The estimator only shows what a monthly split could look like." data-es="Ningún precio de esta página es una cotización real — el costo depende de cada caso y se confirma en la evaluación. El estimador solo muestra cómo podría verse un pago mensual.">No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation. The estimator only shows what a monthly split could look like.</span></p>
+            <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem">
+              <a class="btn btn-primary" href="tel:+13053100027" style="padding:.8rem 1.5rem;font-size:.9rem"><i data-lucide="phone"></i><span data-en="Ask about financing" data-es="Pregunta por el financiamiento">Ask about financing</span></a>
+              <a class="btn btn-outline" href="#faq" style="padding:.8rem 1.5rem;font-size:.9rem"><span data-en="Cost questions, answered" data-es="Preguntas sobre costos, respondidas">Cost questions, answered</span><i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="reveal" style="max-width:48rem">
+          <p class="eyebrow" data-en="About" data-es="Nosotros">About</p>
+          <h2><span data-en="A Kendall orthodontist families know by name" data-es="Un ortodoncista de Kendall que las familias conocen por su nombre">A Kendall orthodontist families know by name</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem" data-en="Since 2015, Dr. Murillo and his team have treated kids, teens and adults from Kendall and all over Miami — in English and Spanish, with the same faces at every visit." data-es="Desde 2015, el Dr. Murillo y su equipo atienden a niños, adolescentes y adultos de Kendall y de todo Miami — en inglés y español, con las mismas caras en cada visita.">Since 2015, Dr. Murillo and his team have treated kids, teens and adults from Kendall and all over Miami — in English and Spanish, with the same faces at every visit.</p>
+        </div>
+        <div class="about-grid">
+          <div class="reveal">
+            <img class="about-portrait" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/doctor-murillo.png" alt="Dr. Herbert Murillo, orthodontist" width="276" height="391" loading="lazy" />
+          </div>
+          <div class="reveal">
+            <h3 style="font-size:1.75rem">Dr. Herbert Murillo</h3>
+            <p class="lead" style="margin-top:1rem" data-en="Born in Cali, Colombia, Dr. Murillo studied dentistry at Javeriana University in Bogotá. He is an active member of the American Association of Orthodontists." data-es="Nacido en Cali, Colombia, el Dr. Murillo estudió odontología en la Universidad Javeriana de Bogotá. Es miembro activo de la American Association of Orthodontists.">Born in Cali, Colombia, Dr. Murillo studied dentistry at Javeriana University in Bogotá. He is an active member of the American Association of Orthodontists.</p>
+            <p class="lead" style="margin-top:1rem" data-en="He runs a small office on purpose: one doctor, one team, and treatment plans explained in plain words — in English or Spanish — before anything starts." data-es="Dirige una oficina pequeña a propósito: un doctor, un equipo, y planes de tratamiento explicados con palabras claras — en inglés o español — antes de que empiece nada.">He runs a small office on purpose: one doctor, one team, and treatment plans explained in plain words — in English or Spanish — before anything starts.</p>
+            <div class="about-stats">
+              <div class="about-stat"><b>2015</b><span data-en="in Kendall since" data-es="en Kendall desde">in Kendall since</span></div>
+              <div class="about-stat"><b>5.0 ★</b><span data-en="Google rating" data-es="Calificación en Google">Google rating</span></div>
+              <div class="about-stat"><b>EN · ES</b><span data-en="Se habla español" data-es="Se habla español">Se habla español</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="team">
+          <div class="member card-hover reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-beatriz.jpg" alt="Beatriz Fernandez" loading="lazy" />
+            <h3>Beatriz Fernandez</h3>
+            <p class="role" data-en="General Manager" data-es="Gerente general">General Manager</p>
+            <p data-en="Psychologist (Javeriana, Colombia, 2009) — the person who keeps the office running and families informed." data-es="Psicóloga (Javeriana, Colombia, 2009) — la persona que mantiene la oficina en marcha y a las familias informadas.">Psychologist (Javeriana, Colombia, 2009) — the person who keeps the office running and families informed.</p>
+          </div>
+          <div class="member card-hover reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-madeline.jpg" alt="Madeline Fernandez" loading="lazy" />
+            <h3>Madeline Fernandez</h3>
+            <p class="role" data-en="Orthodontic Assistant" data-es="Asistente de ortodoncia">Orthodontic Assistant</p>
+            <p data-en="Dentist (University of Havana, Cuba, 1985) — patients name her in their Google reviews." data-es="Odontóloga (Universidad de La Habana, Cuba, 1985) — los pacientes la nombran en sus reseñas de Google.">Dentist (University of Havana, Cuba, 1985) — patients name her in their Google reviews.</p>
+          </div>
+          <div class="member card-hover reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-anabel.jpg" alt="Anabel Alonso" loading="lazy" />
+            <h3>Anabel Alonso</h3>
+            <p class="role" data-en="Patient Coordinator" data-es="Coordinadora de pacientes">Patient Coordinator</p>
+            <p data-en="Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family." data-es="Coordinadora de pacientes. Nacida y criada en Cuba, lleva casi tres años en el equipo de recepción — su sonrisa cálida hace que cada paciente se sienta en familia.">Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family.</p>
+          </div>
+          <div class="member card-hover reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-recepcion.jpg" alt="The front desk team at Ortodoncia 305" loading="lazy" />
+            <h3 data-en="The front desk" data-es="La recepción">The front desk</h3>
+            <p class="role" data-en="Kendall, Miami" data-es="Kendall, Miami">Kendall, Miami</p>
+            <p data-en="A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check." data-es="Un equipo pequeño que conoce a sus pacientes por su nombre. Los padres tratan con las mismas caras desde la primera visita hasta el último control de retenedores.">A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY: BEFORE & AFTER ============ -->
+    <section class="section mist" id="gallery">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Gallery" data-es="Galería">Gallery</p>
+          <h2><span data-en="Before &amp; after" data-es="Antes y después">Before &amp; after</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem;max-width:42rem" data-en="Explore treatment photographs from our practice. Move each slider to compare the original before and after images." data-es="Explora fotografías de tratamientos de nuestra clínica. Mueve cada control para comparar las imágenes originales del antes y el después.">Explore treatment photographs from our practice. Move each slider to compare the original before and after images.</p>
+        </div>
+        <div class="ba-grid">
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-1-despues.jpg" alt="Case 1 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-1-antes.jpg" alt="Case 1 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 1" />
+            </div>
+            <figcaption><b data-en="Case 1" data-es="Caso 1">Case 1</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-despues.jpg" alt="Case 2 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 2" />
+            </div>
+            <figcaption><b data-en="Case 2" data-es="Caso 2">Case 2</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-despues.jpg" alt="Case 3 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-antes.jpg" alt="Case 3 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 3" />
+            </div>
+            <figcaption><b data-en="Case 3" data-es="Caso 3">Case 3</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-despues.jpg" alt="Case 4 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-antes.jpg" alt="Case 4 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 4" />
+            </div>
+            <figcaption><b data-en="Case 4" data-es="Caso 4">Case 4</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:4/3">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-despues.jpg" alt="Case 5 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-antes.jpg" alt="Case 5 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 5" />
+            </div>
+            <figcaption><b data-en="Case 5" data-es="Caso 5">Case 5</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:4/3">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-despues.jpg" alt="Case 6 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-antes.jpg" alt="Case 6 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 6" />
+            </div>
+            <figcaption><b data-en="Case 6" data-es="Caso 6">Case 6</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:4/3">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-despues.jpg" alt="Case 7 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-antes.jpg" alt="Case 7 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 7" />
+            </div>
+            <figcaption><b data-en="Case 7" data-es="Caso 7">Case 7</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:4/3">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-despues.jpg" alt="Case 8 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-antes.jpg" alt="Case 8 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 8" />
+            </div>
+            <figcaption><b data-en="Case 8" data-es="Caso 8">Case 8</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+        </div>
+        <div class="reveal" style="margin-top:3.5rem">
+          <p class="eyebrow" data-en="Our patients" data-es="Nuestros pacientes">Our patients</p>
+          <h2><span data-en="Care with a personal touch" data-es="Atención cercana en cada visita">Care with a personal touch</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem;max-width:42rem" data-en="Meet some of the young patients who visit our clinic." data-es="Conoce a algunos de los pequeños pacientes que nos visitan en la clínica.">Meet some of the young patients who visit our clinic.</p>
+          <div class="strip-wrap" id="patients-strip" style="margin-top:2rem">
+            <div class="strip-track">
+              <div class="strip-group">
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids18.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids5.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids6.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids12.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids13.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids10.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids21.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids2.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids9.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids20.jpg" alt="Young patient visiting the clinic" loading="lazy" />
+              </div>
+              <div class="strip-group" aria-hidden="true">
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids18.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids5.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids6.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids12.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids13.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids10.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids21.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids2.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids9.jpg" alt="" loading="lazy" />
+                <img class="tall" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/ninos/kids20.jpg" alt="" loading="lazy" />
+              </div>
+            </div>
+          </div>
+          <button type="button" class="strip-toggle" data-strip="patients-strip" aria-pressed="false"><i data-lucide="pause"></i><span data-en="Pause patient gallery" data-es="Pausar galería de pacientes">Pause patient gallery</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFFICE TOUR ============ -->
+    <section class="section" id="tour">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Office Tour" data-es="Tour por la oficina">Office Tour</p>
+          <h2><span data-en="Take a look inside" data-es="Un vistazo adentro">Take a look inside</span><span class="rayita" aria-hidden="true"></span></h2>
+          <p class="lead" style="margin-top:1rem;max-width:42rem" data-en="Our office on 88th Street in Kendall — the front desk, the chairs, the team. This is where your smile starts." data-es="Nuestra oficina en la calle 88 en Kendall — la recepción, los sillones, el equipo. Acá es donde empieza tu sonrisa.">Our office on 88th Street in Kendall — the front desk, the chairs, the team. This is where your smile starts.</p>
+        </div>
+        <div class="strip-wrap reveal" id="tour-strip" style="margin-top:2.5rem">
+          <div class="strip-track">
+            <div class="strip-group">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G9.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G11.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G14.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V2.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V4.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V5.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
+            </div>
+            <div class="strip-group" aria-hidden="true">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G9.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G11.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G14.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V2.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V4.jpg" alt="" loading="lazy" />
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V5.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <button type="button" class="strip-toggle reveal" data-strip="tour-strip" aria-pressed="false"><i data-lucide="pause"></i><span data-en="Pause tour" data-es="Pausar tour">Pause tour</span></button>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS: DOUBLE CAROUSEL ============ -->
+    <section class="section mist" id="reviews">
       <div class="wrap">
         <div class="reveal">
           <p class="eyebrow" data-en="Reviews" data-es="Reseñas">Reviews</p>
@@ -552,52 +951,90 @@
             <span style="font-weight:600">5.0 <span data-en="on Google" data-es="en Google">on Google</span></span> · 53 <span data-en="reviews" data-es="reseñas">reviews</span>
           </p>
         </div>
-        <div class="reviews">
-          <div class="review featured card-hover reveal">
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>“Dr. Murillo is hands down the best orthodontist in Kendall! From the moment I walked into their clean, modern office, I felt at ease. The team is incredibly friendly and professional, always making sure I understood my treatment plan. I chose Invisalign, and the results have been amazing — my smile has never looked better!”</blockquote>
-            <footer>Paola A. Rebellón<span data-en="Google review · Invisalign patient" data-es="Reseña de Google · Paciente de Invisalign">Google review · Invisalign patient</span></footer>
+        <div class="marquee reveal" id="reviews-marquee" style="margin-top:2.5rem">
+          <div class="marquee-toolbar">
+            <button type="button" class="marquee-toggle" id="marquee-toggle" aria-pressed="false"><i data-lucide="pause"></i><span data-en="Pause reviews" data-es="Pausar reseñas">Pause reviews</span></button>
           </div>
-          <div class="review card-hover reveal">
-            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
-            <blockquote>“Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo! Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. Feliz con mi nueva sonrisa y todo gracias a ellos.”</blockquote>
-            <footer>— Google review</footer>
+          <div class="marquee-row" role="region" aria-label="Google reviews, row 1">
+            <div class="marquee-track">
+              <div class="marquee-group">
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo!. Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. <mark>Feliz con mi nueva sonrisa</mark> y todo gracias a ellos ❤️👏🙏.</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">Can’t say enough about Dr. Murillo and his assistant Madeline and Anabel, office manager. Their service for my twin boys was amazing! Office is clean, and they are very professional. <mark>They are very friendly and care about your needs.</mark> I would truly recommend!</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">Dr.Murrillo estamos muy contentos con el resultado <mark>excelente trabajo, muy profesional</mark>, gracias estoy muy agradecida con él y con todos los que elaboran junto a El, bendiciones para cada uno de ellos</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">Dr. Murillo is hands down the best orthodontist in Kendall! From the moment I walked into their clean, modern office, I felt at ease. The team is incredibly friendly and professional, always making sure I understood my treatment plan. I chose Invisalign, and the results have been amazing — my smile has never looked better! Appointments are always on time, and the care is top-notch. If you’re looking for an experienced orthodontist for braces or Invisalign in Kendall, I highly recommend Dr. Murillo. <mark>They truly care about their patients.</mark></blockquote><figcaption><strong>Paola A. Rebellón</strong><span>Google review</span></figcaption></figure>
+              </div>
+              <div class="marquee-group" aria-hidden="true">
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">Tuve la mejor de las experiencias con mi estimado Doctor y todo su equipo!. Muy profesionales, siempre atentos a que tu comodidad y a que el proceso sea lo menos molesto posible. Lo recomiendo 100 por ciento. <mark>Feliz con mi nueva sonrisa</mark> y todo gracias a ellos ❤️👏🙏.</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">Can’t say enough about Dr. Murillo and his assistant Madeline and Anabel, office manager. Their service for my twin boys was amazing! Office is clean, and they are very professional. <mark>They are very friendly and care about your needs.</mark> I would truly recommend!</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">Dr.Murrillo estamos muy contentos con el resultado <mark>excelente trabajo, muy profesional</mark>, gracias estoy muy agradecida con él y con todos los que elaboran junto a El, bendiciones para cada uno de ellos</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">Dr. Murillo is hands down the best orthodontist in Kendall! From the moment I walked into their clean, modern office, I felt at ease. The team is incredibly friendly and professional, always making sure I understood my treatment plan. I chose Invisalign, and the results have been amazing — my smile has never looked better! Appointments are always on time, and the care is top-notch. If you’re looking for an experienced orthodontist for braces or Invisalign in Kendall, I highly recommend Dr. Murillo. <mark>They truly care about their patients.</mark></blockquote><figcaption><strong>Paola A. Rebellón</strong><span>Google review</span></figcaption></figure>
+              </div>
+            </div>
           </div>
-          <div class="review card-hover reveal">
-            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
-            <blockquote>“Can't say enough about Dr. Murillo and his assistant Madeline and Anabel, office manager. Their service for my twin boys was amazing! Office is clean, and they are very professional. They are very friendly and care about your needs. I would truly recommend!”</blockquote>
-            <footer>— Google review</footer>
-          </div>
-          <div class="review card-hover reveal">
-            <div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div>
-            <blockquote>“El tratamiento de ortodoncia fue excelente!! estamos felices con el resultado de mi hija y su tratamiento. El odontólogo muy profesional, el personal dispuesto siempre a colaborar y resolver las dudas.”</blockquote>
-            <footer>— Google review</footer>
+          <div class="marquee-row reverse" role="region" aria-label="Google reviews, row 2">
+            <div class="marquee-track">
+              <div class="marquee-group">
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">My favorite doctor. <mark>He left me with a great smile</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">El tratamiento de ortodoncia fue excelente!!estamos felices con el resultado de mi hija y su tratamiento. El odontólogo muy profesional, <mark>el personal dispuesto siempre a colaborar y resolver las dudas.</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">I’m very happy with Dr.Muriilo and his staff,. <mark>They are very nice</mark>, I recommend them a 100%</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en"><mark>Professional, competent, honest.</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+              </div>
+              <div class="marquee-group" aria-hidden="true">
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">My favorite doctor. <mark>He left me with a great smile</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="es">El tratamiento de ortodoncia fue excelente!!estamos felices con el resultado de mi hija y su tratamiento. El odontólogo muy profesional, <mark>el personal dispuesto siempre a colaborar y resolver las dudas.</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en">I’m very happy with Dr.Muriilo and his staff,. <mark>They are very nice</mark>, I recommend them a 100%</blockquote><figcaption><span>Google review</span></figcaption></figure>
+                <figure class="marquee-card"><div class="stars"><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i><i data-lucide="star" class="star-ico"></i></div><blockquote lang="en"><mark>Professional, competent, honest.</mark></blockquote><figcaption><span>Google review</span></figcaption></figure>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ OFFICE TOUR ============ -->
-    <section class="section mist" id="tour">
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
       <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow" data-en="Office Tour" data-es="Tour por la oficina">Office Tour</p>
-          <h2><span data-en="Take a look inside" data-es="Un vistazo adentro">Take a look inside</span><span class="rayita" aria-hidden="true"></span></h2>
-          <p class="lead" style="margin-top:1rem;max-width:42rem" data-en="Our office on 88th Street in Kendall — the front desk, the chairs, the team. This is where your smile starts." data-es="Nuestra oficina en la calle 88 en Kendall — la recepción, los sillones, el equipo. Acá es donde empieza tu sonrisa.">Our office on 88th Street in Kendall — the front desk, the chairs, the team. This is where your smile starts.</p>
+        <div class="faq-layout">
+          <div class="reveal">
+            <h2><span data-en="Before your first visit" data-es="Antes de tu primera visita">Before your first visit</span><span class="rayita" aria-hidden="true"></span></h2>
+            <p class="lead" style="margin-top:1.25rem" data-en="Answers to common questions about treatment, costs and payment options." data-es="Respuestas a preguntas frecuentes sobre tratamientos, costos y opciones de pago.">Answers to common questions about treatment, costs and payment options.</p>
+            <p style="margin-top:1.5rem"><a class="btn btn-outline" href="#contact" style="padding:.7rem 1.4rem;font-size:.9rem"><span data-en="Ask us anything" data-es="Pregúntanos lo que sea">Ask us anything</span><i data-lucide="arrow-right"></i></a></p>
+          </div>
+          <div class="reveal">
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="What happens at the first visit?" data-es="¿Qué pasa en la primera visita?">What happens at the first visit?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it." data-es="Una evaluación: el doctor revisa los dientes y la mordida, explica qué hay que corregir y qué implica — costo y opciones de pago incluidos. Sin presión ni sorpresas. Llama o escribe al (305) 310-0027 para agendarla.">An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="At what age should my child first see an orthodontist?" data-es="¿A qué edad llevo a mi hijo al ortodoncista por primera vez?">At what age should my child first see an orthodontist?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait." data-es="Alrededor de los 9–10 años es buen momento para una primera evaluación. No significa que el tratamiento empiece entonces — significa que sabes en qué punto están las cosas y qué puede esperar.">Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Does it hurt?" data-es="¿Duele?">Does it hurt?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts." data-es="La mayoría de los pacientes siente presión por unos días después de la colocación y de cada ajuste. Se pasa. El equipo explica exactamente qué esperar antes de que empiece nada.">Most patients feel pressure for a few days after placement and after each adjustment. It fades. The team explains exactly what to expect before anything starts.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How long does treatment take?" data-es="¿Cuánto dura el tratamiento?">How long does treatment take?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number." data-es="Depende del caso — por eso la primera visita es una evaluación. El doctor da un plazo realista para el caso de tu adolescente antes de que empiece el tratamiento, no un número genérico.">It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Braces or Invisalign — which is better?" data-es="¿Frenillos o Invisalign — cuál es mejor?">Braces or Invisalign — which is better?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents." data-es="Ninguno es mejor en general — depende del caso. Los frenillos cubren cualquier caso; los alineadores son más discretos pero exigen disciplina al usarlos. La evaluación decide, y el adolescente elige con sus padres.">Neither is better in general — it depends on the case. Braces handle any case; aligners are more discreet but need discipline wearing them. The evaluation decides, and the teen chooses with their parents.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How much does it cost? Are there payment plans?" data-es="¿Cuánto cuesta? ¿Hay planes de pago?">How much does it cost? Are there payment plans?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask." data-es="El costo depende del caso y se confirma en la evaluación — no publicamos precios que no se aplican a ti. Lo fijo: efectivo, tarjetas de crédito/débito, financiamiento con Cherry y CareCredit, y descuentos. Llama al (305) 310-0027 y pregunta.">The cost depends on the case and is confirmed at the evaluation — we don't publish prices that don't apply to you. What's fixed: cash, credit/debit cards, Cherry and CareCredit financing, and discounts. Call (305) 310-0027 and ask.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do you treat patients without insurance?" data-es="¿Atienden pacientes sin seguro?">Do you treat patients without insurance?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone." data-es="Sí. Hay financiamiento con Cherry y CareCredit, y la oficina acuerda pagos mensuales con cada familia. Pregunta en la primera visita o por teléfono.">Yes. Financing with Cherry and CareCredit is available, and the office works out monthly payments with each family. Ask about it at the first visit or by phone.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Do I need a retainer after treatment?" data-es="¿Necesito retenedor después del tratamiento?">Do I need a retainer after treatment?</span><i data-lucide="plus" class="plus"></i></button></h3>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends." data-es="Sí — los dientes vuelven a moverse sin uno. Los retenedores transparentes o fijos mantienen el resultado. El doctor recomienda cuál conviene en cada caso cuando termina el tratamiento.">Yes — teeth move back without one. Clear or fixed retainers keep the result. The doctor recommends which one fits each case when treatment ends.</p></div></div>
+            </div>
+          </div>
         </div>
-        <div class="tour-strip reveal">
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G1.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G9.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G11.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G14.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V1.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V2.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V3.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V4.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-          <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-V5.jpg" alt="Inside the Orthodontics 305 office" loading="lazy" />
-        </div>
-        <p class="tour-hint reveal"><span data-en="Scroll to see more" data-es="Desliza para ver más">Scroll to see more</span><i data-lucide="arrow-right"></i></p>
       </div>
     </section>
 
@@ -702,27 +1139,6 @@
         <p style="margin-top:1rem" data-en="Braces and clear aligners in Kendall, Miami — for kids, teens and adults. Care from Dr. Murillo and team, in English and Spanish, since 2015." data-es="Frenillos y alineadores transparentes en Kendall, Miami — para niños, adolescentes y adultos. Atención del Dr. Murillo y su equipo, en inglés y español, desde 2015.">Braces and clear aligners in Kendall, Miami — for kids, teens and adults. Care from Dr. Murillo and team, in English and Spanish, since 2015.</p>
         <p style="margin-top:1rem" data-en="Se habla español. Call or text us — we serve you in your language." data-es="Se habla español. Llámanos o escríbenos — te atendemos en tu idioma.">Se habla español. Call or text us — we serve you in your language.</p>
       </div>
-      <nav aria-label="Sitemap">
-        <h4 data-en="Sitemap" data-es="Mapa del sitio">Sitemap</h4>
-        <ul>
-          <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
-          <li><a href="#offers" data-en="Offers" data-es="Ofertas">Offers</a></li>
-          <li><a href="#treatments" data-en="Treatments" data-es="Tratamientos">Treatments</a></li>
-          <li><a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
-          <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Treatments">
-        <h4 data-en="Treatments" data-es="Tratamientos">Treatments</h4>
-        <ul>
-          <li><a href="#treatments" data-en="Braces" data-es="Frenillos">Braces</a></li>
-          <li><a href="#treatments">Invisalign</a></li>
-          <li><a href="#treatments" data-en="For Kids" data-es="Para niños">For Kids</a></li>
-          <li><a href="#treatments" data-en="For Teens" data-es="Para adolescentes">For Teens</a></li>
-          <li><a href="#treatments" data-en="For Adults" data-es="Para adultos">For Adults</a></li>
-          <li><a href="#treatments" data-en="Retainers" data-es="Retenedores">Retainers</a></li>
-        </ul>
-      </nav>
       <div>
         <h4 data-en="Contact" data-es="Contacto">Contact</h4>
         <ul>
@@ -783,26 +1199,28 @@
 
     // ---- EN/ES (default EN, like the live site; persists in localStorage) ----
     var LANG_KEY = 'o305-landing-lang';
-    function setLang(lang) {
-      document.documentElement.lang = lang;
+    function lang() { return document.documentElement.lang === 'es' ? 'es' : 'en'; }
+    function setLang(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-en]').forEach(function (el) {
-        var v = el.getAttribute('data-' + lang);
+        var v = el.getAttribute('data-' + l);
         if (v !== null) el.textContent = v;
       });
       document.querySelectorAll('[data-en-ph]').forEach(function (el) {
-        var v = el.getAttribute('data-' + lang + '-ph');
+        var v = el.getAttribute('data-' + l + '-ph');
         if (v !== null) el.placeholder = v;
       });
-      document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
-      document.getElementById('lang-es').setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
-      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
+      document.getElementById('lang-es').setAttribute('aria-pressed', l === 'es' ? 'true' : 'false');
+      try { localStorage.setItem(LANG_KEY, l); } catch (e) {}
+      updateEstimator();
+      updateToggles();
     }
     var savedLang = 'en';
     try { savedLang = localStorage.getItem(LANG_KEY) || 'en'; } catch (e) {}
     if (savedLang !== 'en' && savedLang !== 'es') savedLang = 'en';
     document.getElementById('lang-en').addEventListener('click', function () { setLang('en'); });
     document.getElementById('lang-es').addEventListener('click', function () { setLang('es'); });
-    setLang(savedLang);
 
     // ---- Reveal on scroll ----
     var revealEls = document.querySelectorAll('.reveal');
@@ -817,13 +1235,114 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ---- Estimator (como Estimador.jsx: cuota = monto / meses) ----
+    var estMonto = document.getElementById('est-monto');
+    var estMeses = document.getElementById('est-meses');
+    var estMontoOut = document.getElementById('est-monto-out');
+    var estMesesOut = document.getElementById('est-meses-out');
+    var estResult = document.querySelector('.est-result .big');
+    function updateEstimator() {
+      var monto = Number(estMonto.value);
+      var meses = Number(estMeses.value);
+      var es = lang() === 'es';
+      estMontoOut.textContent = '$' + monto.toLocaleString('en-US');
+      estMesesOut.textContent = meses + ' ' + (es ? 'meses' : 'months');
+      var cuota = Math.round((monto / meses) * 100) / 100;
+      estResult.innerHTML = '$' + cuota.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' <span>' + (es ? '/mes' : '/mo') + '</span>';
+    }
+    estMonto.addEventListener('input', updateEstimator);
+    estMeses.addEventListener('input', updateEstimator);
+
+    // ---- Before/After sliders (como AntesDespues.jsx) ----
+    document.querySelectorAll('.ba-slider').forEach(function (fig) {
+      var range = fig.querySelector('.ba-range');
+      var before = fig.querySelector('.ba-before');
+      var beforeImg = before.querySelector('img');
+      var divider = fig.querySelector('.ba-divider');
+      var handle = fig.querySelector('.ba-handle');
+      function applyBA() {
+        var pos = Number(range.value);
+        before.style.width = pos + '%';
+        beforeImg.style.width = (100 / pos * 100) + '%';
+        divider.style.left = pos + '%';
+        handle.style.left = pos + '%';
+      }
+      range.addEventListener('input', applyBA);
+      applyBA();
+    });
+
+    // ---- Pause toggles (filmstrips + marquee) ----
+    var TOGGLE_TEXTS = {
+      'patients-strip': {
+        pause: { en: 'Pause patient gallery', es: 'Pausar galería de pacientes' },
+        play: { en: 'Play patient gallery', es: 'Reproducir galería de pacientes' }
+      },
+      'tour-strip': {
+        pause: { en: 'Pause tour', es: 'Pausar tour' },
+        play: { en: 'Play tour', es: 'Reproducir tour' }
+      },
+      'reviews-marquee': {
+        pause: { en: 'Pause reviews', es: 'Pausar reseñas' },
+        play: { en: 'Resume reviews', es: 'Reanudar reseñas' }
+      }
+    };
+    function refreshToggle(btn, targetId) {
+      var target = document.getElementById(targetId);
+      var paused = target.classList.contains('paused');
+      var label = btn.querySelector('span');
+      var texts = TOGGLE_TEXTS[targetId];
+      if (label && texts) label.textContent = texts[paused ? 'play' : 'pause'][lang()];
+      var icon = btn.querySelector('i, svg');
+      if (icon) {
+        var fresh = document.createElement('i');
+        fresh.setAttribute('data-lucide', paused ? 'play' : 'pause');
+        icon.replaceWith(fresh);
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+    function bindToggle(btn, targetId) {
+      var target = document.getElementById(targetId);
+      btn.addEventListener('click', function () {
+        var paused = target.classList.toggle('paused');
+        btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        refreshToggle(btn, targetId);
+      });
+    }
+    document.querySelectorAll('.strip-toggle').forEach(function (btn) {
+      bindToggle(btn, btn.getAttribute('data-strip'));
+    });
+    bindToggle(document.getElementById('marquee-toggle'), 'reviews-marquee');
+    function updateToggles() {
+      document.querySelectorAll('.strip-toggle').forEach(function (btn) {
+        refreshToggle(btn, btn.getAttribute('data-strip'));
+      });
+      refreshToggle(document.getElementById('marquee-toggle'), 'reviews-marquee');
+    }
+
+    // ---- FAQ accordion (como HomeFaq.jsx: una abierta a la vez) ----
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function () {
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (o) {
+          o.classList.remove('open');
+          o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    setLang(savedLang);
+
     // ---- Contact form: same contract as src/mailService.js ----
     var SEND_URL = 'https://mail.crescendodigiatlmarketingagency.com/api/send';
     var TREATMENTS_EN = { 'braces': 'Braces', 'clear-aligners': 'Invisalign', 'kids': 'For Kids', 'teens': 'For Teens', 'adults': 'For Adults', 'retainers': 'Retainers' };
     var form = document.getElementById('contact-form');
     var msg = document.getElementById('form-msg');
     var btn = document.getElementById('submit-btn');
-    function lang() { return document.documentElement.lang === 'es' ? 'es' : 'en'; }
     function showMsg(text, ok) {
       msg.textContent = text;
       msg.className = 'form-msg ' + (ok ? 'ok' : 'err');
