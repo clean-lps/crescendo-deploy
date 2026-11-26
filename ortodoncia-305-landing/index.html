@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v5 (preview)
+<!-- Ortodoncia 305 — Landing page v7 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -8,10 +8,10 @@
      oscuro solo en pie y banda de cierre, header/footer reales.
      PLAN (sección por sección, del repo clean-lps/Ortodoncia-305 v1.2):
        1. TopBar + header reales (Chrome.jsx).
-       2. OFERTA con FOTO (pedido de Daniel): banda azul con la foto de la
-          muchacha sonriendo (hero-sonrisa-teen.jpg, como el sitio viejo:
-          banner + foto) + las 4 ofertas + el LOGO DE INVISALIGN
-          (branding/invisalign-logo.jpg) junto a "$1,000 OFF Invisalign".
+       2. BANNER REAL Summer Savings (promotions/banner2.jpg) tal cual,
+          a ANCHO COMPLETO sin redondear, justo bajo el header y antes
+          del hero (como el sitio viejo). Sin bloque "Special offers"
+          arriba: la oferta vive en el banner y en la sección Offers.
        3. Hero con carrusel de 4 fotos (Home.jsx).
        4. Welcome con el texto exacto de la web vieja + logos (iTero,
           Invisalign Provider, AAO).
@@ -142,24 +142,11 @@
     .btn-call{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--brand-600);padding:.5rem .75rem;font-size:.75rem;font-weight:600;color:#fff;text-decoration:none;box-shadow:0 4px 12px rgb(0 96 176/.3);transition:transform .2s,background .2s;white-space:nowrap}
     @media(min-width:640px){.btn-call{padding:.5rem 1rem;font-size:.875rem}}
     .btn-call:hover{transform:translateY(-2px);background:var(--brand-700)}
-    /* Oferta con foto (banda azul, como el sitio viejo: banner + foto) */
-    .offer-hero{background:var(--brand-600);color:#fff}
-    .offer-hero-in{max-width:72rem;margin:0 auto;padding:2rem 20px;display:grid;gap:1.75rem;align-items:center}
-    @media(min-width:1024px){.offer-hero-in{grid-template-columns:5fr 7fr;padding:2.5rem 24px}}
-    .offer-hero img.girl{border-radius:18px;aspect-ratio:16/10;object-fit:cover;width:100%;box-shadow:0 18px 36px -12px rgb(0 20 50/.5)}
-    .offer-hero .eyebrow{color:#c4d97e}
-    .offer-hero h2{color:#fff;margin-top:.5rem}
-    .offer-hero h2 .big{color:#d7e9a0}
-    .offer-list{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:.6rem}
-    .offer-list li{display:flex;gap:.6rem;align-items:center;font-weight:700;font-size:1.05rem}
-    .offer-list .lucide{width:1.15em;height:1.15em;color:#c4d97e;flex:none}
     .invis-chip{display:inline-flex;align-items:center;background:#fff;border-radius:999px;padding:.3rem .9rem .3rem .3rem;gap:.5rem;font-weight:800;color:var(--brand-800);font-size:.95rem}
     .invis-chip img{height:1.6rem;width:auto}
-    .offer-hero .btn{margin-top:1.5rem}
-    .offer-hero .fine{margin-top:1rem;font-size:.85rem;color:var(--brand-200)}
-    /* Banner real Summer Savings tal cual, bajo el header (como el sitio viejo) */
-    .banner-strip{max-width:72rem;margin:0 auto;padding:1.25rem 20px 0}
-    .banner-strip a{display:block;border-radius:18px;overflow:hidden;box-shadow:0 14px 28px -14px rgb(0 96 176/.4)}
+    /* Banner real Summer Savings tal cual, a ancho completo, sin redondear (como el sitio viejo) */
+    .banner-strip{margin:0}
+    .banner-strip a{display:block}
     .banner-strip img{display:block;width:100%;height:auto}
     /* Hero (como Home.jsx) */
     .hero{background:var(--mist);padding:3rem 0 4rem}
@@ -445,25 +432,6 @@
   <!-- ============ BANNER REAL SUMMER SAVINGS (tal cual, como el sitio viejo) ============ -->
   <div class="banner-strip">
     <a href="#contact"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/promotions/banner2.jpg" alt="Summer Savings: $1,000 OFF Invisalign or Braces, free retainer after treatment, free consultation with X-ray, 0% interest financing, braces starting at $99 down and $99 per month" loading="lazy" /></a>
-  </div>
-
-  <!-- ============ OFERTA CON FOTO ============ -->
-  <div class="offer-hero" id="offer-top">
-    <div class="offer-hero-in">
-      <img class="girl" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/hero-sonrisa-teen.jpg" alt="Girl smiling with braces" fetchpriority="high" />
-      <div>
-        <p class="eyebrow" data-en="Special offers" data-es="Ofertas especiales">Special offers</p>
-        <h2><span data-en="Save on your new smile" data-es="Ahorra en tu nueva sonrisa">Save on your new smile</span> <span class="big" data-en="— starting today" data-es="— desde hoy">— starting today</span></h2>
-        <ul class="offer-list">
-          <li><span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span data-en="$1,000 OFF Invisalign or Braces" data-es="$1,000 de descuento en Invisalign o frenillos">$1,000 OFF Invisalign or Braces</span></span></li>
-          <li><i data-lucide="check"></i><span data-en="FREE Retainer After Treatment" data-es="Retenedor gratis después del tratamiento">FREE Retainer After Treatment</span></li>
-          <li><i data-lucide="check"></i><span data-en="FREE Consultation with X-Ray" data-es="Consulta gratis con radiografías">FREE Consultation with X-Ray</span></li>
-          <li><i data-lucide="percent"></i><span data-en="0% Interest — Braces $99 Down &amp; $99/Month" data-es="0% de interés — Frenillos $99 de inicial y $99 al mes">0% Interest — Braces $99 Down &amp; $99/Month</span></li>
-        </ul>
-        <a class="btn btn-white" href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
-        <p class="fine" data-en="The cost is confirmed at your evaluation — ask us about current offers when you book." data-es="El costo se confirma en tu evaluación — pregunta por las ofertas actuales cuando agendes.">The cost is confirmed at your evaluation — ask us about current offers when you book.</p>
-      </div>
-    </div>
   </div>
 
   <main>
