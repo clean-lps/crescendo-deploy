@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v10 (preview)
+<!-- Ortodoncia 305 — Landing page v11 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -7,10 +7,12 @@
      clienta): tipografía redondeada del sistema, mist/blanco, rayita verde,
      oscuro solo en pie y banda de cierre, header/footer reales.
      PLAN (sección por sección, del repo clean-lps/Ortodoncia-305 v1.2):
-       1. TopBar + header reales (Chrome.jsx).
+       1. TopBar + header reales (Chrome.jsx). Nav en el orden de la
+          página (Home, Treatments, Offers, Financing, About, Gallery,
+          Reviews, Contact) con scroll suave (html scroll-behavior:smooth).
        2. BANNER REAL Summer Savings (promotions/banner2.jpg) tal cual,
-          a ANCHO COMPLETO sin redondear, justo bajo el header y antes
-          del hero (como el sitio viejo). Sin bloque "Special offers"
+          a ANCHO COMPLETO sin redondear, DEBAJO DEL HERO (antes estaba
+          bajo el header y mataba el hero). Sin bloque "Special offers"
           arriba: la oferta vive en el banner y en la sección Offers.
        3. Hero con carrusel de 4 fotos (Home.jsx).
        4. Welcome con el texto exacto de la web vieja + logos (iTero,
@@ -24,26 +26,31 @@
           (no era lo que ella pidió) y SIN chip de Invisalign (el logo ya
           está en tratamientos y en la fila de logos). DESPUÉS de
           Tratamientos.
-       7. Financiamiento completo (Financing.jsx): 4 tarjetas (Cherry,
-          CareCredit, tarjetas y efectivo, descuentos) + "How to apply"
-          en 4 pasos + nota de no-precios. SIN estimador (quitado por
+       7. Financiamiento CONCENTRADO (Financing.jsx): 4 tarjetas con
+          textos cortos (Cherry, CareCredit, tarjetas y efectivo,
+          descuentos) + "How to apply" en 4 pasos SOLO título, en tira de
+          4 columnas + nota de no-precios. SIN estimador (quitado por
           Daniel 2026-11-26).
-       8. About (About.jsx + data.js equipo): retrato del Dr. Murillo,
-          bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el equipo completo
-          (Beatriz, Madeline, Anabel) con fotos y bios reales. La tarjeta
-          de front desk usa la foto de TODO el grupo (equipo-grupo.jpg,
-          ancha), no la de recepción (era la misma mujer que la de Beatriz).
-       9. Gallery (Gallery.jsx): 8 casos ANTES/DESPUÉS con slider
-          arrastrable (fotos caso-N-antes/despues.jpg, proporciones reales)
-          + tira de pacientes (10 fotos de niños) con pausa.
+       8. About (About.jsx + data.js equipo): título y descripción
+          CENTRADOS (como las demás secciones); retrato con display:block
+          — antes la foto se veía corrida (el img inline ignoraba el
+          margin auto). Bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el
+          equipo: los 3 en fila y front desk GRANDE abajo (foto ancha
+          21/9 del grupo completo, equipo-grupo.jpg).
+       9. Gallery (Gallery.jsx): 2 casos ANTES/DESPUÉS (caso-1 panorámico
+          y caso-2, los más vistosos) con slider arrastrable + tira de
+          pacientes (10 fotos de niños, grandes 300×300) con pausa.
       10. Tour por la oficina: tira automática de las 10 fotos vivas
-          (G4, G1, G9, G11, G14, V1–V5; NUNCA G13/G15) con pausa.
+          (G4, G1, G9, G11, G14, V1–V5; NUNCA G13/G15) con pausa, fotos
+          grandes (340×250).
       11. Reviews: CARRUSEL DOBLE (ReviewMarquee.jsx, rowCount=2): 2 filas
           de 4 reseñas reales que se mueven en sentidos opuestos + pausa.
       12. FAQ (HomeFaq.jsx + FAQS de data.js): acordeón con las 8
           preguntas reales.
       13. Banda de cierre "Let us make your smile".
-      14. Contacto (info + formulario + mapa).
+      14. Contacto: en desktop, a la izquierda «Visit us in Kendall» con
+          foto y a la derecha el formulario a la misma altura; el mapa
+          ABAJO a lo ancho de las dos columnas, SIN «Open in Google Maps».
       15. Footer SIMPLIFICADO (pedido de Daniel: sin sitemap ni tantas
           cosas): logo blanco + texto, contacto + redes + crédito CDM.
      Las ofertas ($1,000 OFF, $99 inicial / $99 al mes, retenedor gratis,
@@ -133,7 +140,7 @@
     @media(min-width:640px){.brand img{height:3.5rem}}
     .brand small{display:none;margin-top:.25rem;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--brand-600)}
     @media(min-width:640px){.brand small{display:block}}
-    nav.main{display:none;align-items:center;gap:1.4rem;font-size:.875rem;font-weight:500;color:var(--muted)}
+    nav.main{display:none;align-items:center;gap:1.1rem;font-size:.875rem;font-weight:500;color:var(--muted)}
     @media(min-width:1024px){nav.main{display:flex}}
     nav.main a{color:var(--muted);text-decoration:none;transition:color .2s}
     nav.main a:hover{color:var(--brand-700)}
@@ -223,6 +230,7 @@
     .fin-option p{margin:.5rem 0 0;line-height:1.6;color:var(--muted)}
     .fin-planner{margin-top:3rem}
     .steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.5rem}
+    @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr);gap:1.25rem}.steps li{flex-direction:column;gap:.6rem}}
     .steps li{display:flex;gap:1rem}
     .steps .num{flex:none;width:2rem;height:2rem;border-radius:999px;background:var(--brand-600);color:#fff;font-size:.875rem;font-weight:800;display:flex;align-items:center;justify-content:center}
     .steps h3{font-size:1.05rem}
@@ -232,14 +240,16 @@
     /* About */
     .about-grid{display:grid;gap:2.5rem;align-items:center;margin-top:2.5rem}
     @media(min-width:1024px){.about-grid{grid-template-columns:2fr 3fr}}
-    .about-portrait{border-radius:18px;max-width:276px;margin:0 auto;box-shadow:0 18px 36px -18px rgb(6 38 57/.3)}
+    .about-portrait{display:block;border-radius:18px;max-width:276px;margin:0 auto;box-shadow:0 18px 36px -18px rgb(6 38 57/.3)}
     .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.75rem;text-align:center}
     .about-stat{border-radius:1rem;background:var(--brand-50);padding:1rem .75rem;border:1px solid var(--brand-100)}
     .about-stat b{display:block;font-size:1.5rem;font-weight:800;color:var(--brand-700)}
     .about-stat span{display:block;margin-top:.25rem;font-size:.75rem;font-weight:600;color:var(--muted)}
     .team{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.team{grid-template-columns:repeat(4,1fr)}}
+    @media(min-width:1024px){.team{grid-template-columns:repeat(3,1fr)}}
+    .team .member-wide{grid-column:1/-1}
+    @media(min-width:1024px){.team .member-wide img{aspect-ratio:21/9;object-position:center 30%}}
     .member{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;text-align:center}
     .member img{width:5rem;height:5rem;border-radius:999px;object-fit:cover;margin:0 auto;box-shadow:0 0 0 2px var(--brand-600)}
     .member-wide img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:14px;box-shadow:none;margin:0}
@@ -268,8 +278,8 @@
     .strip-track{display:flex;width:max-content;animation:strip-travel 45s linear infinite}
     .strip-track.slow{animation-duration:55s}
     .strip-group{display:flex;flex-shrink:0;gap:1rem;padding-right:1rem}
-    .strip-group img{width:260px;height:190px;object-fit:cover;border-radius:20px;flex:none}
-    .strip-group img.tall{width:230px;height:230px}
+    .strip-group img{width:340px;height:250px;object-fit:cover;border-radius:20px;flex:none}
+    .strip-group img.tall{width:300px;height:300px}
     .strip-paused .strip-track{animation-play-state:paused}
     @keyframes strip-travel{to{transform:translateX(-50%)}}
     .strip-toggle{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;border:1px solid var(--ring);background:#fff;padding:.6rem 1.1rem;font-size:.8125rem;font-weight:700;color:var(--brand-700);cursor:pointer;font-family:var(--sans);margin-top:1.25rem}
@@ -392,10 +402,12 @@
       </a>
       <nav class="main" aria-label="Main">
         <a href="#home" class="active" data-en="Home" data-es="Inicio">Home</a>
-        <a href="#offers" data-en="Offers" data-es="Ofertas">Offers</a>
         <a href="#treatments" data-en="Treatments" data-es="Tratamientos">Treatments</a>
-        <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
+        <a href="#offers" data-en="Offers" data-es="Ofertas">Offers</a>
+        <a href="#financing" data-en="Financing" data-es="Financiamiento">Financing</a>
+        <a href="#about" data-en="About" data-es="Nosotros">About</a>
         <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
+        <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
       <div class="header-btns">
@@ -408,11 +420,6 @@
       </div>
     </div>
   </header>
-
-  <!-- ============ BANNER REAL SUMMER SAVINGS (tal cual, como el sitio viejo) ============ -->
-  <div class="banner-strip">
-    <a href="#contact"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/promotions/banner2.jpg" alt="Summer Savings: $1,000 OFF Invisalign or Braces, free retainer after treatment, free consultation with X-ray, 0% interest financing, braces starting at $99 down and $99 per month" loading="lazy" /></a>
-  </div>
 
   <main>
     <!-- ============ HOME ============ -->
@@ -456,6 +463,11 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ BANNER REAL SUMMER SAVINGS (tal cual, como el sitio viejo) ============ -->
+    <div class="banner-strip">
+      <a href="#contact"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/promotions/banner2.jpg" alt="Summer Savings: $1,000 OFF Invisalign or Braces, free retainer after treatment, free consultation with X-ray, 0% interest financing, braces starting at $99 down and $99 per month" loading="lazy" /></a>
+    </div>
 
     <!-- ============ WELCOME ============ -->
     <section style="background:#fff">
@@ -572,13 +584,13 @@
             <span class="rayita" aria-hidden="true"></span>
             <p style="margin-top:1rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600)" data-en="Financing partner" data-es="Socio de financiamiento">Financing partner</p>
             <h3>Cherry</h3>
-            <p data-en="Split the treatment cost into monthly payments. Apply at the office — the team walks you through it, in English or Spanish." data-es="Divide el costo del tratamiento en pagos mensuales. Solicítalo en la oficina — el equipo te acompaña en el proceso, en inglés o español.">Split the treatment cost into monthly payments. Apply at the office — the team walks you through it, in English or Spanish.</p>
+            <p data-en="Split the cost into monthly payments. Apply at the office — the team helps you, in English or Spanish." data-es="Divide el costo en pagos mensuales. Solicítalo en la oficina — el equipo te ayuda, en inglés o español.">Split the cost into monthly payments. Apply at the office — the team helps you, in English or Spanish.</p>
           </article>
           <article class="fin-option card-hover reveal">
             <span class="rayita" aria-hidden="true"></span>
             <p style="margin-top:1rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--brand-600)" data-en="Financing partner" data-es="Socio de financiamiento">Financing partner</p>
             <h3>CareCredit</h3>
-            <p data-en="The healthcare credit card many families already know. Ask at the office whether it fits your plan." data-es="La tarjeta de crédito para salud que muchas familias ya conocen. Pregunta en la oficina si se ajusta a tu plan.">The healthcare credit card many families already know. Ask at the office whether it fits your plan.</p>
+            <p data-en="The healthcare credit card many families already know." data-es="La tarjeta de crédito para salud que muchas familias ya conocen.">The healthcare credit card many families already know.</p>
           </article>
           <article class="fin-option card-hover reveal">
             <span class="rayita" aria-hidden="true"></span>
@@ -590,17 +602,17 @@
             <span class="rayita" aria-hidden="true"></span>
             <i data-lucide="badge-percent" class="big"></i>
             <h3 data-en="Discounts available" data-es="Descuentos disponibles">Discounts available</h3>
-            <p data-en="Yes, the office offers discounts — ask which ones apply to your family's plan at the first visit." data-es="Sí, la oficina ofrece descuentos — pregunta cuáles se aplican al plan de tu familia en la primera visita.">Yes, the office offers discounts — ask which ones apply to your family's plan at the first visit.</p>
+            <p data-en="Ask which discounts apply to your family's plan at the first visit." data-es="Pregunta qué descuentos se aplican al plan de tu familia en la primera visita.">Ask which discounts apply to your family's plan at the first visit.</p>
           </article>
         </div>
         <div class="fin-planner">
           <div class="reveal">
             <h2><span data-en="How to apply" data-es="Cómo solicitarlo">How to apply</span><span class="rayita" aria-hidden="true"></span></h2>
             <ol class="steps">
-              <li><span class="num">1</span><div><h3 data-en="Come in for the evaluation" data-es="Ven a la evaluación">Come in for the evaluation</h3><p data-en="The doctor confirms the treatment and its total cost." data-es="El doctor confirma el tratamiento y su costo total.">The doctor confirms the treatment and its total cost.</p></div></li>
-              <li><span class="num">2</span><div><h3 data-en="Pick the way to pay" data-es="Elige cómo pagar">Pick the way to pay</h3><p data-en="Cherry, CareCredit, cards or cash. The office explains each option in plain words." data-es="Cherry, CareCredit, tarjetas o efectivo. La oficina explica cada opción con palabras claras.">Cherry, CareCredit, cards or cash. The office explains each option in plain words.</p></div></li>
-              <li><span class="num">3</span><div><h3 data-en="Apply at the office" data-es="Solicítalo en la oficina">Apply at the office</h3><p data-en="The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit." data-es="El equipo ayuda con la solicitud, en inglés o español. La aprobación depende de Cherry o CareCredit.">The team helps with the application, in English or Spanish. Approval depends on Cherry or CareCredit.</p></div></li>
-              <li><span class="num">4</span><div><h3 data-en="Start treatment" data-es="Empieza el tratamiento">Start treatment</h3><p data-en="Monthly payments as agreed — and the same team at every visit." data-es="Pagos mensuales según lo acordado — y el mismo equipo en cada visita.">Monthly payments as agreed — and the same team at every visit.</p></div></li>
+              <li><span class="num">1</span><div><h3 data-en="Come in for the evaluation" data-es="Ven a la evaluación">Come in for the evaluation</h3></div></li>
+              <li><span class="num">2</span><div><h3 data-en="Pick the way to pay" data-es="Elige cómo pagar">Pick the way to pay</h3></div></li>
+              <li><span class="num">3</span><div><h3 data-en="Apply at the office" data-es="Solicítalo en la oficina">Apply at the office</h3></div></li>
+              <li><span class="num">4</span><div><h3 data-en="Start treatment" data-es="Empieza el tratamiento">Start treatment</h3></div></li>
             </ol>
             <p class="fin-note"><i data-lucide="wallet"></i><span data-en="No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation." data-es="Ningún precio de esta página es una cotización real — el costo depende de cada caso y se confirma en la evaluación.">No prices on this page are real quotes — the cost depends on each case and is confirmed at the evaluation.</span></p>
             <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem">
@@ -615,7 +627,7 @@
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about">
       <div class="wrap">
-        <div class="reveal" style="max-width:48rem">
+        <div class="sec-head center reveal">
           <p class="eyebrow" data-en="About" data-es="Nosotros">About</p>
           <h2><span data-en="A Kendall orthodontist families know by name" data-es="Un ortodoncista de Kendall que las familias conocen por su nombre">A Kendall orthodontist families know by name</span><span class="rayita" aria-hidden="true"></span></h2>
           <p class="lead" style="margin-top:1rem" data-en="Since 2015, Dr. Murillo and his team have treated kids, teens and adults from Kendall and all over Miami — in English and Spanish, with the same faces at every visit." data-es="Desde 2015, el Dr. Murillo y su equipo atienden a niños, adolescentes y adultos de Kendall y de todo Miami — en inglés y español, con las mismas caras en cada visita.">Since 2015, Dr. Murillo and his team have treated kids, teens and adults from Kendall and all over Miami — in English and Spanish, with the same faces at every visit.</p>
@@ -685,10 +697,13 @@
             </div>
             <figcaption><b data-en="Case 1" data-es="Caso 1">Case 1</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
           </figure>
+          
+          
+          
           <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-despues.jpg" alt="Case 2 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
+            <div class="ba-stage" style="aspect-ratio:4/3">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-despues.jpg" alt="Case 2 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
               <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
               <span class="ba-tag after" data-en="After" data-es="Después">After</span>
               <div class="ba-divider" style="left:50%"></div>
@@ -697,78 +712,9 @@
             </div>
             <figcaption><b data-en="Case 2" data-es="Caso 2">Case 2</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
           </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-despues.jpg" alt="Case 3 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-antes.jpg" alt="Case 3 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 3" />
-            </div>
-            <figcaption><b data-en="Case 3" data-es="Caso 3">Case 3</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-despues.jpg" alt="Case 4 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-antes.jpg" alt="Case 4 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 4" />
-            </div>
-            <figcaption><b data-en="Case 4" data-es="Caso 4">Case 4</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:4/3">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-despues.jpg" alt="Case 5 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-antes.jpg" alt="Case 5 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 5" />
-            </div>
-            <figcaption><b data-en="Case 5" data-es="Caso 5">Case 5</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:4/3">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-despues.jpg" alt="Case 6 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-antes.jpg" alt="Case 6 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 6" />
-            </div>
-            <figcaption><b data-en="Case 6" data-es="Caso 6">Case 6</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:4/3">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-despues.jpg" alt="Case 7 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-antes.jpg" alt="Case 7 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 7" />
-            </div>
-            <figcaption><b data-en="Case 7" data-es="Caso 7">Case 7</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
-          <figure class="ba-slider reveal">
-            <div class="ba-stage" style="aspect-ratio:4/3">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-despues.jpg" alt="Case 8 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-antes.jpg" alt="Case 8 — before" style="width:200%" loading="lazy" /></div>
-              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
-              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
-              <div class="ba-divider" style="left:50%"></div>
-              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
-              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 8" />
-            </div>
-            <figcaption><b data-en="Case 8" data-es="Caso 8">Case 8</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
-          </figure>
+          
+          
+          
         </div>
         <div class="reveal" style="margin-top:3.5rem">
           <p class="eyebrow" data-en="Our patients" data-es="Nuestros pacientes">Our patients</p>
@@ -988,8 +934,6 @@
               <a class="btn btn-outline" href="https://wa.me/13053100027" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
             </div>
             <img class="office-img" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/clinica-G4.jpg" alt="Orthodontics 305 office, 11916 SW 88th Street, Kendall" loading="lazy" />
-            <iframe class="map" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p style="margin-top:1rem"><a href="https://www.google.com/maps?q=11916+SW+88th+St,+Miami,+FL" target="_blank" rel="noreferrer" data-en="Open in Google Maps →" data-es="Abrir en Google Maps →">Open in Google Maps →</a></p>
           </div>
           <div class="reveal">
             <form id="contact-form" novalidate>
@@ -1035,6 +979,7 @@
             </form>
           </div>
         </div>
+        <iframe class="map reveal" title="Map — Ortodoncia 305, 11916 SW 88th Street, Miami, FL" src="https://www.google.com/maps?q=11916%20SW%2088th%20St%2C%20Miami%2C%20FL&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>
