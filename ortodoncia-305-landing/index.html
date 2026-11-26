@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v12 (preview)
+<!-- Ortodoncia 305 — Landing page v13 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -7,9 +7,12 @@
      clienta): tipografía redondeada del sistema, mist/blanco, rayita verde,
      oscuro solo en pie y banda de cierre, header/footer reales.
      PLAN (sección por sección, del repo clean-lps/Ortodoncia-305 v1.2):
-       1. TopBar + header reales (Chrome.jsx). Nav en el orden de la
-          página (Home, Treatments, Offers, Financing, About, Gallery,
-          Reviews, Contact) con scroll suave (html scroll-behavior:smooth).
+       1. TopBar + header reales (Chrome.jsx). Nav con POCOS links
+          (Home, Treatments, Offers, Gallery, Contact) con scroll suave
+          — 8 links se veían cargados. El desplazamiento suave lo hace JS
+          (scrollIntoView behavior:smooth) al tocar un enlace: el CSS solo
+          no basta si el teléfono tiene "reducir movimiento" activado y
+          entonces salta en vez de deslizar.
        2. BANNER REAL Summer Savings (promotions/banner2.jpg) tal cual,
           a ANCHO COMPLETO sin redondear, DEBAJO DEL HERO (antes estaba
           bajo el header y mataba el hero). Sin bloque "Special offers"
@@ -29,14 +32,15 @@
        7. Financiamiento CONCENTRADO (Financing.jsx): 4 tarjetas con
           textos cortos (Cherry, CareCredit, tarjetas y efectivo,
           descuentos) + "How to apply" en 4 pasos SOLO título, en tira de
-          4 columnas, con título, nota y botones CENTRADOS + nota de
-          no-precios. SIN estimador (quitado por Daniel 2026-11-26).
+          4 columnas, con título, nota, botones y pasos CENTRADOS + nota
+          de no-precios. SIN estimador (quitado por Daniel 2026-11-26).
        8. About (About.jsx + data.js equipo): título y descripción
           CENTRADOS (como las demás secciones); retrato con display:block
           — antes la foto se veía corrida (el img inline ignoraba el
           margin auto). Bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el
-          equipo: los 3 en fila y la foto del grupo COMPLETA abajo, sola,
-          sin tarjeta (equipo-grupo.jpg, 4:3 natural, sin recorte).
+          equipo: los 3 en fila y la foto del grupo abajo, sola, EN UNA
+          TARJETA blanca (equipo-grupo.jpg, 4:3 natural, sin recorte, con
+          max-width 42rem — a lo ancho se veía demasiado grande).
        9. Gallery (Gallery.jsx): 4 casos ANTES/DESPUÉS (caso-1, 3, 4, 5 —
           todos panorámicos 763/396, misma distribución) con slider
           arrastrable + tira de pacientes (10 fotos de niños, grandes
@@ -237,7 +241,7 @@
     .fin-planner h2 .rayita{margin-left:auto;margin-right:auto}
     .fin-planner .fin-note{justify-content:center;text-align:center}
     .steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.5rem}
-    @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr);gap:1.25rem}.steps li{flex-direction:column;gap:.6rem}}
+    @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr);gap:1.25rem}.steps li{flex-direction:column;gap:.6rem;align-items:center;text-align:center}}
     .steps li{display:flex;gap:1rem}
     .steps .num{flex:none;width:2rem;height:2rem;border-radius:999px;background:var(--brand-600);color:#fff;font-size:.875rem;font-weight:800;display:flex;align-items:center;justify-content:center}
     .steps h3{font-size:1.05rem}
@@ -255,8 +259,8 @@
     .team{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.team{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1024px){.team{grid-template-columns:repeat(3,1fr)}}
-    .team-photo{margin:2.5rem 0 0}
-    .team-photo img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 18px 36px -18px rgb(6 38 57/.3)}
+    .team-photo{margin:2.5rem auto 0;max-width:42rem;background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.25rem}
+    .team-photo img{display:block;width:100%;height:auto;border-radius:12px}
     .member{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;text-align:center}
     .member img{width:5rem;height:5rem;border-radius:999px;object-fit:cover;margin:0 auto;box-shadow:0 0 0 2px var(--brand-600)}
     .member h3{font-size:1.1rem;margin-top:1rem}
@@ -412,10 +416,7 @@
         <a href="#home" class="active" data-en="Home" data-es="Inicio">Home</a>
         <a href="#treatments" data-en="Treatments" data-es="Tratamientos">Treatments</a>
         <a href="#offers" data-en="Offers" data-es="Ofertas">Offers</a>
-        <a href="#financing" data-en="Financing" data-es="Financiamiento">Financing</a>
-        <a href="#about" data-en="About" data-es="Nosotros">About</a>
         <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
-        <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       </nav>
       <div class="header-btns">
@@ -1054,6 +1055,22 @@
     function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // ---- Smooth scroll for in-page links (desliza suave, no salta) ----
+    // El CSS ya tiene scroll-behavior:smooth, pero si el teléfono tiene
+    // "reducir movimiento" activado el navegador lo apaga y el salto es
+    // brusco. Esto desliza suave siempre que se toca un enlace interno.
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length < 2) return;
+        var el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', id);
+      });
+    });
 
     // ---- Hero carousel (como Home.jsx: 4 fotos, 6.5 s, dots) ----
     var slides = document.querySelectorAll('.hero-slide');
