@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v8 (preview)
+<!-- Ortodoncia 305 — Landing page v9 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -17,16 +17,19 @@
           Invisalign Provider, AAO).
        5. Tratamientos: 6 tarjetas; la de Invisalign lleva su logo como
           título (logoTitulo de data.js), como en el sitio.
-       6. Offers: 3 recuadros de color SIN FOTO (icono + texto + botón;
-          la foto los hacía ver como las tarjetas de servicios) + banda
-          de ahorros. DESPUÉS de Tratamientos.
+       6. Offers: 3 tarjetas BLANCAS con rayita verde, icono azul,
+          título y botón (el bloque de color se veía feísimo; el blanco
+          es el lenguaje del sitio, como las tarjetas de financiamiento)
+          + banda de ahorros. DESPUÉS de Tratamientos.
        7. Financiamiento completo (Financing.jsx): 4 tarjetas (Cherry,
           CareCredit, tarjetas y efectivo, descuentos) + "How to apply"
           en 4 pasos + nota de no-precios. SIN estimador (quitado por
           Daniel 2026-11-26).
        8. About (About.jsx + data.js equipo): retrato del Dr. Murillo,
           bio real, 3 mini-datos (2015 / 5.0 / EN·ES) y el equipo completo
-          (Beatriz, Madeline, Anabel) con fotos y bios reales.
+          (Beatriz, Madeline, Anabel) con fotos y bios reales. La tarjeta
+          de front desk usa la foto de TODO el grupo (equipo-grupo.jpg,
+          ancha), no la de recepción (era la misma mujer que la de Beatriz).
        9. Gallery (Gallery.jsx): 8 casos ANTES/DESPUÉS con slider
           arrastrable (fotos caso-N-antes/despues.jpg, proporciones reales)
           + tira de pacientes (10 fotos de niños) con pausa.
@@ -178,19 +181,16 @@
     /* Ofertas */
     .promo-cards{display:grid;gap:1.25rem;margin-top:2.5rem}
     @media(min-width:640px){.promo-cards{grid-template-columns:repeat(3,1fr)}}
-    .promo{border-radius:18px;overflow:hidden;color:#fff;display:flex;flex-direction:column;box-shadow:0 18px 36px -18px rgb(6 38 57/.35)}
-    .promo-body{padding:1.75rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
-    .promo-body .ic{width:44px;height:44px;border-radius:13px;background:rgb(255 255 255/.16);display:flex;align-items:center;justify-content:center;margin-bottom:.4rem}
-    .promo-body .ic .lucide{width:22px;height:22px}
-    .promo h3{font-size:1.5rem;color:#fff}
-    .promo p{margin:0;font-weight:600;color:rgb(255 255 255/.92)}
-    .promo a{margin-top:auto;padding-top:.9rem;color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
+    .promo{border-radius:18px;border:1px solid var(--ring);background:#fff;color:var(--ink);display:flex;flex-direction:column;box-shadow:0 2px 6px rgb(6 38 57/.05)}
+    .promo-body{padding:1.75rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+    .promo-body .ic{width:44px;height:44px;border-radius:13px;background:var(--brand-50);display:flex;align-items:center;justify-content:center;margin-bottom:.4rem}
+    .promo-body .ic .lucide{width:22px;height:22px;color:var(--brand-600)}
+    .promo h3{font-size:1.5rem;color:var(--ink)}
+    .promo p{margin:0;font-weight:600;color:var(--muted)}
+    .promo a{margin-top:auto;padding-top:.9rem;color:var(--brand-700);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
     .promo a .lucide{transition:transform .18s ease}
     .promo a:hover .lucide{transform:translateX(3px)}
-    .promo-blue{background:var(--brand-600)}
-    .promo-blue2{background:var(--brand-700)}
-    .promo-navy{background:var(--brand-900)}
-    .promo .invis-chip{margin-bottom:.4rem}
+    .promo .invis-chip{margin-bottom:.4rem;background:var(--mist);border:1px solid var(--ring)}
     .savings{margin-top:1.25rem;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;background:#fff}
     .savings h3{font-size:1.3rem}
     .savings-list{display:flex;flex-wrap:wrap;gap:.7rem 2rem;list-style:none;padding:0;margin:1rem 0 0}
@@ -251,6 +251,7 @@
     @media(min-width:1024px){.team{grid-template-columns:repeat(4,1fr)}}
     .member{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:1.5rem;text-align:center}
     .member img{width:5rem;height:5rem;border-radius:999px;object-fit:cover;margin:0 auto;box-shadow:0 0 0 2px var(--brand-600)}
+    .member-wide img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:14px;box-shadow:none;margin:0}
     .member h3{font-size:1.1rem;margin-top:1rem}
     .member .role{font-size:.85rem;font-weight:600;color:var(--brand-700);margin-top:.15rem}
     .member p{font-size:.9rem;line-height:1.6;color:var(--muted);margin:.6rem 0 0}
@@ -554,24 +555,27 @@
           <p class="lead" style="margin-top:1rem" data-en="Start today with a low down payment and low monthly payments — and ask about our current savings." data-es="Empieza hoy con una inicial baja y pagos mensuales bajos — y pregunta por nuestros ahorros actuales.">Start today with a low down payment and low monthly payments — and ask about our current savings.</p>
         </div>
         <div class="promo-cards">
-          <article class="promo promo-blue reveal">
+          <article class="promo reveal">
             <div class="promo-body">
+              <span class="rayita" aria-hidden="true"></span>
               <span class="ic"><i data-lucide="wallet"></i></span>
               <h3 data-en="$99 Down" data-es="$99 de inicial">$99 Down</h3>
               <p data-en="Low down payment + Flexible financing" data-es="Inicial baja + financiamiento flexible">Low down payment + Flexible financing</p>
               <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
-          <article class="promo promo-blue2 reveal">
+          <article class="promo reveal">
             <div class="promo-body">
+              <span class="rayita" aria-hidden="true"></span>
               <span class="invis-chip"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/branding/invisalign-logo.jpg" alt="Invisalign" /><span>Invisalign</span></span>
               <h3 data-en="As Low As $99/Month" data-es="Desde $99 al mes">As Low As $99/Month</h3>
               <p data-en="Low monthly payments" data-es="Pagos mensuales bajos">Low monthly payments</p>
               <a href="#contact"><span data-en="Book now" data-es="Agenda ahora">Book now</span><i data-lucide="arrow-right"></i></a>
             </div>
           </article>
-          <article class="promo promo-navy reveal">
+          <article class="promo reveal">
             <div class="promo-body">
+              <span class="rayita" aria-hidden="true"></span>
               <span class="ic"><i data-lucide="zap"></i></span>
               <h3 data-en="Start The Same Day" data-es="Empieza el mismo día">Start The Same Day</h3>
               <p data-en="Get your new smile started right away" data-es="Empieza tu nueva sonrisa hoy mismo">Get your new smile started right away</p>
@@ -687,8 +691,8 @@
             <p class="role" data-en="Patient Coordinator" data-es="Coordinadora de pacientes">Patient Coordinator</p>
             <p data-en="Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family." data-es="Coordinadora de pacientes. Nacida y criada en Cuba, lleva casi tres años en el equipo de recepción — su sonrisa cálida hace que cada paciente se sienta en familia.">Patient Coordinator. Born and raised in Cuba, she has been part of the front desk team for nearly three years — her warm smile makes every patient feel like family.</p>
           </div>
-          <div class="member card-hover reveal">
-            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-recepcion.jpg" alt="The front desk team at Ortodoncia 305" loading="lazy" />
+          <div class="member member-wide card-hover reveal">
+            <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/equipo-grupo.jpg" alt="The whole Ortodoncia 305 team together at the clinic" loading="lazy" />
             <h3 data-en="The front desk" data-es="La recepción">The front desk</h3>
             <p class="role" data-en="Kendall, Miami" data-es="Kendall, Miami">Kendall, Miami</p>
             <p data-en="A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check." data-es="Un equipo pequeño que conoce a sus pacientes por su nombre. Los padres tratan con las mismas caras desde la primera visita hasta el último control de retenedores.">A small team that knows its patients by name. Parents deal with the same faces from the first visit to the last retainer check.</p>
