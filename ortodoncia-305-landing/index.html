@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Ortodoncia 305 — Landing page v18 (preview)
+<!-- Ortodoncia 305 — Landing page v19 (preview)
      Home largo y completo 2026-11-25: Daniel pidió juntar TODO lo que
      había en las varias páginas del sitio completo en un solo Home con
      sentido — cada sección muestra algo y todas juntas hacen que el cliente
@@ -13,10 +13,13 @@
           (scrollIntoView behavior:smooth) al tocar un enlace: el CSS solo
           no basta si el teléfono tiene "reducir movimiento" activado y
           entonces salta en vez de deslizar.
-       2. BANNER REAL Summer Savings (promotions/banner2.jpg) tal cual,
-          a ANCHO COMPLETO sin redondear, DEBAJO DEL HERO (antes estaba
-          bajo el header y mataba el hero). Sin bloque "Special offers"
-          arriba: la oferta vive en el banner y en la sección Offers.
+       2. BANNER DE OFERTAS rehecho en HTML (v19, pedido de Beatriz
+          2026-11-27): las mismas ofertas del banner original
+          (promotions/banner2.jpg) SIN "Summer Savings" y SIN fecha de
+          vencimiento, a ANCHO COMPLETO y ARRIBA de la página (bajo el
+          header, antes del hero) para que se vean al entrar. Sin bloque
+          "Special offers" arriba: la oferta vive en el banner y en la
+          sección Offers.
        3. Hero con carrusel de 4 fotos (Home.jsx).
        4. Welcome con el texto exacto de la web vieja + logos GRANDES
           (iTero, Invisalign Provider, AAO, 5rem de alto).
@@ -45,10 +48,10 @@
           vea bien la cara. La foto del grupo se QUITÓ por completo
           (Daniel 2026-11-26: «quita la foto del grupo») — el equipo son
           solo las 3 tarjetas, sin foto del grupo.
-       9. Gallery (Gallery.jsx): 4 casos ANTES/DESPUÉS (caso-1, 3, 4, 5 —
-          todos panorámicos 763/396, misma distribución) con slider
-          arrastrable + tira de pacientes (10 fotos de niños, grandes
-          300×300) con pausa.
+       9. Gallery (Gallery.jsx): 8 casos ANTES/DESPUÉS (caso-1 a
+          caso-8, los del sitio; v19 agregó los 4 que faltaban a pedido
+          de Beatriz 2026-11-27) con slider arrastrable + tira de
+          pacientes (10 fotos de niños, grandes 300×300) con pausa.
       10. Tour por la oficina: tira automática de las 10 fotos vivas
           (G4, G1, G9, G11, G14, V1–V5; NUNCA G13/G15) con pausa, fotos
           grandes (340×250).
@@ -72,8 +75,20 @@
      (LegacyPromotions.jsx: "must never be presented as a current offer").
      En este landing se muestran como pidió Daniel/Beatriz, SIN fecha de
      vencimiento y con la nota "el costo se confirma en tu evaluación —
-     pregunta por las ofertas actuales". Beatriz debe confirmar si siguen
-     vigentes y hasta cuándo.
+     pregunta por las ofertas actuales". Beatriz confirmó el 2026-11-27
+     que siguen vigentes ("yo creo que tenemos eso todo") y pidió
+     quitar el "Summer Savings" y la fecha de vencimiento.
+     CAMBIOS v19 (2026-11-27, Beatriz, SOLO esta landing): banner de
+     ofertas en HTML arriba de la página sin "Summer Savings" ni fecha;
+     Welcome con letra más grande y párrafos justificados; FAQ de edad
+     con el texto de la AAO (primera evaluación a los 7 años); FAQ de
+     duración completada (18 a 24 meses promedio); FAQ de primera
+     visita completada (rayos X sin costo); foto del Dr. Murillo nueva
+     (assets/doctor-murillo-nuevo.jpg, solo landing); la tarjeta Braces
+     conserva su foto original (decisión de Daniel 2026-11-27: se
+     deja el modelo plástico hasta que Beatriz pida cambiarla); galería con los 8
+     casos; foto de la fachada en Contacto recorrida a la derecha
+     (object-position) para que se vea el nombre completo de la oficina.
      Todo el contenido es REAL de la web v1.2 y del sitio viejo. Formulario:
      mismo contrato que src/mailService.js. -->
 <html lang="en">
@@ -167,10 +182,18 @@
     .btn-call{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--brand-600);padding:.5rem .75rem;font-size:.75rem;font-weight:600;color:#fff;text-decoration:none;box-shadow:0 4px 12px rgb(0 96 176/.3);transition:transform .2s,background .2s;white-space:nowrap}
     @media(min-width:640px){.btn-call{padding:.5rem 1rem;font-size:.875rem}}
     .btn-call:hover{transform:translateY(-2px);background:var(--brand-700)}
-    /* Banner real Summer Savings tal cual, a ancho completo, sin redondear (como el sitio viejo) */
-    .banner-strip{margin:0}
-    .banner-strip a{display:block}
-    .banner-strip img{display:block;width:100%;height:auto}
+    /* Banner de ofertas en HTML, a ancho completo, arriba de la página (v19, Beatriz 2026-11-27) */
+    .offer-banner{display:block;background:linear-gradient(180deg,#0b63b8 0%,#084e96 100%);color:#fff;text-decoration:none}
+    .offer-banner-in{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;padding:.9rem 1.5rem}
+    .ob-side{font-weight:900;font-size:clamp(1.3rem,2.6vw,2.2rem);line-height:1.02;color:#aad03c;text-transform:uppercase;flex:none}
+    .ob-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:.55rem;min-width:0}
+    .ob-pill{background:#aad03c;color:#0a4a86;font-weight:800;font-size:.72rem;letter-spacing:.06em;padding:.28rem .9rem;border-radius:999px;text-transform:uppercase;text-align:center}
+    .ob-offers{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
+    .ob-offer{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.15rem 1.1rem}
+    .ob-offer + .ob-offer{border-left:2px dashed rgb(255 255 255/.45)}
+    .ob-big{font-weight:900;font-size:clamp(1.05rem,2vw,1.6rem);line-height:1.1;text-transform:uppercase}
+    .ob-small{font-size:clamp(.68rem,1.2vw,.85rem);font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.95}
+    @media(max-width:900px){.ob-side{display:none}.ob-offer{padding:.3rem .7rem}.ob-offer + .ob-offer{border-left:0}}
     /* Hero (como Home.jsx) */
     .hero{background:var(--mist);padding:3rem 0 4rem}
     .hero-grid{display:grid;gap:2.5rem;align-items:center}
@@ -213,7 +236,7 @@
     .welcome-lead{margin-top:1.25rem;max-width:48rem;font-size:1.125rem;font-weight:600;line-height:1.65;color:#334155}
     .welcome-cols{display:grid;gap:1.5rem;margin-top:1.5rem}
     @media(min-width:1024px){.welcome-cols{grid-template-columns:1fr 1fr}}
-    .welcome-cols p{margin:0;line-height:1.65;color:var(--muted)}
+    .welcome-cols p{margin:0;line-height:1.65;color:var(--muted);font-size:1.125rem;text-align:justify}
     .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem 3.5rem;padding:3rem 0}
     .logos img{height:5rem;width:auto}
     @media(min-width:640px){.logos img{height:4.25rem}}
@@ -348,7 +371,7 @@
     .info-row a{color:var(--ink);font-weight:700;text-decoration:none;font-size:1.05rem}
     .info-row a:hover{color:var(--brand-600)}
     .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
-    .office-img{flex:1;min-height:240px;border-radius:18px;object-fit:cover;width:100%;margin-top:1.6rem}
+    .office-img{flex:1;min-height:240px;border-radius:18px;object-fit:cover;object-position:100% 18%;width:100%;margin-top:1.6rem}
     .map{border:0;width:100%;height:280px;border-radius:18px;margin-top:1.4rem}
     .map-card{background:#fff;border:1px solid var(--ring);border-radius:20px;padding:1rem;margin-top:1.5rem}
     .map-card .map{margin-top:0;height:320px}
@@ -436,6 +459,23 @@
   </header>
 
   <main>
+    <!-- ============ BANNER DE OFERTAS (HTML, sin Summer Savings ni fecha — Beatriz 2026-11-27) ============ -->
+    <a class="offer-banner" href="#contact" aria-label="Current offers: $1,000 off Invisalign or braces, free retainer after treatment, free consultation with X-ray, 0% interest financing, braces starting at $99 down and $99 per month">
+      <span class="offer-banner-in">
+        <span class="ob-side" data-en="Get offer" data-es="Ver oferta">Get offer</span>
+        <span class="ob-center">
+          <span class="ob-pill" data-en="0% interest financing available" data-es="Financiamiento al 0% de interés disponible">0% interest financing available</span>
+          <span class="ob-offers">
+            <span class="ob-offer"><span class="ob-big">$1,000 OFF</span><span class="ob-small" data-en="Invisalign® or braces" data-es="Invisalign® o brackets">Invisalign® or braces</span></span>
+            <span class="ob-offer"><span class="ob-big" data-en="Free" data-es="Gratis">Free</span><span class="ob-small" data-en="Retainer after treatment" data-es="Retenedor al terminar el tratamiento">Retainer after treatment</span></span>
+            <span class="ob-offer"><span class="ob-big" data-en="Free" data-es="Gratis">Free</span><span class="ob-small" data-en="Consultation with X-ray" data-es="Consulta con radiografía">Consultation with X-ray</span></span>
+            <span class="ob-offer"><span class="ob-small" data-en="Braces starting at just" data-es="Brackets desde solo">Braces starting at just</span><span class="ob-big">$99 DOWN &amp; $99/MONTH!</span></span>
+          </span>
+        </span>
+        <span class="ob-side" data-en="Claim offer" data-es="Reclamar oferta">Claim offer</span>
+      </span>
+    </a>
+
     <!-- ============ HOME ============ -->
     <section class="hero" id="home">
       <div class="wrap hero-grid">
@@ -477,11 +517,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ BANNER REAL SUMMER SAVINGS (tal cual, como el sitio viejo) ============ -->
-    <div class="banner-strip">
-      <a href="#contact"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/promotions/banner2.jpg" alt="Summer Savings: $1,000 OFF Invisalign or Braces, free retainer after treatment, free consultation with X-ray, 0% interest financing, braces starting at $99 down and $99 per month" loading="lazy" /></a>
-    </div>
 
     <!-- ============ WELCOME ============ -->
     <section style="background:#fff">
@@ -648,7 +683,7 @@
         </div>
         <div class="about-grid">
           <div class="reveal">
-            <img class="about-portrait" src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/doctor-murillo.png" alt="Dr. Herbert Murillo, orthodontist" width="276" height="391" loading="lazy" />
+            <img class="about-portrait" src="assets/doctor-murillo-nuevo.jpg" alt="Dr. Herbert Murillo, orthodontist" width="649" height="900" loading="lazy" />
           </div>
           <div class="reveal">
             <h3 style="font-size:1.75rem">Dr. Herbert Murillo</h3>
@@ -713,8 +748,8 @@
           </figure>
           <figure class="ba-slider reveal">
             <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-despues.jpg" alt="Case 2 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-despues.jpg" alt="Case 2 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-2-antes.jpg" alt="Case 2 — before" style="width:200%" loading="lazy" /></div>
               <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
               <span class="ba-tag after" data-en="After" data-es="Después">After</span>
               <div class="ba-divider" style="left:50%"></div>
@@ -725,8 +760,8 @@
           </figure>
           <figure class="ba-slider reveal">
             <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-despues.jpg" alt="Case 3 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-antes.jpg" alt="Case 3 — before" style="width:200%" loading="lazy" /></div>
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-despues.jpg" alt="Case 3 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-3-antes.jpg" alt="Case 3 — before" style="width:200%" loading="lazy" /></div>
               <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
               <span class="ba-tag after" data-en="After" data-es="Después">After</span>
               <div class="ba-divider" style="left:50%"></div>
@@ -737,8 +772,8 @@
           </figure>
           <figure class="ba-slider reveal">
             <div class="ba-stage" style="aspect-ratio:763/396">
-              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-despues.jpg" alt="Case 4 — after" loading="lazy" />
-              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-antes.jpg" alt="Case 4 — before" style="width:200%" loading="lazy" /></div>
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-despues.jpg" alt="Case 4 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-4-antes.jpg" alt="Case 4 — before" style="width:200%" loading="lazy" /></div>
               <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
               <span class="ba-tag after" data-en="After" data-es="Después">After</span>
               <div class="ba-divider" style="left:50%"></div>
@@ -746,6 +781,54 @@
               <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 4" />
             </div>
             <figcaption><b data-en="Case 4" data-es="Caso 4">Case 4</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-despues.jpg" alt="Case 5 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-5-antes.jpg" alt="Case 5 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 5" />
+            </div>
+            <figcaption><b data-en="Case 5" data-es="Caso 5">Case 5</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-despues.jpg" alt="Case 6 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-6-antes.jpg" alt="Case 6 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 6" />
+            </div>
+            <figcaption><b data-en="Case 6" data-es="Caso 6">Case 6</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-despues.jpg" alt="Case 7 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-7-antes.jpg" alt="Case 7 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 7" />
+            </div>
+            <figcaption><b data-en="Case 7" data-es="Caso 7">Case 7</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
+          </figure>
+          <figure class="ba-slider reveal">
+            <div class="ba-stage" style="aspect-ratio:763/396">
+              <img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-despues.jpg" alt="Case 8 — after" loading="lazy" />
+              <div class="ba-before" style="width:50%"><img src="https://clean-lps.github.io/crescendo-deploy/ortodoncia-305/fotos/caso-8-antes.jpg" alt="Case 8 — before" style="width:200%" loading="lazy" /></div>
+              <span class="ba-tag before" data-en="Before" data-es="Antes">Before</span>
+              <span class="ba-tag after" data-en="After" data-es="Después">After</span>
+              <div class="ba-divider" style="left:50%"></div>
+              <span class="ba-handle" style="left:50%" aria-hidden="true">↔</span>
+              <input class="ba-range" type="range" min="2" max="98" value="50" aria-label="Drag to compare before and after — Case 8" />
+            </div>
+            <figcaption><b data-en="Case 8" data-es="Caso 8">Case 8</b><p data-en="Drag the slider to compare." data-es="Arrastra el control para comparar.">Drag the slider to compare.</p></figcaption>
           </figure>
         </div>
         <div class="reveal" style="margin-top:3.5rem">
@@ -888,11 +971,11 @@
           <div class="reveal">
             <div class="faq-item">
               <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="What happens at the first visit?" data-es="¿Qué pasa en la primera visita?">What happens at the first visit?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it." data-es="Una evaluación: el doctor revisa los dientes y la mordida, explica qué hay que corregir y qué implica — costo y opciones de pago incluidos. Sin presión ni sorpresas. Llama o escribe al (305) 310-0027 para agendarla.">An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. No pressure, no surprises. Call or text (305) 310-0027 to book it.</p></div></div>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. X-rays are taken at no cost. No pressure, no surprises. Call or text (305) 310-0027 to book it." data-es="Una evaluación: el doctor revisa los dientes y la mordida, explica qué hay que corregir y qué implica — costo y opciones de pago incluidos. Se toman rayos X sin ningún costo. Sin presión ni sorpresas. Llama o escribe al (305) 310-0027 para agendarla.">An evaluation: the doctor looks at the teeth and bite, explains what needs fixing and what it takes — cost and payment options included. X-rays are taken at no cost. No pressure, no surprises. Call or text (305) 310-0027 to book it.</p></div></div>
             </div>
             <div class="faq-item">
               <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="At what age should my child first see an orthodontist?" data-es="¿A qué edad llevo a mi hijo al ortodoncista por primera vez?">At what age should my child first see an orthodontist?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait." data-es="Alrededor de los 9–10 años es buen momento para una primera evaluación. No significa que el tratamiento empiece entonces — significa que sabes en qué punto están las cosas y qué puede esperar.">Around 9–10 is a good time for a first evaluation. It doesn't mean treatment starts then — it means you know where things stand, and what can wait.</p></div></div>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="According to the American Association of Orthodontists (AAO), every child should have their first orthodontic evaluation by age 7." data-es="Según la American Association of Orthodontists (AAO), todo niño debería tener su primera evaluación de ortodoncia a los 7 años.">According to the American Association of Orthodontists (AAO), every child should have their first orthodontic evaluation by age 7.</p></div></div>
             </div>
             <div class="faq-item">
               <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Does it hurt?" data-es="¿Duele?">Does it hurt?</span><i data-lucide="plus" class="plus"></i></button></h3>
@@ -900,7 +983,7 @@
             </div>
             <div class="faq-item">
               <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="How long does treatment take?" data-es="¿Cuánto dura el tratamiento?">How long does treatment take?</span><i data-lucide="plus" class="plus"></i></button></h3>
-              <div class="faq-a"><div class="faq-a-inner"><p data-en="It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number." data-es="Depende del caso — por eso la primera visita es una evaluación. El doctor da un plazo realista para el caso de tu adolescente antes de que empiece el tratamiento, no un número genérico.">It depends on the case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number.</p></div></div>
+              <div class="faq-a"><div class="faq-a-inner"><p data-en="On average, orthodontic treatment with braces takes approximately 18 to 24 months. However, treatment time varies depending on the complexity of each case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number." data-es="En promedio, el tratamiento de ortodoncia con brackets toma aproximadamente de 18 a 24 meses. Sin embargo, el tiempo de tratamiento varía según la complejidad de cada caso — por eso la primera visita es una evaluación. El doctor da un plazo realista para el caso de tu adolescente antes de que empiece el tratamiento, no un número genérico.">On average, orthodontic treatment with braces takes approximately 18 to 24 months. However, treatment time varies depending on the complexity of each case — that's why the first visit is an evaluation. The doctor gives a realistic timeline for your teen's case before treatment starts, not a generic number.</p></div></div>
             </div>
             <div class="faq-item">
               <h3><button type="button" class="faq-q" aria-expanded="false"><span data-en="Braces or Invisalign — which is better?" data-es="¿Frenillos o Invisalign — cuál es mejor?">Braces or Invisalign — which is better?</span><i data-lucide="plus" class="plus"></i></button></h3>
